@@ -1,5 +1,9 @@
 function App() {
-  return <h1>Whats happening Destiny</h1>;
+  return (
+    <h6 className="text-xl md:text-md text-center text-white">
+      WHATS HAPPENING DESTINY
+    </h6>
+  );
 }
 
 export default App;
