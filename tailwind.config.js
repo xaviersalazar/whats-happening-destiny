@@ -4,7 +4,17 @@ module.exports = {
     colors: {
       white: "#ffffff",
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        line: {
+          from: { left: "50%", width: "0%" },
+          to: { left: "5%", width: "75%" },
+        },
+      },
+      animation: {
+        "animate-hr": "line 2s linear forwards",
+      },
+    },
   },
   plugins: [],
 };
