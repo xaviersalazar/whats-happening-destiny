@@ -23,14 +23,14 @@ export const Daily = () => {
         .set("minute", 0)
         .set("second", 0);
 
-      setResetTime(now.to(nextDailyReset));
+      setResetTime(`in ${nextDailyReset.diff(now, "hours")} hours`);
     }
   }, []);
 
   return (
-    <>
+    <div className="mb-5">
       <TitleText>DAILY</TitleText>
       <SubTitleText>Reset {resetTime}</SubTitleText>
-    </>
+    </div>
   );
 };

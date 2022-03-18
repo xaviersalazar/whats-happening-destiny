@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   background: #0e1111;
   background-color: #0e1111;
 }
@@ -17,9 +17,31 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: 900;
+}
+
+h1.bold,
+h2.bold,
+h3.bold,
+h4.bold,
+h5.bold,
+h6.bold {
   font-weight: 700;
 }
 
-p {
+h1.regular,
+h2.regular,
+h3.regular,
+h4.regular,
+h5.regular,
+h6.regular {
+  font-weight: 400;
+}
+
+p.light {
   font-weight: 300;
+}
+
+p {
+  font-weight: 100;
 }

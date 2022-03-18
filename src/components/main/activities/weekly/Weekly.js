@@ -14,11 +14,11 @@ export const Weekly = () => {
   }, []);
 
   return (
-    <>
+    <div className="mb-5">
       <TitleText>WEEKLY</TitleText>
       <SubTitleText>
-        {resetDays.start} - {resetDays.end}
+        {resetDays.start} to {resetDays.end}
       </SubTitleText>
-    </>
+    </div>
   );
 };

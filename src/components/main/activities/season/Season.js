@@ -5,7 +5,6 @@ export const Season = () => {
   return (
     <>
       <TitleText>SEASON</TitleText>
-      <SubTitleText>Current season</SubTitleText>
     </>
   );
 };

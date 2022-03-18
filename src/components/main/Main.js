@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { getDefinition, getMilestones } from "../../api/destinyApi";
-import { DEFINITIONS } from "../../utils/destinyDefinitions";
+import { DEFINITIONS } from "../../utils/destinyData";
 import { Daily } from "./activities/daily/Daily";
 import { Weekly } from "./activities/weekly/Weekly";
 import { Dungeons } from "./activities/dungeons/Dungeons";
@@ -16,7 +16,6 @@ export const Main = () => {
   //   await getMilestones().then((data) => {
   //     Object.keys(data).map((milestoneHash) => {
   //       const milestone = data[milestoneHash];
-  //       console.log("milestone: ", milestone);
 
   //       if (milestone.activities) {
   //         const activities = milestone.activities;

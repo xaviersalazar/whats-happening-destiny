@@ -3,9 +3,8 @@ import { TitleText } from "../../../common/TitleText";
 
 export const Raids = () => {
   return (
-    <>
+    <div className="mb-5">
       <TitleText>RAIDS</TitleText>
-      <SubTitleText>Current raids and their rewards</SubTitleText>
-    </>
+    </div>
   );
 };
