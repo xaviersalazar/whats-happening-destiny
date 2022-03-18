@@ -16,6 +16,7 @@ export const Main = () => {
   //   await getMilestones().then((data) => {
   //     Object.keys(data).map((milestoneHash) => {
   //       const milestone = data[milestoneHash];
+  //       console.log("milestone: ", milestone);
 
   //       if (milestone.activities) {
   //         const activities = milestone.activities;

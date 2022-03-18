@@ -8,21 +8,29 @@ export const Daily = () => {
 
   useEffect(() => {
     const now = moment();
-    const nextDailyReset = moment()
-      .add(1, "day")
-      .set("hour", 12)
-      .set("minute", 0)
-      .set("second", 0);
 
-    const timeLeft = moment.duration(nextDailyReset.diff(now));
+    if (now.isBefore(moment().hour(12))) {
+      const resetTime = moment()
+        .set("hour", 12)
+        .set("minute", 0)
+        .set("second", 0);
 
-    setResetTime(parseInt(timeLeft.asHours()));
+      setResetTime(now.to(resetTime));
+    } else {
+      const nextDailyReset = moment()
+        .add(1, "day")
+        .set("hour", 12)
+        .set("minute", 0)
+        .set("second", 0);
+
+      setResetTime(now.to(nextDailyReset));
+    }
   }, []);
 
   return (
     <>
       <TitleText>DAILY</TitleText>
-      <SubTitleText>Activities reset in {resetTime} hours</SubTitleText>
+      <SubTitleText>Reset {resetTime}</SubTitleText>
     </>
   );
 };
