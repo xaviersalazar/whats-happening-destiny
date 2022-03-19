@@ -5,6 +5,11 @@ const DEFINITIONS = {
 };
 
 const HASHES = {
+  CHAMPIONS: {
+    Overload: 882588556,
+    Barrier: 605585258,
+    Unstoppable: 3933343183,
+  },
   DUNGEONS: {
     GraspOfAvarice: {
       Modes: [
