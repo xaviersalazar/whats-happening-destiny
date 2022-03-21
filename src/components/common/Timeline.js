@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Text } from "./Text";
-import { uniqueId } from "lodash";
+import { uniqueId, chunk } from "lodash";
 import styled from "styled-components";
 
 const Timeline = styled.div`
@@ -51,21 +51,29 @@ const TimelineDisplay = styled.span`
   }
 `;
 
+const LootImg = styled.img`
+  max-width: initial;
+`;
+
 const TimelineTitle = ({ children }) => (
   <div className="timeline-title">
-    <Text regular>{children}</Text>
+    <Text classes="text-sm" regular>
+      {children}
+    </Text>
   </div>
 );
 
 const TimelineInfo = ({ children }) => (
   <div className="timeline-info">
-    <Text>{children}</Text>
+    <Text classes="text-sm">{children}</Text>
   </div>
 );
 
 const LootItems = ({ doubleLoot, children }) => (
   <div className="mt-3">
-    <Text regular>Possible Rewards {doubleLoot ? "(x2)" : ""}</Text>
+    <Text classes="text-sm mb-1" regular>
+      Possible Rewards {doubleLoot ? "(x2)" : ""}
+    </Text>
     {children}
   </div>
 );
@@ -81,10 +89,22 @@ export const TimeLine = ({ encounters }) => (
             <TimelineInfo>{info}</TimelineInfo>
             {dropsLoot && (
               <LootItems doubleLoot={doubleLoot}>
-                <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-4 gap-0">
                   <div className="mb-3 lg:mb-0">
-                    {loot.weapons.map(({ name, iconPath }, i) => (
-                      <Text key={uniqueId("weapon_")}>{name}</Text>
+                    {chunk(loot.weapons, 2).map((chunkSet) => (
+                      <div className="grid grid-rows-1 grid-cols-2">
+                        {chunkSet.map(({ name, iconPath }) => (
+                          <div className="mb-2 h-32">
+                            <LootImg className="h-12" src={iconPath} />
+                            <Text
+                              key={uniqueId("weapon_")}
+                              classes="text-xxs sm:text-sm mt-1 w-10/12 sm:w-1/2 md:3/4"
+                            >
+                              {name}
+                            </Text>
+                          </div>
+                        ))}
+                      </div>
                     ))}
                   </div>
                   {loot.armor.map(({ character, items }) => (
@@ -92,8 +112,20 @@ export const TimeLine = ({ encounters }) => (
                       key={uniqueId(`${character}_`)}
                       className="mb-3 lg:mb-0"
                     >
-                      {items.map(({ name, iconPath }) => (
-                        <Text key={uniqueId("armor_")}>{name}</Text>
+                      {chunk(items, 2).map((chunkSet) => (
+                        <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-4 gap-0">
+                          {chunkSet.map(({ name, iconPath }) => (
+                            <div className="mb-2 h-32">
+                              <LootImg className="h-12" src={iconPath} />
+                              <Text
+                                key={uniqueId("armor_")}
+                                classes="text-xxs sm:text-sm mt-1 w-10/12 sm:w-1/2 md:3/4"
+                              >
+                                {name}
+                              </Text>
+                            </div>
+                          ))}
+                        </div>
                       ))}
                     </div>
                   ))}

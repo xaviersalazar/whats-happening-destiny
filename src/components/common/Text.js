@@ -2,7 +2,6 @@ import classNames from "classnames";
 
 export const Text = ({ classes, children, light, regular }) => {
   const classnames = classNames(
-    "text-sm",
     "text-white",
     { light: !!light },
     { regular: !!regular },

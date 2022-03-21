@@ -4,21 +4,24 @@ import { TimeLine } from "../../../common/Timeline";
 import { TitleText } from "../../../common/TitleText";
 import { uniqueId } from "lodash";
 import dungeonData from "./dungeonData.json";
+import styled from "styled-components";
 
 const powerLevelIcon = `${process.env.PUBLIC_URL}/assets/power-level-icon.png`;
 
 const Mode = ({ modeType, powerLevel }) => (
   <div className="flex">
-    <Text classes="flex-initial mr-2">{modeType}:</Text>
+    <Text classes="flex-initial text-sm mr-2">{modeType}:</Text>
     <img
       className="flex-none w-2 h-2 relative top-1 mr-0.5"
       src={powerLevelIcon}
     />
-    <Text classnames="flex-initial">{powerLevel}</Text>
+    <Text classnames="flex-initial text-sm">{powerLevel}</Text>
   </div>
 );
 
-console.log(JSON.parse(JSON.stringify(dungeonData)));
+const ModifierImg = styled.img`
+  max-width: initial;
+`;
 
 export const Dungeons = () => {
   const [data, setData] = useState(null);
@@ -34,11 +37,13 @@ export const Dungeons = () => {
         data.dungeons.map(
           ({ name, location, description, modes, modifiers, encounters }) => (
             <div key={uniqueId("dungeon_")} className="py-5 pl-1">
-              <Text classes="tracking-widest">{location.toUpperCase()}</Text>
+              <Text classes="text-sm tracking-widest">
+                {location.toUpperCase()}
+              </Text>
               <h1 className="text-4xl lg:text-6xl text-white bold my-1">
                 {name}
               </h1>
-              <Text classes="mb-3 italic">{description}</Text>
+              <Text classes="text-sm mb-3 italic">{description}</Text>
               <div className="mb-3">
                 <h6 className="text-sm text-white">LIGHT LEVEL</h6>
                 <div className="my-2">
@@ -51,8 +56,10 @@ export const Dungeons = () => {
                       {uniqueLoot &&
                         uniqueLoot.map(({ title, description }) => (
                           <div key={uniqueId("unique_loot_")} className="mt-2">
-                            <Text regular>{title}</Text>
-                            <Text>{description}</Text>
+                            <Text classes="text-sm" regular>
+                              {title}
+                            </Text>
+                            <Text classes="text-sm">{description}</Text>
                           </div>
                         ))}
                     </Fragment>
@@ -68,8 +75,20 @@ export const Dungeons = () => {
                       </h6>
                       {typeModifiers.map(({ name, description, iconPath }) => (
                         <div key={uniqueId("type_modifier_")} className="my-2">
-                          <Text regular>{name}</Text>
-                          <Text>{description}</Text>
+                          <div className="flex">
+                            <div className="mr-2">
+                              <ModifierImg
+                                className="relative h-6 md:h-5 top-4 md:top-2"
+                                src={iconPath}
+                              />
+                            </div>
+                            <div>
+                              <Text classes="text-sm" regular>
+                                {name}
+                              </Text>
+                              <Text classes="text-sm">{description}</Text>
+                            </div>
+                          </div>
                         </div>
                       ))}
                     </div>
