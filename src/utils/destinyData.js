@@ -5,6 +5,9 @@ const DEFINITIONS = {
 };
 
 const HASHES = {
+  MODIFIERS: {
+    MatchGame: 3859784314,
+  },
   CHAMPIONS: {
     Overload: 882588556,
     Barrier: 605585258,
