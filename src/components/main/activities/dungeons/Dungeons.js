@@ -33,74 +33,88 @@ export const Dungeons = () => {
   return (
     <div className="mb-5">
       <TitleText>DUNGEONS</TitleText>
-      {data &&
-        data.dungeons.map(
-          ({ name, location, description, modes, modifiers, encounters }) => (
-            <div key={uniqueId("dungeon_")} className="py-5 pl-1">
-              <Text classes="text-sm tracking-widest">
-                {location.toUpperCase()}
-              </Text>
-              <h1 className="text-4xl lg:text-6xl text-white bold my-1">
-                {name}
-              </h1>
-              <Text classes="text-sm mb-3 italic">{description}</Text>
-              <div className="mb-3">
-                <h6 className="text-sm text-white">LIGHT LEVEL</h6>
-                <div className="my-2">
-                  {modes.map(({ type, recommendedLightLevel, uniqueLoot }) => (
-                    <Fragment key={uniqueId("modes_")}>
-                      <Mode
-                        modeType={type}
-                        powerLevel={recommendedLightLevel}
-                      />
-                      {uniqueLoot &&
-                        uniqueLoot.map(({ title, description }) => (
-                          <div key={uniqueId("unique_loot_")} className="mt-2">
-                            <Text classes="text-sm" regular>
-                              {title}
-                            </Text>
-                            <Text classes="text-sm">{description}</Text>
-                          </div>
-                        ))}
-                    </Fragment>
-                  ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+        {data &&
+          data.dungeons.map(
+            ({ name, location, description, modes, modifiers, encounters }) => (
+              <div key={uniqueId("dungeon_")} className="py-3 px-1 md:px-2">
+                <Text classes="text-xxs sm:text-sm tracking-widest">
+                  {location.toUpperCase()}
+                </Text>
+                <h1 className="text-3xl xs:text-4xl md:5xl text-white bold my-0">
+                  {name}
+                </h1>
+                <Text classes="text-xxs sm:text-sm mb-3 italic">
+                  {description}
+                </Text>
+                <div className="mb-3">
+                  <h6 className="text-sm text-white">LIGHT LEVEL</h6>
+                  <div className="my-2">
+                    {modes.map(
+                      ({ type, recommendedLightLevel, uniqueLoot }) => (
+                        <Fragment key={uniqueId("modes_")}>
+                          <Mode
+                            modeType={type}
+                            powerLevel={recommendedLightLevel}
+                          />
+                          {uniqueLoot &&
+                            uniqueLoot.map(({ title, description }) => (
+                              <div
+                                key={uniqueId("unique_loot_")}
+                                className="mt-2"
+                              >
+                                <Text classes="text-sm" regular>
+                                  {title}
+                                </Text>
+                                <Text classes="text-sm">{description}</Text>
+                              </div>
+                            ))}
+                        </Fragment>
+                      )
+                    )}
+                  </div>
+                </div>
+                <div className="mb-3">
+                  {modifiers &&
+                    modifiers.map(({ type, typeModifiers }) => (
+                      <div key={uniqueId("modifier_")} className="my-2">
+                        <h6 className="text-sm text-white">
+                          MODIFIERS ({type.toUpperCase()})
+                        </h6>
+                        {typeModifiers.map(
+                          ({ name, description, iconPath }) => (
+                            <div
+                              key={uniqueId("type_modifier_")}
+                              className="my-2"
+                            >
+                              <div className="flex">
+                                <div className="mr-2">
+                                  <ModifierImg
+                                    className="relative h-6 md:h-5 top-4 md:top-2"
+                                    src={iconPath}
+                                  />
+                                </div>
+                                <div>
+                                  <Text classes="text-sm" regular>
+                                    {name}
+                                  </Text>
+                                  <Text classes="text-sm">{description}</Text>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    ))}
+                </div>
+                <div className="mb-3">
+                  <h6 className="text-sm text-white">ENCOUNTERS</h6>
+                  <TimeLine encounters={encounters} />
                 </div>
               </div>
-              <div className="mb-3">
-                {modifiers &&
-                  modifiers.map(({ type, typeModifiers }) => (
-                    <div key={uniqueId("modifier_")} className="my-2">
-                      <h6 className="text-sm text-white">
-                        MODIFIERS ({type.toUpperCase()})
-                      </h6>
-                      {typeModifiers.map(({ name, description, iconPath }) => (
-                        <div key={uniqueId("type_modifier_")} className="my-2">
-                          <div className="flex">
-                            <div className="mr-2">
-                              <ModifierImg
-                                className="relative h-6 md:h-5 top-4 md:top-2"
-                                src={iconPath}
-                              />
-                            </div>
-                            <div>
-                              <Text classes="text-sm" regular>
-                                {name}
-                              </Text>
-                              <Text classes="text-sm">{description}</Text>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-              </div>
-              <div className="mb-3">
-                <h6 className="text-sm text-white">ENCOUNTERS</h6>
-                <TimeLine encounters={encounters} />
-              </div>
-            </div>
-          )
-        )}
+            )
+          )}
+      </div>
     </div>
   );
 };

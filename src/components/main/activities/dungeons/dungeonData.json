@@ -7,7 +7,275 @@
       "modes": [
         {
           "type": "Legend",
-          "recommendedLightLevel": "1530",
+          "recommendedLightLevel": "1350",
+          "uniqueLoot": null
+        },
+        {
+          "type": "Master",
+          "recommendedLightLevel": "1590",
+          "uniqueLoot": [
+            {
+              "title": "Master Specific Loot",
+              "description": "Armor dropped in Master contains the Artifice intrinsic trait"
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "type": "Master",
+          "typeModifiers": [
+            {
+              "name": "Champions: Overload",
+              "description": "This mode contains Overload Champions, which cannot be stopped without an Overload mod",
+              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
+            },
+            {
+              "name": "Champions: Barrier",
+              "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod",
+              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+            },
+            {
+              "name": "Match Game",
+              "description": "Enemy shields are highly resistant to all unmatched elemental damage",
+              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "title": "Loot Cave Entrance",
+          "info": "Kill some enemies to gather and dunk engrams to make your way into the cave",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Navigate To First Boss",
+          "info": "Make your way to the first boss but watch out for spikes, traps, and a barrel. There's a few switches you have to flip here too",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Phry'zhia, The Insatiable",
+          "info": "Defeat Phry'zhia by collecting and dunking engrams till damage phase. Rinse and repeat",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Matador 64",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/ca950349066bd8f182b55c68b98105aa.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Corrupting Echo Boots",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
+                  },
+                  {
+                    "name": "Corrupting Echo Bond",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/3d05a66d2a7295dab251e4b39f5328f6.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Descending Echo Greaves",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
+                  },
+                  {
+                    "name": "Descending Echo Mark",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/23655f9ea90cf5ef4a7150f061b6ede9.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Twisting Echo Strides",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
+                  },
+                  {
+                    "name": "Twisting Echo Cloak",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5d54da29e707e7b6aa1bd2eb0d750e92.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Sparrow Run",
+          "info": "Sparrow your way to the next encounter defusing mines along the way. Make sure to ding the red buttons to extend your time",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Fallen Shield",
+          "info": "Destroy the shielded Servitors and launch their corpse at a shield generator. You'll need to do this 4 times",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Hero of Ages",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/17253c67139761ea3fe95b345d61dc17.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Corrupting Echo Gloves",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
+                  },
+                  {
+                    "name": "Corrupting Echo Robes",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7f97381a100562f0362420278b9bff36.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Descending Echo Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
+                  },
+                  {
+                    "name": "Descending Echo Cage",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/cdd434f2d5f75ffa3db508c410057965.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Twisting Echo Grips",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
+                  },
+                  {
+                    "name": "Twisting Echo Vest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/b9ddb3b4ab4f1da2299cff262520010e.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Captain Avarokk, The Covetous",
+          "info": "Defeat Captain Avarokk by collecting and dunking engrams to reach damage phase. Rinse and repeat",
+          "dropsLoot": true,
+          "doubleLoot": true,
+          "loot": {
+            "weapons": [
+              {
+                "name": "1000 Yard Stare",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/8142b2a806e9ac8c34e27f3e430837f3.jpg"
+              },
+              {
+                "name": "Matador 64",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/ca950349066bd8f182b55c68b98105aa.jpg"
+              },
+              {
+                "name": "Hero of Ages",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/17253c67139761ea3fe95b345d61dc17.jpg"
+              },
+              {
+                "name": "Eyasluna",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/48cc688e5189a7718babe26d591fb966.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Corrupting Echo Cover",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9e2d95c70866147a79f4dfd8f0df58bd.jpg"
+                  },
+                  {
+                    "name": "Corrupting Echo Gloves",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
+                  },
+                  {
+                    "name": "Corrupting Echo Boots",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
+                  },
+                  {
+                    "name": "Corrupting Echo Bond",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/3d05a66d2a7295dab251e4b39f5328f6.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Descending Echo Helm",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a0113a6276f1407b2c05a5a66fa0ac36.jpg"
+                  },
+                  {
+                    "name": "Descending Echo Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
+                  },
+                  {
+                    "name": "Descending Echo Greaves",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
+                  },
+                  {
+                    "name": "Descending Echo Mark",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/23655f9ea90cf5ef4a7150f061b6ede9.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Twisting Echo Mask",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/97a1af17f6cc11721a16d60bd47948fb.jpg"
+                  },
+                  {
+                    "name": "Twisting Echo Grips",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
+                  },
+                  {
+                    "name": "Twisting Echo Strides",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
+                  },
+                  {
+                    "name": "Twisting Echo Cloak",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5d54da29e707e7b6aa1bd2eb0d750e92.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grasp of Avarice",
+      "location": "The Cosmodrome",
+      "description": "A cautionary tale for adventurers willing to trade their humanity for riches",
+      "modes": [
+        {
+          "type": "Legend",
+          "recommendedLightLevel": "1350",
           "uniqueLoot": null
         },
         {

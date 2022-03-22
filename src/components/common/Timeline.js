@@ -89,16 +89,19 @@ export const TimeLine = ({ encounters }) => (
             <TimelineInfo>{info}</TimelineInfo>
             {dropsLoot && (
               <LootItems doubleLoot={doubleLoot}>
-                <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-4 gap-0">
+                <div className="grid grid-cols-2 gap-0">
                   <div className="mb-3 lg:mb-0">
                     {chunk(loot.weapons, 2).map((chunkSet) => (
-                      <div className="grid grid-rows-1 grid-cols-2">
+                      <div className="grid grid-cols-2">
                         {chunkSet.map(({ name, iconPath }) => (
                           <div className="mb-2 h-32">
-                            <LootImg className="h-12" src={iconPath} />
+                            <LootImg
+                              className="h-12 md:h-14 xl:h-20"
+                              src={iconPath}
+                            />
                             <Text
                               key={uniqueId("weapon_")}
-                              classes="text-xxs sm:text-sm mt-1 w-10/12 sm:w-1/2 md:3/4"
+                              classes="text-xxs lg:text-xs mt-1 w-10/12 xs:w-9/12 md:w-3/4 xl:w-1/2"
                             >
                               {name}
                             </Text>
@@ -113,13 +116,16 @@ export const TimeLine = ({ encounters }) => (
                       className="mb-3 lg:mb-0"
                     >
                       {chunk(items, 2).map((chunkSet) => (
-                        <div className="grid grid-rows-1 grid-cols-2 lg:grid-cols-4 gap-0">
+                        <div className="grid grid-cols-2 gap-0">
                           {chunkSet.map(({ name, iconPath }) => (
                             <div className="mb-2 h-32">
-                              <LootImg className="h-12" src={iconPath} />
+                              <LootImg
+                                className="h-12 md:h-14 xl:h-20"
+                                src={iconPath}
+                              />
                               <Text
                                 key={uniqueId("armor_")}
-                                classes="text-xxs sm:text-sm mt-1 w-10/12 sm:w-1/2 md:3/4"
+                                classes="text-xxs lg:text-xs mt-1 w-10/12 xs:w-9/12 md:w-3/4 xl:w-1/2"
                               >
                                 {name}
                               </Text>

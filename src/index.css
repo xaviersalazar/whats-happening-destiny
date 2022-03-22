@@ -54,3 +54,7 @@ p {
 .text-xxs {
   font-size: 0.65rem;
 }
+
+.text-5-5xl {
+  font-size: 3rem;
+}
