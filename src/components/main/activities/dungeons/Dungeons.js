@@ -15,7 +15,7 @@ const Mode = ({ modeType, powerLevel }) => (
       className="flex-none w-2 h-2 relative top-1 mr-0.5"
       src={powerLevelIcon}
     />
-    <Text classnames="flex-initial text-sm">{powerLevel}</Text>
+    <Text classes="flex-initial text-sm">{powerLevel}</Text>
   </div>
 );
 
@@ -28,17 +28,17 @@ export const Dungeons = () => {
 
   useEffect(() => {
     setData(JSON.parse(JSON.stringify(dungeonData)));
-  }, [dungeonData]);
+  }, []);
 
   return (
     <div className="mb-5">
       <TitleText>DUNGEONS</TitleText>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-0">
         {data &&
           data.dungeons.map(
             ({ name, location, description, modes, modifiers, encounters }) => (
               <div key={uniqueId("dungeon_")} className="py-3 px-1 md:px-2">
-                <Text classes="text-xxs sm:text-sm tracking-widest">
+                <Text classes="text-xxs sm:text-sm tracking-widerest">
                   {location.toUpperCase()}
                 </Text>
                 <h1 className="text-3xl xs:text-4xl md:5xl text-white bold my-0">
@@ -63,7 +63,7 @@ export const Dungeons = () => {
                                 key={uniqueId("unique_loot_")}
                                 className="mt-2"
                               >
-                                <Text classes="text-sm" regular>
+                                <Text classes="text-sm" light>
                                   {title}
                                 </Text>
                                 <Text classes="text-sm">{description}</Text>
@@ -90,7 +90,7 @@ export const Dungeons = () => {
                               <div className="flex">
                                 <div className="mr-2">
                                   <ModifierImg
-                                    className="relative h-6 md:h-5 top-4 md:top-2"
+                                    className="relative h-7 top-4 md:h-6 md:top-2"
                                     src={iconPath}
                                   />
                                 </div>

@@ -2,7 +2,7 @@
   "dungeons": [
     {
       "name": "Grasp of Avarice",
-      "location": "The Cosmodrome",
+      "location": "The Cosmodrome // Earth",
       "description": "A cautionary tale for adventurers willing to trade their humanity for riches",
       "modes": [
         {
@@ -67,6 +67,7 @@
             "weapons": [
               {
                 "name": "Matador 64",
+                "type": "Shotgun",
                 "iconPath": "https://www.bungie.net/common/destiny2_content/icons/ca950349066bd8f182b55c68b98105aa.jpg"
               }
             ],
@@ -76,10 +77,12 @@
                 "items": [
                   {
                     "name": "Corrupting Echo Boots",
+                    "type": "Leg Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
                   },
                   {
                     "name": "Corrupting Echo Bond",
+                    "type": "Class Item",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/3d05a66d2a7295dab251e4b39f5328f6.jpg"
                   }
                 ]
@@ -89,10 +92,12 @@
                 "items": [
                   {
                     "name": "Descending Echo Greaves",
+                    "type": "Leg Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
                   },
                   {
                     "name": "Descending Echo Mark",
+                    "type": "Class Item",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/23655f9ea90cf5ef4a7150f061b6ede9.jpg"
                   }
                 ]
@@ -102,10 +107,12 @@
                 "items": [
                   {
                     "name": "Twisting Echo Strides",
+                    "type": "Leg Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
                   },
                   {
                     "name": "Twisting Echo Cloak",
+                    "type": "Class Item",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5d54da29e707e7b6aa1bd2eb0d750e92.jpg"
                   }
                 ]
@@ -129,6 +136,7 @@
             "weapons": [
               {
                 "name": "Hero of Ages",
+                "type": "Sword",
                 "iconPath": "https://www.bungie.net/common/destiny2_content/icons/17253c67139761ea3fe95b345d61dc17.jpg"
               }
             ],
@@ -138,10 +146,12 @@
                 "items": [
                   {
                     "name": "Corrupting Echo Gloves",
+                    "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
                   },
                   {
                     "name": "Corrupting Echo Robes",
+                    "type": "Chest Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7f97381a100562f0362420278b9bff36.jpg"
                   }
                 ]
@@ -151,10 +161,12 @@
                 "items": [
                   {
                     "name": "Descending Echo Gauntlets",
+                    "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
                   },
                   {
                     "name": "Descending Echo Cage",
+                    "type": "Chest Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/cdd434f2d5f75ffa3db508c410057965.jpg"
                   }
                 ]
@@ -164,10 +176,12 @@
                 "items": [
                   {
                     "name": "Twisting Echo Grips",
+                    "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
                   },
                   {
                     "name": "Twisting Echo Vest",
+                    "type": "Chest Armor",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/b9ddb3b4ab4f1da2299cff262520010e.jpg"
                   }
                 ]
@@ -184,18 +198,22 @@
             "weapons": [
               {
                 "name": "1000 Yard Stare",
+                "type": "Sniper Rifle",
                 "iconPath": "https://www.bungie.net/common/destiny2_content/icons/8142b2a806e9ac8c34e27f3e430837f3.jpg"
               },
               {
                 "name": "Matador 64",
+                "type": "Shotgun",
                 "iconPath": "https://www.bungie.net/common/destiny2_content/icons/ca950349066bd8f182b55c68b98105aa.jpg"
               },
               {
                 "name": "Hero of Ages",
+                "type": "Sword",
                 "iconPath": "https://www.bungie.net/common/destiny2_content/icons/17253c67139761ea3fe95b345d61dc17.jpg"
               },
               {
                 "name": "Eyasluna",
+                "type": "Hand Cannon",
                 "iconPath": "https://www.bungie.net/common/destiny2_content/icons/48cc688e5189a7718babe26d591fb966.jpg"
               }
             ],
@@ -205,18 +223,22 @@
                 "items": [
                   {
                     "name": "Corrupting Echo Cover",
+                    "type": "Helmet",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9e2d95c70866147a79f4dfd8f0df58bd.jpg"
                   },
                   {
                     "name": "Corrupting Echo Gloves",
+                    "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
                   },
                   {
                     "name": "Corrupting Echo Boots",
+                    "type": "Leg Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
                   },
                   {
                     "name": "Corrupting Echo Bond",
+                    "type": "Class Item",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/3d05a66d2a7295dab251e4b39f5328f6.jpg"
                   }
                 ]
@@ -226,18 +248,22 @@
                 "items": [
                   {
                     "name": "Descending Echo Helm",
+                    "type": "Helmet",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a0113a6276f1407b2c05a5a66fa0ac36.jpg"
                   },
                   {
                     "name": "Descending Echo Gauntlets",
+                    "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
                   },
                   {
                     "name": "Descending Echo Greaves",
+                    "type": "Leg Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
                   },
                   {
                     "name": "Descending Echo Mark",
+                    "type": "Class Item",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/23655f9ea90cf5ef4a7150f061b6ede9.jpg"
                   }
                 ]
@@ -247,18 +273,22 @@
                 "items": [
                   {
                     "name": "Twisting Echo Mask",
+                    "type": "Helmet",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/97a1af17f6cc11721a16d60bd47948fb.jpg"
                   },
                   {
                     "name": "Twisting Echo Grips",
+                    "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
                   },
                   {
                     "name": "Twisting Echo Strides",
+                    "type": "Leg Armor",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
                   },
                   {
                     "name": "Twisting Echo Cloak",
+                    "type": "Class Item",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5d54da29e707e7b6aa1bd2eb0d750e92.jpg"
                   }
                 ]
@@ -269,73 +299,41 @@
       ]
     },
     {
-      "name": "Grasp of Avarice",
-      "location": "The Cosmodrome",
-      "description": "A cautionary tale for adventurers willing to trade their humanity for riches",
+      "name": "Prophecy",
+      "location": "IX Realms // The Reckoning",
+      "description": "Enter the realm of the Nine and ask the question: \"What is the nature of the Darkness?\"",
       "modes": [
         {
-          "type": "Legend",
+          "type": "Minimum",
           "recommendedLightLevel": "1350",
           "uniqueLoot": null
-        },
-        {
-          "type": "Master",
-          "recommendedLightLevel": "1590",
-          "uniqueLoot": [
-            {
-              "title": "Master Specific Loot",
-              "description": "Armor dropped in Master contains the Artifice intrinsic trait"
-            }
-          ]
         }
       ],
-      "modifiers": [
-        {
-          "type": "Master",
-          "typeModifiers": [
-            {
-              "name": "Champions: Overload",
-              "description": "This mode contains Overload Champions, which cannot be stopped without an Overload mod",
-              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/c4d9c4f1ec3167e272286bb155dc15f4.png"
-            },
-            {
-              "name": "Champions: Barrier",
-              "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod",
-              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
-            },
-            {
-              "name": "Match Game",
-              "description": "Enemy shields are highly resistant to all unmatched elemental damage",
-              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
-            }
-          ]
-        }
-      ],
+      "modifiers": [],
       "encounters": [
         {
-          "title": "Loot Cave Entrance",
-          "info": "Kill some enemies to gather and dunk engrams to make your way into the cave",
+          "title": "Entrance",
+          "info": "Kill the Knights in the while light or dark to gather light & dark motes and cleanse the corresponding energy pillars. This will be the recurring mechanic",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
-          "title": "Navigate To First Boss",
-          "info": "Make your way to the first boss but watch out for spikes, traps, and a barrel. There's a few switches you have to flip here too",
-          "dropsLoot": false,
-          "doubleLoot": false,
-          "loot": null
-        },
-        {
-          "title": "Phry'zhia, The Insatiable",
-          "info": "Defeat Phry'zhia by collecting and dunking engrams till damage phase. Rinse and repeat",
+          "title": "Phalanx Echo",
+          "info": "Similar to the entrance, kill the Knights in the light or dark to gather the motes and cleanse the their corresponding pillars, then onto damage phase. Rinse and repeat till boss is defeated",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
             "weapons": [
               {
-                "name": "Matador 64",
-                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/ca950349066bd8f182b55c68b98105aa.jpg"
+                "name": "Judgment",
+                "type": "Hand Cannon",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/e44d6ab2906bb2365993581761991ac3.jpg"
+              },
+              {
+                "name": "The Long Walk",
+                "type": "Sniper Rifle",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/45892619a8917d8bd44684547f0b1e6f.jpg"
               }
             ],
             "armor": [
@@ -343,12 +341,14 @@
                 "character": "Warlock",
                 "items": [
                   {
-                    "name": "Corrupting Echo Boots",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
+                    "name": "Moonfang-X7 Boots",
+                    "type": "Leg Armor",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/88c1b93d1b635beeaf6f178558a98879.jpg"
                   },
                   {
-                    "name": "Corrupting Echo Bond",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/3d05a66d2a7295dab251e4b39f5328f6.jpg"
+                    "name": "Moonfang-X7 Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/1de3e07867a2c9e7ccde85ecf4f2342f.jpg"
                   }
                 ]
               },
@@ -356,12 +356,14 @@
                 "character": "Titan",
                 "items": [
                   {
-                    "name": "Descending Echo Greaves",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
+                    "name": "Moonfang-X7 Greaves",
+                    "type": "Leg Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/249897dc1cd59d3f4ecb0db8ee1769bd.jpg"
                   },
                   {
-                    "name": "Descending Echo Mark",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/23655f9ea90cf5ef4a7150f061b6ede9.jpg"
+                    "name": "Moonfang-X7 Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9e0206df6b7364f73b90344e3f248301.jpg"
                   }
                 ]
               },
@@ -369,12 +371,14 @@
                 "character": "Hunter",
                 "items": [
                   {
-                    "name": "Twisting Echo Strides",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
+                    "name": "Moonfang-X7 Strides",
+                    "type": "Leg Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/0bb7ca67924f942a7b5444e2b43d89a7.jpg"
                   },
                   {
-                    "name": "Twisting Echo Cloak",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5d54da29e707e7b6aa1bd2eb0d750e92.jpg"
+                    "name": "Moonfang-X7 Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/7294ea5e03b08cb934acce311dbd6195.jpg"
                   }
                 ]
               }
@@ -382,22 +386,28 @@
           }
         },
         {
-          "title": "Sparrow Run",
-          "info": "Sparrow your way to the next encounter defusing mines along the way. Make sure to ding the red buttons to extend your time",
-          "dropsLoot": false,
+          "title": "The Wasteland",
+          "info": "Sparrow around to find the area with the Taken blights then kill the ads and clear them. Go up to Toland and it'll spawn another blight you'll have to find. You'll need to do this x3 times before the next area opens",
+          "dropsLoot": null,
           "doubleLoot": false,
           "loot": null
         },
         {
-          "title": "Fallen Shield",
-          "info": "Destroy the shielded Servitors and launch their corpse at a shield generator. You'll need to do this 4 times",
+          "title": "Hexahedron",
+          "info": "Look up and around for Toland to find which side he is on, cleanse the energy pillar on that side, then goto the middle plate. Rinse and repeat x6 times until the two Centurion Echo's spawn in; kill them to move on",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
             "weapons": [
               {
-                "name": "Hero of Ages",
-                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/17253c67139761ea3fe95b345d61dc17.jpg"
+                "name": "The Last Breath",
+                "type": "Auto Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/ca3e0c847b17c83835dca1dfa6322d09.jpg"
+              },
+              {
+                "name": "A Swift Verdict",
+                "type": "Sidearm",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/58b763dfac2835b535533e75823a5825.jpg"
               }
             ],
             "armor": [
@@ -405,12 +415,9 @@
                 "character": "Warlock",
                 "items": [
                   {
-                    "name": "Corrupting Echo Gloves",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
-                  },
-                  {
-                    "name": "Corrupting Echo Robes",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7f97381a100562f0362420278b9bff36.jpg"
+                    "name": "Moonfang-X7 Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/971b76a822ef5232bf38e32065e73c29.jpg"
                   }
                 ]
               },
@@ -418,12 +425,9 @@
                 "character": "Titan",
                 "items": [
                   {
-                    "name": "Descending Echo Gauntlets",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
-                  },
-                  {
-                    "name": "Descending Echo Cage",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/cdd434f2d5f75ffa3db508c410057965.jpg"
+                    "name": "Moonfang-X7 Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/a51a2f2b5b12f918c968d6da9ecce80a.jpg"
                   }
                 ]
               },
@@ -431,12 +435,9 @@
                 "character": "Hunter",
                 "items": [
                   {
-                    "name": "Twisting Echo Grips",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
-                  },
-                  {
-                    "name": "Twisting Echo Vest",
-                    "iconPath": "https://bungie.net/common/destiny2_content/icons/b9ddb3b4ab4f1da2299cff262520010e.jpg"
+                    "name": "Moonfang-X7 Grips",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/a0118acd82f8daa0bc0e7ff6a8c4e36e.jpg"
                   }
                 ]
               }
@@ -444,48 +445,54 @@
           }
         },
         {
-          "title": "Captain Avarokk, The Covetous",
-          "info": "Defeat Captain Avarokk by collecting and dunking engrams to reach damage phase. Rinse and repeat",
+          "title": "Hexahedron to Rainbow Road",
+          "info": "The Kell Echo spawns in but you can't kill her here. Just follow the boss until you reach the next area. Watch out for the army of thrall",
+          "dropsLoot": null,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Rainbow Road (Deadsea)",
+          "info": "Ready your sparrow and follow the ribbon road all the way down to the bottom. There's a bunch of enemies scattered around and in the pyramids but you can skip them if you want",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Kell Echo",
+          "info": "Defeat the Kell Echo by gathering light & dark motes, cleansing their pillars, then killing the Ogre that spawns until all pillars are cleansed. Following that, jump in the middle to goto another room for damage phase. Stay close to the boss to keep Dark Entropy debuff off you. Repeat this process till boss is defeated",
           "dropsLoot": true,
-          "doubleLoot": true,
+          "doubleLoot": null,
           "loot": {
-            "weapons": [
-              {
-                "name": "1000 Yard Stare",
-                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/8142b2a806e9ac8c34e27f3e430837f3.jpg"
-              },
-              {
-                "name": "Matador 64",
-                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/ca950349066bd8f182b55c68b98105aa.jpg"
-              },
-              {
-                "name": "Hero of Ages",
-                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/17253c67139761ea3fe95b345d61dc17.jpg"
-              },
-              {
-                "name": "Eyasluna",
-                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/48cc688e5189a7718babe26d591fb966.jpg"
-              }
-            ],
+            "weapons": [],
             "armor": [
               {
                 "character": "Warlock",
                 "items": [
                   {
-                    "name": "Corrupting Echo Cover",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9e2d95c70866147a79f4dfd8f0df58bd.jpg"
+                    "name": "Moonfang-X7 Crown",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/30fc44e5c4049a3cd6dcd8ae34e2e218.jpg"
                   },
                   {
-                    "name": "Corrupting Echo Gloves",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
+                    "name": "Moonfang-X7 Robe",
+                    "type": "Chest Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2609f42bc3852d3e862969809e8445a6.jpg"
                   },
                   {
-                    "name": "Corrupting Echo Boots",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
+                    "name": "Moonfang-X7 Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/971b76a822ef5232bf38e32065e73c29.jpg"
                   },
                   {
-                    "name": "Corrupting Echo Bond",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/3d05a66d2a7295dab251e4b39f5328f6.jpg"
+                    "name": "Moonfang-X7 Boots",
+                    "type": "Leg Armor",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/88c1b93d1b635beeaf6f178558a98879.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/1de3e07867a2c9e7ccde85ecf4f2342f.jpg"
                   }
                 ]
               },
@@ -493,20 +500,29 @@
                 "character": "Titan",
                 "items": [
                   {
-                    "name": "Descending Echo Helm",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a0113a6276f1407b2c05a5a66fa0ac36.jpg"
+                    "name": "Moonfang-X7 Helm",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/172051d77276facf989b625ba97749ac.jpg"
                   },
                   {
-                    "name": "Descending Echo Gauntlets",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
+                    "name": "Moonfang-X7 Chassis",
+                    "type": "Chest Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d67eec762b6205555bc9e36922865899.jpg"
                   },
                   {
-                    "name": "Descending Echo Greaves",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
+                    "name": "Moonfang-X7 Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/a51a2f2b5b12f918c968d6da9ecce80a.jpg"
                   },
                   {
-                    "name": "Descending Echo Mark",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/23655f9ea90cf5ef4a7150f061b6ede9.jpg"
+                    "name": "Moonfang-X7 Greaves",
+                    "type": "Leg Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/249897dc1cd59d3f4ecb0db8ee1769bd.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9e0206df6b7364f73b90344e3f248301.jpg"
                   }
                 ]
               },
@@ -514,20 +530,111 @@
                 "character": "Hunter",
                 "items": [
                   {
-                    "name": "Twisting Echo Mask",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/97a1af17f6cc11721a16d60bd47948fb.jpg"
+                    "name": "Moonfang-X7 Mask",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/06b23f6deb59d3d92137cdbf90ca4f32.jpg"
                   },
                   {
-                    "name": "Twisting Echo Grips",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
+                    "name": "Moonfang-X7 Rig",
+                    "type": "Chest Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9364e358ebf30f838ac25aa01000a1ba.jpg"
                   },
                   {
-                    "name": "Twisting Echo Strides",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
+                    "name": "Moonfang-X7 Grips",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/a0118acd82f8daa0bc0e7ff6a8c4e36e.jpg"
                   },
                   {
-                    "name": "Twisting Echo Cloak",
-                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5d54da29e707e7b6aa1bd2eb0d750e92.jpg"
+                    "name": "Moonfang-X7 Strides",
+                    "type": "Leg Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/0bb7ca67924f942a7b5444e2b43d89a7.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/7294ea5e03b08cb934acce311dbd6195.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Final Chest (Not really an encounter)",
+          "info": "Grab your loot!",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Darkest Before",
+                "type": "Pulse Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/2df421fab5928f2a322ab6852fccd21e.jpg"
+              },
+              {
+                "name": "A Sudden Death",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/936c6b51a6575b927ff816d7cde1eb72.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Moonfang-X7 Crown",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/30fc44e5c4049a3cd6dcd8ae34e2e218.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Robe",
+                    "type": "Chest Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2609f42bc3852d3e862969809e8445a6.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/1de3e07867a2c9e7ccde85ecf4f2342f.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Moonfang-X7 Helm",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/172051d77276facf989b625ba97749ac.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Chassis",
+                    "type": "Chest Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d67eec762b6205555bc9e36922865899.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9e0206df6b7364f73b90344e3f248301.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Moonfang-X7 Mask",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/06b23f6deb59d3d92137cdbf90ca4f32.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Rig",
+                    "type": "Chest Armor",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9364e358ebf30f838ac25aa01000a1ba.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/7294ea5e03b08cb934acce311dbd6195.jpg"
                   }
                 ]
               }

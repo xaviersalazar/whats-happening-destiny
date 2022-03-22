@@ -13,6 +13,9 @@ module.exports = {
     colors: {
       white: "#ffffff",
     },
+    letterSpacing: {
+      widerest: "0.2em",
+    },
     extend: {
       keyframes: {
         line: {

@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Text } from "./Text";
-import { uniqueId, chunk, concat, flatten } from "lodash";
+import { uniqueId, concat, flatten } from "lodash";
 import styled from "styled-components";
 
 const Timeline = styled.div`
@@ -71,7 +71,7 @@ const TimelineInfo = ({ children }) => (
 
 const LootItems = ({ doubleLoot, children }) => (
   <div className="mt-3">
-    <Text classes="text-sm mb-1" regular>
+    <Text classes="text-sm mb-1" light>
       Possible Rewards {doubleLoot ? "(x2)" : ""}
     </Text>
     {children}
@@ -89,20 +89,23 @@ export const TimeLine = ({ encounters }) => (
             <TimelineInfo>{info}</TimelineInfo>
             {dropsLoot && (
               <LootItems doubleLoot={doubleLoot}>
-                <div className="mb-3 lg:mb-0">
+                <div className="mb-2">
                   <div key={uniqueId("name_")} className="grid grid-cols-4">
                     {concat(
                       loot.weapons,
                       flatten(loot.armor.map(({ items }) => items))
-                    ).map(({ name, iconPath }) => (
-                      <div className="mb-2 h-32">
+                    ).map(({ name, type, iconPath }) => (
+                      <div key={uniqueId(`${name}_`)} className="mb-6 h-32">
                         <LootImg
-                          className="h-12 md:h-14 xl:h-20"
+                          className="h-14 md:h-16 xl:h-20"
                           src={iconPath}
                         />
-                        <Text classes="text-xxs lg:text-xs mt-1 w-10/12 xs:w-9/12 md:w-3/4 xl:w-1/2">
-                          {name}
-                        </Text>
+                        <div className="w-10/12 xs:w-9/12 md:w-3/4 xl:w-1/2">
+                          <Text classes="text-[6px] lg:text-[8px] tracking-widerest">
+                            {type.toUpperCase()}
+                          </Text>
+                          <Text classes="text-xxs lg:text-xs">{name}</Text>
+                        </div>
                       </div>
                     ))}
                   </div>
