@@ -33,11 +33,11 @@ export const Dungeons = () => {
   return (
     <div className="mb-5">
       <TitleText>DUNGEONS</TitleText>
-      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-0">
+      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-5 px-1 md:px-2">
         {data &&
           data.dungeons.map(
             ({ name, location, description, modes, modifiers, encounters }) => (
-              <div key={uniqueId("dungeon_")} className="py-3 px-1 md:px-2">
+              <div key={uniqueId("dungeon_")} className="py-3">
                 <Text classes="text-xxs sm:text-sm tracking-widerest">
                   {location.toUpperCase()}
                 </Text>

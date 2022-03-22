@@ -46,21 +46,21 @@
       "encounters": [
         {
           "title": "Loot Cave Entrance",
-          "info": "Kill some enemies to gather and dunk engrams to make your way into the cave",
+          "info": "Kill enemies to gather engrams and get the debuff Burdened by Riches. Then clear the debuff by standing near the crystal inside the cave. This will be the main mechanic of this dungeon. Keep doing this until the floor cave opens up",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Navigate To First Boss",
-          "info": "Make your way to the first boss but watch out for spikes, traps, and a barrel. There's a few switches you have to flip here too",
+          "info": "Make your way to the first boss by flipping switches and killing enemies along the way. But watch out for traps, spikes, and a rolling barrel",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Phry'zhia, The Insatiable",
-          "info": "Defeat Phry'zhia by collecting and dunking engrams till damage phase. Rinse and repeat",
+          "info": "Defeat Phry'zhia by killing the Scorch Cannon Vandal to open up the bay doors. Kill enemies to collect engrams for Burden of Riches and clearing them at the crystal till you reach damage phase. Rinse and repeat",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -122,14 +122,14 @@
         },
         {
           "title": "Sparrow Run",
-          "info": "Sparrow your way to the next encounter defusing mines along the way. Make sure to ding the red buttons to extend your time",
+          "info": "Grab your quickest sparrow and make your way to the next encounter defusing mines along the way. Make sure to ding the red buttons to extend your time",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Fallen Shield",
-          "info": "Destroy the shielded Servitors and launch their corpse at a shield generator. You'll need to do this 4 times",
+          "info": "Find and destroy the shielded Servitors. You'll need to gather and cleanse engrams at the crystals to drop their shields. Once it's dead, launch their corpse at a shield generator in the sky with the yeet cannon. You'll need to do this 4 times then move onto the next area",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -191,7 +191,7 @@
         },
         {
           "title": "Captain Avarokk, The Covetous",
-          "info": "Defeat Captain Avarokk by collecting and dunking engrams to reach damage phase. Rinse and repeat",
+          "info": "Defeat Captain Avarokk by again collecting and cleansing engrams at the crystal in the middle where he is. Shooting one of the 3 power supplies around the center area will drop the engrams. He also spawn's two buddies, R-M80 and Grispax, that have a ton of health and can be a pain to deal with, so be sure to get rid of them first. Rinse and repeat till he's defeated",
           "dropsLoot": true,
           "doubleLoot": true,
           "loot": {
