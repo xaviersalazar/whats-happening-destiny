@@ -14,6 +14,7 @@ const Mode = ({ modeType, powerLevel }) => (
     <img
       className="flex-none w-2 h-2 relative top-1 mr-0.5"
       src={powerLevelIcon}
+      alt="power-level-img"
     />
     <Text classes="flex-initial text-sm">{powerLevel}</Text>
   </div>
@@ -92,6 +93,7 @@ export const Dungeons = () => {
                                   <ModifierImg
                                     className="relative h-7 top-4 md:h-6 md:top-2"
                                     src={iconPath}
+                                    alt="modifier-img"
                                   />
                                 </div>
                                 <div>

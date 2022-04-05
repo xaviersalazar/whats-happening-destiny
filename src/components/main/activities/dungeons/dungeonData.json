@@ -46,21 +46,12 @@
       "encounters": [
         {
           "title": "Loot Cave Entrance",
-          "info": "Kill enemies to gather engrams and get the debuff Burdened by Riches. Then clear the debuff by standing near the crystal inside the cave. This will be the main mechanic of this dungeon. Keep doing this until the floor cave opens up",
-          "dropsLoot": false,
-          "doubleLoot": false,
-          "loot": null
-        },
-        {
-          "title": "Navigate To First Boss",
-          "info": "Make your way to the first boss by flipping switches and killing enemies along the way. But watch out for traps, spikes, and a rolling barrel",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Phry'zhia, The Insatiable",
-          "info": "Defeat Phry'zhia by killing the Scorch Cannon Vandal to open up the bay doors. Kill enemies to collect engrams for Burden of Riches and clearing them at the crystal till you reach damage phase. Rinse and repeat",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -77,7 +68,7 @@
                 "items": [
                   {
                     "name": "Corrupting Echo Boots",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
                   },
                   {
@@ -92,7 +83,7 @@
                 "items": [
                   {
                     "name": "Descending Echo Greaves",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
                   },
                   {
@@ -107,7 +98,7 @@
                 "items": [
                   {
                     "name": "Twisting Echo Strides",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
                   },
                   {
@@ -122,14 +113,12 @@
         },
         {
           "title": "Sparrow Run",
-          "info": "Grab your quickest sparrow and make your way to the next encounter defusing mines along the way. Make sure to ding the red buttons to extend your time",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Fallen Shield",
-          "info": "Find and destroy the shielded Servitors. You'll need to gather and cleanse engrams at the crystals to drop their shields. Once it's dead, launch their corpse at a shield generator in the sky with the yeet cannon. You'll need to do this 4 times then move onto the next area",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -151,7 +140,7 @@
                   },
                   {
                     "name": "Corrupting Echo Robes",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7f97381a100562f0362420278b9bff36.jpg"
                   }
                 ]
@@ -166,7 +155,7 @@
                   },
                   {
                     "name": "Descending Echo Cage",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/cdd434f2d5f75ffa3db508c410057965.jpg"
                   }
                 ]
@@ -181,7 +170,7 @@
                   },
                   {
                     "name": "Twisting Echo Vest",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/b9ddb3b4ab4f1da2299cff262520010e.jpg"
                   }
                 ]
@@ -191,7 +180,6 @@
         },
         {
           "title": "Captain Avarokk, The Covetous",
-          "info": "Defeat Captain Avarokk by again collecting and cleansing engrams at the crystal in the middle where he is. Shooting one of the 3 power supplies around the center area will drop the engrams. He also spawn's two buddies, R-M80 and Grispax, that have a ton of health and can be a pain to deal with, so be sure to get rid of them first. Rinse and repeat till he's defeated",
           "dropsLoot": true,
           "doubleLoot": true,
           "loot": {
@@ -233,7 +221,7 @@
                   },
                   {
                     "name": "Corrupting Echo Boots",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
                   },
                   {
@@ -258,7 +246,7 @@
                   },
                   {
                     "name": "Descending Echo Greaves",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
                   },
                   {
@@ -283,7 +271,7 @@
                   },
                   {
                     "name": "Twisting Echo Strides",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d4eb002cf3d7dccc4ae5128410a659af.jpg"
                   },
                   {
@@ -313,14 +301,12 @@
       "encounters": [
         {
           "title": "Entrance",
-          "info": "Kill the Knights in the while light or dark to gather light & dark motes and cleanse the corresponding energy pillars. This will be the recurring mechanic",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Phalanx Echo",
-          "info": "Similar to the entrance, kill the Knights in the light or dark to gather the motes and cleanse the their corresponding pillars, then onto damage phase. Rinse and repeat till boss is defeated",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -342,7 +328,7 @@
                 "items": [
                   {
                     "name": "Moonfang-X7 Boots",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/88c1b93d1b635beeaf6f178558a98879.jpg"
                   },
                   {
@@ -357,7 +343,7 @@
                 "items": [
                   {
                     "name": "Moonfang-X7 Greaves",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/249897dc1cd59d3f4ecb0db8ee1769bd.jpg"
                   },
                   {
@@ -372,7 +358,7 @@
                 "items": [
                   {
                     "name": "Moonfang-X7 Strides",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/0bb7ca67924f942a7b5444e2b43d89a7.jpg"
                   },
                   {
@@ -387,14 +373,12 @@
         },
         {
           "title": "The Wasteland",
-          "info": "Sparrow around to find the area with the Taken blights then kill the ads and clear them. Go up to Toland and it'll spawn another blight you'll have to find. You'll need to do this x3 times before the next area opens",
           "dropsLoot": null,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Hexahedron",
-          "info": "Look up and around for Toland to find which side he is on, cleanse the energy pillar on that side, then goto the middle plate. Rinse and repeat x6 times until the two Centurion Echo's spawn in; kill them to move on",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -444,23 +428,15 @@
             ]
           }
         },
-        {
-          "title": "Hexahedron to Rainbow Road",
-          "info": "The Kell Echo spawns in but you can't kill her here. Just follow the boss until you reach the next area. Watch out for the army of thrall",
-          "dropsLoot": null,
-          "doubleLoot": false,
-          "loot": null
-        },
+
         {
           "title": "Rainbow Road (Deadsea)",
-          "info": "Ready your sparrow and follow the ribbon road all the way down to the bottom. There's a bunch of enemies scattered around and in the pyramids but you can skip them if you want",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Kell Echo",
-          "info": "Defeat the Kell Echo by gathering light & dark motes, cleansing their pillars, then killing the Ogre that spawns until all pillars are cleansed. Following that, jump in the middle to goto another room for damage phase. Stay close to the boss to keep Dark Entropy debuff off you. Repeat this process till boss is defeated",
           "dropsLoot": true,
           "doubleLoot": null,
           "loot": {
@@ -476,7 +452,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Robe",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/2609f42bc3852d3e862969809e8445a6.jpg"
                   },
                   {
@@ -486,7 +462,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Boots",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/88c1b93d1b635beeaf6f178558a98879.jpg"
                   },
                   {
@@ -506,7 +482,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Chassis",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/d67eec762b6205555bc9e36922865899.jpg"
                   },
                   {
@@ -516,7 +492,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Greaves",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/249897dc1cd59d3f4ecb0db8ee1769bd.jpg"
                   },
                   {
@@ -536,7 +512,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Rig",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/9364e358ebf30f838ac25aa01000a1ba.jpg"
                   },
                   {
@@ -546,7 +522,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Strides",
-                    "type": "Leg Armor",
+                    "type": "Legs",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/0bb7ca67924f942a7b5444e2b43d89a7.jpg"
                   },
                   {
@@ -561,7 +537,6 @@
         },
         {
           "title": "Final Chest (Not really an encounter)",
-          "info": "Grab your loot!",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -588,7 +563,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Robe",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/2609f42bc3852d3e862969809e8445a6.jpg"
                   },
                   {
@@ -608,7 +583,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Chassis",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/d67eec762b6205555bc9e36922865899.jpg"
                   },
                   {
@@ -628,7 +603,7 @@
                   },
                   {
                     "name": "Moonfang-X7 Rig",
-                    "type": "Chest Armor",
+                    "type": "Chest",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/9364e358ebf30f838ac25aa01000a1ba.jpg"
                   },
                   {
