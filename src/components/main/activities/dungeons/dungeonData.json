@@ -46,12 +46,14 @@
       "encounters": [
         {
           "title": "Loot Cave Entrance",
+          "description": "Gather enough engrams to enter the loot cave",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Phry'zhia, The Insatiable",
+          "description": "Defeat the oversized ogre by gathering engrams then doing optimal damage",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -113,12 +115,14 @@
         },
         {
           "title": "Sparrow Run",
+          "description": "Mount your fastest sparrow and make it to the end. Be sure to get those mines on the floor for more time",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Fallen Shield",
+          "description": "Bring down the fallen shield in the sky by finding and defeating the Servitors and yeeting it's corpse into it",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -180,6 +184,7 @@
         },
         {
           "title": "Captain Avarokk, The Covetous",
+          "description": "Gather engrams to do damage and defeat this Captain. Watch out for his buddies",
           "dropsLoot": true,
           "doubleLoot": true,
           "loot": {
@@ -301,12 +306,14 @@
       "encounters": [
         {
           "title": "Entrance",
+          "description": "Gather motes by killing the Knights in the Light/Dark and dunking them in their respective pillars",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Phalanx Echo",
+          "description": "Defeat the Phalanx by dunking the Light/Dark motes into the pillars by bring down his shield, then onto damage",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -373,6 +380,7 @@
         },
         {
           "title": "The Wasteland",
+          "description": "Find and destroy the blights around the Wasteland",
           "dropsLoot": null,
           "doubleLoot": false,
           "loot": null
@@ -431,12 +439,14 @@
 
         {
           "title": "Rainbow Road (Deadsea)",
+          "description": "Ride your sparrow (or don't) to end of the Rainbow Road",
           "dropsLoot": false,
           "doubleLoot": false,
           "loot": null
         },
         {
           "title": "Kell Echo",
+          "description": "Dunk Light/Dark motes into their pillars to face the Kell Echo",
           "dropsLoot": true,
           "doubleLoot": null,
           "loot": {
@@ -451,14 +461,14 @@
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/30fc44e5c4049a3cd6dcd8ae34e2e218.jpg"
                   },
                   {
-                    "name": "Moonfang-X7 Robe",
-                    "type": "Chest",
-                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2609f42bc3852d3e862969809e8445a6.jpg"
-                  },
-                  {
                     "name": "Moonfang-X7 Gloves",
                     "type": "Gauntlets",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/971b76a822ef5232bf38e32065e73c29.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Robe",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2609f42bc3852d3e862969809e8445a6.jpg"
                   },
                   {
                     "name": "Moonfang-X7 Boots",
@@ -481,14 +491,14 @@
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/172051d77276facf989b625ba97749ac.jpg"
                   },
                   {
-                    "name": "Moonfang-X7 Chassis",
-                    "type": "Chest",
-                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d67eec762b6205555bc9e36922865899.jpg"
-                  },
-                  {
                     "name": "Moonfang-X7 Gauntlets",
                     "type": "Gauntlets",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/a51a2f2b5b12f918c968d6da9ecce80a.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Chassis",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d67eec762b6205555bc9e36922865899.jpg"
                   },
                   {
                     "name": "Moonfang-X7 Greaves",
@@ -511,14 +521,14 @@
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/06b23f6deb59d3d92137cdbf90ca4f32.jpg"
                   },
                   {
-                    "name": "Moonfang-X7 Rig",
-                    "type": "Chest",
-                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9364e358ebf30f838ac25aa01000a1ba.jpg"
-                  },
-                  {
                     "name": "Moonfang-X7 Grips",
                     "type": "Gauntlets",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/a0118acd82f8daa0bc0e7ff6a8c4e36e.jpg"
+                  },
+                  {
+                    "name": "Moonfang-X7 Rig",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/9364e358ebf30f838ac25aa01000a1ba.jpg"
                   },
                   {
                     "name": "Moonfang-X7 Strides",
@@ -537,6 +547,7 @@
         },
         {
           "title": "Final Chest (Not really an encounter)",
+          "description": "Grab your loot!",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
@@ -610,6 +621,533 @@
                     "name": "Moonfang-X7 Cloak",
                     "type": "Class Item",
                     "iconPath": "https://bungie.net/common/destiny2_content/icons/7294ea5e03b08cb934acce311dbd6195.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pit of Heresy",
+      "location": "Sorrow's Harbor // The Moon",
+      "description": "Deep beneath Sorrow's Harbor, the Hive keep their darkest secrets",
+      "modes": [
+        {
+          "type": "Minimum",
+          "recommendedLightLevel": "1350",
+          "uniqueLoot": null
+        }
+      ],
+      "modifiers": [],
+      "encounters": [
+        {
+          "title": "Necropolis",
+          "description": "Drop into the first tower right off the cliff to find your runes. Goto the towers with these runes and kill the bosses inside",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "A Fine Memorial",
+                "type": "Machine Gun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/92bae74d4a22fe1eade1bfd0dd026d1a.jpg"
+              },
+              {
+                "name": "Arc Logic",
+                "type": "Auto Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/34c505383b1f5e149f9b8883b84897dd.jpg"
+              },
+              {
+                "name": "Dream Breaker",
+                "type": "Fusion Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/9f5faa0fd788d12ea3bf3e58170413f3.jpg"
+              },
+              {
+                "name": "Every Waking Moment",
+                "type": "Submachine Gun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/9016ddcd84b70794809b8d64cd76917f.jpg"
+              },
+              {
+                "name": "Loud Lullaby",
+                "type": "Hand Cannon",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/8f42ab490589abce8c165ad4873f2ae8.jpg"
+              },
+              {
+                "name": "Love and Death",
+                "type": "Grenade Launcher",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/25a32894caaa1ae2a9a81bcf5c2e20ac.jpg"
+              },
+              {
+                "name": "Night Terror",
+                "type": "Sword",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/5b0ff8a3f76d64dd67b3b8906d08a9ab.jpg"
+              },
+              {
+                "name": "One Small Step",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/1ba82f32406b6b9815f2a3a561468105.jpg"
+              },
+              {
+                "name": "Tranquility",
+                "type": "Sniper Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/a168616328e174293ab02a8cd1c89dee.jpg"
+              },
+              {
+                "name": "Apostate",
+                "type": "Sniper Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/b990412136d220fd641078418a4903fe.jpg"
+              },
+              {
+                "name": "Blasphemer",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/2f61559b7c57894703b6aaa52a44630c.jpg"
+              },
+              {
+                "name": "Heretic",
+                "type": "Rocket Launcher",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/eaf113dbb5cea03526009e6030b8c8ee.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Dreambane Hood",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2a729cf899e03f8bcb6299d6f9cdd195.jpg"
+                  },
+                  {
+                    "name": "Dreambane Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/7b3cf48d7e598cb592e6bfaa6dbe3c16.jpg"
+                  },
+                  {
+                    "name": "Dreambane Robes",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/bdd025f71c20b37c99a44d66a8abe6a7.jpg"
+                  },
+                  {
+                    "name": "Dreambane Boots",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/11fcef399ae482a2d1c35be9c60fec6e.jpg"
+                  },
+                  {
+                    "name": "Dreambane Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4d28d97acf2d1d3958dec72d5688676e.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Dreambane Helm",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/e316d685c2e3ca3b46f8363544b400d0.jpg"
+                  },
+                  {
+                    "name": "Dreambane Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/687ebd26eab04203bf86720f1c9c4009.jpg"
+                  },
+                  {
+                    "name": "Dreambane Plate",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4ee9cf819d6ce63e138b77ced6503826.jpg"
+                  },
+                  {
+                    "name": "Dreambane Greaves",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/6b790c26aa3d384dd54607f94e4554ba.jpg"
+                  },
+                  {
+                    "name": "Dreambane Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/f9c8eaefc8d2531b8b32cd9a44f7cbc8.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Dreambane Cowl",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/aaa90760d9a5985832a704ca3b07e452.jpg"
+                  },
+                  {
+                    "name": "Dreambane Grips",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d065e3daf19059a5c65ba702b3924bf4.jpg"
+                  },
+                  {
+                    "name": "Dreambane Vest",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/59968e09742c9abb770711a62348033d.jpg"
+                  },
+                  {
+                    "name": "Dreambane Strides",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4244cbea7698556849a8ff62e4e1dd94.jpg"
+                  },
+                  {
+                    "name": "Dreambane Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/cfe38354bcb2a1a50e3cbad151f06c1e.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Wall of Doors",
+          "description": "Find the right door to go thru",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": {}
+        },
+        {
+          "title": "Tunnels of Despair",
+          "description": "Dunk 3 orbs into the vessels at the end of each pathway by killing the Knights inside the caves. Watch out for the unkillable Orgres roaming",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": {}
+        },
+        {
+          "title": "Chamber of Suffering",
+          "description": "Kill Knights to gather their orbs and dunk them into the pillar in the middle; you'll need to do this 6 times. Watch out for the Curse of Suffering debuff",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Premonition",
+                "type": "Pulse Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/81e0e191adfbcedfdbaef5437f230f19.jpg"
+              },
+              {
+                "name": "A Fine Memorial",
+                "type": "Machine Gun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/92bae74d4a22fe1eade1bfd0dd026d1a.jpg"
+              },
+              {
+                "name": "Arc Logic",
+                "type": "Auto Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/34c505383b1f5e149f9b8883b84897dd.jpg"
+              },
+              {
+                "name": "Dream Breaker",
+                "type": "Fusion Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/9f5faa0fd788d12ea3bf3e58170413f3.jpg"
+              },
+              {
+                "name": "Every Waking Moment",
+                "type": "Submachine Gun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/9016ddcd84b70794809b8d64cd76917f.jpg"
+              },
+              {
+                "name": "Loud Lullaby",
+                "type": "Hand Cannon",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/8f42ab490589abce8c165ad4873f2ae8.jpg"
+              },
+              {
+                "name": "Love and Death",
+                "type": "Grenade Launcher",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/25a32894caaa1ae2a9a81bcf5c2e20ac.jpg"
+              },
+              {
+                "name": "Night Terror",
+                "type": "Sword",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/5b0ff8a3f76d64dd67b3b8906d08a9ab.jpg"
+              },
+              {
+                "name": "One Small Step",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/1ba82f32406b6b9815f2a3a561468105.jpg"
+              },
+              {
+                "name": "Tranquility",
+                "type": "Sniper Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/a168616328e174293ab02a8cd1c89dee.jpg"
+              },
+              {
+                "name": "Apostate",
+                "type": "Sniper Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/b990412136d220fd641078418a4903fe.jpg"
+              },
+              {
+                "name": "Blasphemer",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/2f61559b7c57894703b6aaa52a44630c.jpg"
+              },
+              {
+                "name": "Heretic",
+                "type": "Rocket Launcher",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/eaf113dbb5cea03526009e6030b8c8ee.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Dreambane Hood",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2a729cf899e03f8bcb6299d6f9cdd195.jpg"
+                  },
+                  {
+                    "name": "Dreambane Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/7b3cf48d7e598cb592e6bfaa6dbe3c16.jpg"
+                  },
+                  {
+                    "name": "Dreambane Robes",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/bdd025f71c20b37c99a44d66a8abe6a7.jpg"
+                  },
+                  {
+                    "name": "Dreambane Boots",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/11fcef399ae482a2d1c35be9c60fec6e.jpg"
+                  },
+                  {
+                    "name": "Dreambane Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4d28d97acf2d1d3958dec72d5688676e.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Dreambane Helm",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/e316d685c2e3ca3b46f8363544b400d0.jpg"
+                  },
+                  {
+                    "name": "Dreambane Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/687ebd26eab04203bf86720f1c9c4009.jpg"
+                  },
+                  {
+                    "name": "Dreambane Plate",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4ee9cf819d6ce63e138b77ced6503826.jpg"
+                  },
+                  {
+                    "name": "Dreambane Greaves",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/6b790c26aa3d384dd54607f94e4554ba.jpg"
+                  },
+                  {
+                    "name": "Dreambane Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/f9c8eaefc8d2531b8b32cd9a44f7cbc8.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Dreambane Cowl",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/aaa90760d9a5985832a704ca3b07e452.jpg"
+                  },
+                  {
+                    "name": "Dreambane Grips",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d065e3daf19059a5c65ba702b3924bf4.jpg"
+                  },
+                  {
+                    "name": "Dreambane Vest",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/59968e09742c9abb770711a62348033d.jpg"
+                  },
+                  {
+                    "name": "Dreambane Strides",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4244cbea7698556849a8ff62e4e1dd94.jpg"
+                  },
+                  {
+                    "name": "Dreambane Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/cfe38354bcb2a1a50e3cbad151f06c1e.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "The Harrow",
+          "description": "Find the pillars that match the runes in the entrance, it'll have Wizards and enemies around them. Kill them to proceed",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": {}
+        },
+        {
+          "title": "Zulmak, Instrument of Torment",
+          "description": "Kill the big Knights roaming to defeat the 3 mini-bosses around the room. Then onto damage phase for Zulmak",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "A Fine Memorial",
+                "type": "Machine Gun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/92bae74d4a22fe1eade1bfd0dd026d1a.jpg"
+              },
+              {
+                "name": "Arc Logic",
+                "type": "Auto Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/34c505383b1f5e149f9b8883b84897dd.jpg"
+              },
+              {
+                "name": "Dream Breaker",
+                "type": "Fusion Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/9f5faa0fd788d12ea3bf3e58170413f3.jpg"
+              },
+              {
+                "name": "Every Waking Moment",
+                "type": "Submachine Gun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/9016ddcd84b70794809b8d64cd76917f.jpg"
+              },
+              {
+                "name": "Loud Lullaby",
+                "type": "Hand Cannon",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/8f42ab490589abce8c165ad4873f2ae8.jpg"
+              },
+              {
+                "name": "Love and Death",
+                "type": "Grenade Launcher",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/25a32894caaa1ae2a9a81bcf5c2e20ac.jpg"
+              },
+              {
+                "name": "Night Terror",
+                "type": "Sword",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/5b0ff8a3f76d64dd67b3b8906d08a9ab.jpg"
+              },
+              {
+                "name": "One Small Step",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/1ba82f32406b6b9815f2a3a561468105.jpg"
+              },
+              {
+                "name": "Tranquility",
+                "type": "Sniper Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/a168616328e174293ab02a8cd1c89dee.jpg"
+              },
+              {
+                "name": "Apostate",
+                "type": "Sniper Rifle",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/b990412136d220fd641078418a4903fe.jpg"
+              },
+              {
+                "name": "Blasphemer",
+                "type": "Shotgun",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/2f61559b7c57894703b6aaa52a44630c.jpg"
+              },
+              {
+                "name": "Heretic",
+                "type": "Rocket Launcher",
+                "iconPath": "https://bungie.net/common/destiny2_content/icons/eaf113dbb5cea03526009e6030b8c8ee.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Dreambane Hood",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/2a729cf899e03f8bcb6299d6f9cdd195.jpg"
+                  },
+                  {
+                    "name": "Dreambane Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/7b3cf48d7e598cb592e6bfaa6dbe3c16.jpg"
+                  },
+                  {
+                    "name": "Dreambane Robes",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/bdd025f71c20b37c99a44d66a8abe6a7.jpg"
+                  },
+                  {
+                    "name": "Dreambane Boots",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/11fcef399ae482a2d1c35be9c60fec6e.jpg"
+                  },
+                  {
+                    "name": "Dreambane Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4d28d97acf2d1d3958dec72d5688676e.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Dreambane Helm",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/e316d685c2e3ca3b46f8363544b400d0.jpg"
+                  },
+                  {
+                    "name": "Dreambane Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/687ebd26eab04203bf86720f1c9c4009.jpg"
+                  },
+                  {
+                    "name": "Dreambane Plate",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4ee9cf819d6ce63e138b77ced6503826.jpg"
+                  },
+                  {
+                    "name": "Dreambane Greaves",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/6b790c26aa3d384dd54607f94e4554ba.jpg"
+                  },
+                  {
+                    "name": "Dreambane Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/f9c8eaefc8d2531b8b32cd9a44f7cbc8.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Dreambane Cowl",
+                    "type": "Helmet",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/aaa90760d9a5985832a704ca3b07e452.jpg"
+                  },
+                  {
+                    "name": "Dreambane Grips",
+                    "type": "Gauntlets",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/d065e3daf19059a5c65ba702b3924bf4.jpg"
+                  },
+                  {
+                    "name": "Dreambane Vest",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/59968e09742c9abb770711a62348033d.jpg"
+                  },
+                  {
+                    "name": "Dreambane Strides",
+                    "type": "Legs",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/4244cbea7698556849a8ff62e4e1dd94.jpg"
+                  },
+                  {
+                    "name": "Dreambane Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/cfe38354bcb2a1a50e3cbad151f06c1e.jpg"
                   }
                 ]
               }

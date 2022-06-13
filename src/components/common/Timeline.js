@@ -57,51 +57,59 @@ const LootImg = styled.img`
 
 const TimelineTitle = ({ children }) => (
   <div className="timeline-title">
-    <Text classes="text-sm" light>
+    <Text classes="text-sm" regular>
       {children}
     </Text>
   </div>
 );
 
-const LootItems = ({ doubleLoot, children }) => (
-  <div className="mt-3">{children}</div>
+const TimelineInfo = ({ children }) => (
+  <div className="timeline-info">
+    <Text classes="text-xs">{children}</Text>
+  </div>
 );
+
+const LootItems = ({ children }) => <div className="mt-3">{children}</div>;
 
 export const TimeLine = ({ encounters }) => (
   <Timeline>
     <TimelineList>
-      {encounters.map(({ title, dropsLoot, doubleLoot, loot }) => (
+      {encounters.map(({ title, description, dropsLoot, doubleLoot, loot }) => (
         <Fragment key={uniqueId("title_")}>
           <TimelineListItem>
             <TimelineDisplay dropsLoot={dropsLoot} />
-            <TimelineTitle>{title}</TimelineTitle>
+            <TimelineTitle>
+              {title} {doubleLoot && "(Double Loot)"}
+            </TimelineTitle>
+            <TimelineInfo>{description}</TimelineInfo>
             {dropsLoot && (
-              <LootItems doubleLoot={doubleLoot}>
+              <LootItems>
                 <div className="mb-2">
                   <div
                     key={uniqueId("name_")}
                     className="grid grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8"
                   >
-                    {concat(
-                      loot.weapons,
-                      flatten(loot.armor.map(({ items }) => items))
-                    ).map(({ name, type, iconPath }) => (
-                      <div key={uniqueId(`${name}_`)} className="mb-8 h-32">
-                        <LootImg
-                          className="h-14 md:h-16 xl:h-20"
-                          src={iconPath}
-                          alt="loot-img"
-                        />
-                        <div className="w-10/12">
-                          <Text classes="text-[6px] lg:text-[8px] tracking-widerest">
-                            {type.toUpperCase()}
-                          </Text>
-                          <Text classes="text-xxs lg:text-xs leading-[14px]">
-                            {name}
-                          </Text>
+                    {Object.keys(loot).length > 0 &&
+                      concat(
+                        loot.weapons,
+                        flatten(loot.armor.map(({ items }) => items))
+                      ).map(({ name, type, iconPath }) => (
+                        <div key={uniqueId(`${name}_`)} className="mb-8 h-32">
+                          <LootImg
+                            className="h-14 md:h-16 xl:h-20"
+                            src={iconPath}
+                            alt="loot-img"
+                          />
+                          <div className="w-10/12">
+                            <Text classes="text-[6px] lg:text-[8px] tracking-widerest">
+                              {type.toUpperCase()}
+                            </Text>
+                            <Text classes="text-xxs lg:text-xs leading-[14px]">
+                              {name}
+                            </Text>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 </div>
               </LootItems>
