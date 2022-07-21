@@ -2,7 +2,7 @@
   "dungeons": [
     {
       "name": "Duality",
-      "location": "Derelict Leviathan // Leviathan",
+      "location": "Derelict Leviathan // The Moon",
       "description": "Dive into the depths of the exiled emperor's mind in search of dark secrets",
       "modes": [
         {
@@ -600,6 +600,11 @@
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4b600b7a7e07a1d6c6a2d893c2f4db9c.jpg"
                   },
                   {
+                    "name": "Corrupting Echo Robes",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7f97381a100562f0362420278b9bff36.jpg"
+                  },
+                  {
                     "name": "Corrupting Echo Boots",
                     "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/9b961c8b2e46c1f138409f21f1da3fd6.jpg"
@@ -625,6 +630,11 @@
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/184f671e6182b68442e7dbc147152ac5.jpg"
                   },
                   {
+                    "name": "Descending Echo Cage",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/cdd434f2d5f75ffa3db508c410057965.jpg"
+                  },
+                  {
                     "name": "Descending Echo Greaves",
                     "type": "Legs",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5345c89b1e9bc362eb3f8c54398e9f5.jpg"
@@ -648,6 +658,11 @@
                     "name": "Twisting Echo Grips",
                     "type": "Gauntlets",
                     "iconPath": "https://www.bungie.net/common/destiny2_content/icons/38ad4901a4d13c7946a6df64365aa5be.jpg"
+                  },
+                  {
+                    "name": "Twisting Echo Vest",
+                    "type": "Chest",
+                    "iconPath": "https://bungie.net/common/destiny2_content/icons/b9ddb3b4ab4f1da2299cff262520010e.jpg"
                   },
                   {
                     "name": "Twisting Echo Strides",
