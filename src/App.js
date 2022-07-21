@@ -1,11 +1,12 @@
-import { Header } from "./components/header/Header";
+import { Menu } from "./components/menu/Menu";
 import { Main } from "./components/main/Main";
 
 function App() {
   return (
     <>
-      <Header />
-      <Main />
+      <Menu>
+        <Main />
+      </Menu>
     </>
   );
 }

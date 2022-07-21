@@ -12,11 +12,16 @@ module.exports = {
     },
     colors: {
       white: "#ffffff",
+      light: "#f8fafc",
+      dark: "#0e1111",
     },
     letterSpacing: {
       widerest: "0.2em",
     },
     extend: {
+      width: {
+        mobileMenu: "calc(100vw - 1rem)",
+      },
       keyframes: {
         line: {
           from: { left: "50%", width: "0%" },
@@ -24,7 +29,7 @@ module.exports = {
         },
       },
       animation: {
-        "animate-hr": "line 2s linear forwards",
+        animateHr: "line 2s linear forwards",
       },
     },
   },

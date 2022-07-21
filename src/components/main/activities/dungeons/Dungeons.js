@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Text } from "../../../common/Text";
+import { SubTitleText } from "../../../common/SubTitleText";
 import { TimeLine } from "../../../common/Timeline";
 import { TitleText } from "../../../common/TitleText";
 import { uniqueId } from "lodash";
@@ -34,6 +35,7 @@ export const Dungeons = () => {
   return (
     <div className="mb-5">
       <TitleText>DUNGEONS</TitleText>
+      <SubTitleText>Encounters, modifiers, and loot</SubTitleText>
       <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-5 px-1 md:px-2">
         {data &&
           data.dungeons.map(

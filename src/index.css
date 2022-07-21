@@ -51,6 +51,19 @@ p {
   font-weight: 100;
 }
 
+a.regular {
+  font-weight: 400;
+}
+
+a.light {
+  font-weight: 300;
+}
+
+a.super-light {
+  font-weight: 100;
+  color: rgb(100 116 139);
+}
+
 .text-xxs {
   font-size: 0.65rem;
 }
