@@ -1,6 +1,381 @@
 {
   "dungeons": [
     {
+      "name": "Duality",
+      "location": "Derelict Leviathan // Leviathan",
+      "description": "Dive into the depths of the exiled emperor's mind in search of dark secrets",
+      "modes": [
+        {
+          "type": "Legend",
+          "recommendedLightLevel": "1550",
+          "uniqueLoot": null
+        },
+        {
+          "type": "Master",
+          "recommendedLightLevel": "1590",
+          "uniqueLoot": [
+            {
+              "title": "Master Specific Loot",
+              "description": "Armor dropped in Master contains the Artifice intrinsic trait"
+            }
+          ]
+        }
+      ],
+      "modifiers": [
+        {
+          "type": "Master",
+          "typeModifiers": [
+            {
+              "name": "Champions: Unstoppable",
+              "description": "This mode contains Unstoppable Champions, which cannot be stopped without an Unstoppable mod",
+              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/0e40371c49f0beac97e5fd9dc2ea9348.png"
+            },
+            {
+              "name": "Champions: Barrier",
+              "description": "This mode contains Barrier Champions, which cannot be stopped without an Anti-Barrier mod",
+              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/2ac9bcf4a961c3b3e31da7b76a5a87f9.png"
+            },
+            {
+              "name": "Match Game",
+              "description": "Enemy shields are highly resistant to all unmatched elemental damage",
+              "iconPath": "https://www.bungie.net/common/destiny2_content/icons/d9337bf6883df7dff9190cff413e6fde.png"
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "title": "Mindscape Jumping Puzzle",
+          "description": "Navigate thru the Mindscape by shooting the bells to switch between realms",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Nightmare of Gahlran",
+          "description": "Kill the Standard Bearers in the Nightmare realm and plant the Standard Essence you received into the symbol in the normal realm. Do this x2 to start damage on Gahlran",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Lingering Dread",
+                "type": "Grenade Launcher",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/6bff949f4e51ce2a5084c5fbbd231242.jpg"
+              },
+              {
+                "name": "The Epicurean",
+                "type": "Fusion Rifle",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/104ea681ca27b1b5e886d9bba3bff0f7.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Deep Explorer Hood",
+                    "type": "Helmet",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/e5152e73a94a269e7d7c1f379137e9a4.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/03774fb145e66c5cfce2ad2313396900.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Boots",
+                    "type": "Legs",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/45190f911acf57b7e7a8afd33d5d8602.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Deep Explorer Helmet",
+                    "type": "Helmet",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/8e9bb24f68e69136ede9d70f6cca4f9a.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/45e0057377f4827c0670f16dac8a026c.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Greaves",
+                    "type": "Legs",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5fa32464643de47a40c1fb741b95cda8.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Deep Explorer Mask",
+                    "type": "Helmet",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/b94a18a852ce66c402b7ce1859a21af9.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Grasps",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/27e6944555124596471a338aed4155a2.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Strides",
+                    "type": "Legs",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/83c31cf35774b0ca57a783fd3e62246b.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Dive Deeper",
+          "description": "More jumping puzzle to navigate thru",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Statue Puzzle",
+          "description": "Turn the statues to all face the bell in the middle. Use the Nightmare realm to turn them by the switch on the back of each statue",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "The Vault",
+          "description": "Grab the Standard Essence by killing the Standard Bearer in the Nightmare realm and planting it to it's corresponding symbol in the normal realm, then kill the mini boss that spawns in. You'll need to do this x3",
+          "dropsLoot": true,
+          "doubleLoot": false,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Unforgiven",
+                "type": "Submachine Gun",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/26199348477e4fa5d808a71c182c9eef.jpg"
+              },
+              {
+                "name": "Stormchaser",
+                "type": "Linear Fusion Rifle",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/b8b12eb8176a2c750b4c143781f3b5cb.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Deep Explorer Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/03774fb145e66c5cfce2ad2313396900.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Vestments",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/b092e1748245ffe1a10d7161498b7139.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5012949811cd80baef0000c87224007.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Deep Explorer Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/45e0057377f4827c0670f16dac8a026c.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Plate",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/247c9b1d62eaea11975091d528d67511.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7efb50dc3b4236812fb3e0abd9ef9996.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Deep Explorer Grasps",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/27e6944555124596471a338aed4155a2.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Vest",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4fd1b79443b153646557ca6885afdf99.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/1debef2f8e18b7c146322b113bb3d3e5.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Navigate the Vault",
+          "description": "Last jumping puzzle on the way to the boss",
+          "dropsLoot": false,
+          "doubleLoot": false,
+          "loot": null
+        },
+        {
+          "title": "Nightmare of Caiatl",
+          "description": "Similar to the previous encounters, grab the Standard Essence, plant the essence in the matching symbol, then you'll start damage phase. There's an annoying amount of ads here so watch out",
+          "dropsLoot": true,
+          "doubleLoot": true,
+          "loot": {
+            "weapons": [
+              {
+                "name": "Heartshadow",
+                "type": "Sword",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/edb5f5a77195aa36891e903aa2967cde.jpg"
+              },
+              {
+                "name": "New Purpose",
+                "type": "Pulse Rifle",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4eec9cd2e3f631a072d3cb1965766c66.jpg"
+              },
+              {
+                "name": "Fixed Odds",
+                "type": "Machine Gun",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/de7db8a269584688f8b707f912cc21dd.jpg"
+              },
+              {
+                "name": "Lingering Dread",
+                "type": "Grenade Launcher",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/6bff949f4e51ce2a5084c5fbbd231242.jpg"
+              },
+              {
+                "name": "The Epicurean",
+                "type": "Fusion Rifle",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/104ea681ca27b1b5e886d9bba3bff0f7.jpg"
+              },
+              {
+                "name": "Unforgiven",
+                "type": "Submachine Gun",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/26199348477e4fa5d808a71c182c9eef.jpg"
+              },
+              {
+                "name": "Stormchaser",
+                "type": "Linear Fusion Rifle",
+                "iconPath": "https://www.bungie.net/common/destiny2_content/icons/b8b12eb8176a2c750b4c143781f3b5cb.jpg"
+              }
+            ],
+            "armor": [
+              {
+                "character": "Warlock",
+                "items": [
+                  {
+                    "name": "Deep Explorer Hood",
+                    "type": "Helmet",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/e5152e73a94a269e7d7c1f379137e9a4.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Gloves",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/03774fb145e66c5cfce2ad2313396900.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Vestments",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/b092e1748245ffe1a10d7161498b7139.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Boots",
+                    "type": "Legs",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/45190f911acf57b7e7a8afd33d5d8602.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Bond",
+                    "type": "Class Item",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/a5012949811cd80baef0000c87224007.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Titan",
+                "items": [
+                  {
+                    "name": "Deep Explorer Helmet",
+                    "type": "Helmet",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/8e9bb24f68e69136ede9d70f6cca4f9a.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Gauntlets",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/45e0057377f4827c0670f16dac8a026c.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Plate",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/247c9b1d62eaea11975091d528d67511.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Greaves",
+                    "type": "Legs",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/5fa32464643de47a40c1fb741b95cda8.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Mark",
+                    "type": "Class Item",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/7efb50dc3b4236812fb3e0abd9ef9996.jpg"
+                  }
+                ]
+              },
+              {
+                "character": "Hunter",
+                "items": [
+                  {
+                    "name": "Deep Explorer Mask",
+                    "type": "Helmet",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/b94a18a852ce66c402b7ce1859a21af9.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Grasps",
+                    "type": "Gauntlets",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/27e6944555124596471a338aed4155a2.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Vest",
+                    "type": "Chest",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/4fd1b79443b153646557ca6885afdf99.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Strides",
+                    "type": "Legs",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/83c31cf35774b0ca57a783fd3e62246b.jpg"
+                  },
+                  {
+                    "name": "Deep Explorer Cloak",
+                    "type": "Class Item",
+                    "iconPath": "https://www.bungie.net/common/destiny2_content/icons/1debef2f8e18b7c146322b113bb3d3e5.jpg"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "Grasp of Avarice",
       "location": "The Cosmodrome // Earth",
       "description": "A cautionary tale for adventurers willing to trade their humanity for riches",

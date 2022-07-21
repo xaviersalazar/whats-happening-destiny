@@ -79,7 +79,7 @@ export const TimeLine = ({ encounters }) => (
           <TimelineListItem>
             <TimelineDisplay dropsLoot={dropsLoot} />
             <TimelineTitle>
-              {title} {doubleLoot && "(Double Loot)"}
+              {title} {doubleLoot && "(x2 Rewards)"}
             </TimelineTitle>
             <TimelineInfo>{description}</TimelineInfo>
             {dropsLoot && (
@@ -101,7 +101,7 @@ export const TimeLine = ({ encounters }) => (
                             alt="loot-img"
                           />
                           <div className="w-10/12">
-                            <Text classes="text-[6px] lg:text-[8px] tracking-widerest">
+                            <Text classes="text-[6px] leading-3 my-1 lg:text-[8px] tracking-widerest">
                               {type.toUpperCase()}
                             </Text>
                             <Text classes="text-xxs lg:text-xs leading-[14px]">
