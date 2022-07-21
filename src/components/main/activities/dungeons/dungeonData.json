@@ -387,6 +387,7 @@
         },
         {
           "title": "Hexahedron",
+          "description": "Look for Toland orb to see which pillar you need motes for (Light/Dark). The room will rotate and you'll need to do it again till you eventually reach the Centurion bosses",
           "dropsLoot": true,
           "doubleLoot": false,
           "loot": {
