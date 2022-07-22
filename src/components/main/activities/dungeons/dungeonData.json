@@ -15,7 +15,7 @@
           "recommendedLightLevel": "1590",
           "uniqueLoot": [
             {
-              "title": "Master Specific Loot",
+              "title": "Master Specific Rewards",
               "description": "Armor dropped in Master contains the Artifice intrinsic trait"
             }
           ]
@@ -390,7 +390,7 @@
           "recommendedLightLevel": "1590",
           "uniqueLoot": [
             {
-              "title": "Master Specific Loot",
+              "title": "Master Specific Rewards",
               "description": "Armor dropped in Master contains the Artifice intrinsic trait"
             }
           ]

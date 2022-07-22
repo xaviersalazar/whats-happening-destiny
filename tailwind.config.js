@@ -10,6 +10,13 @@ module.exports = {
       xl: "1280px",
       "2xl": "1536px",
     },
+    fontWeight: {
+      thin: "100",
+      light: "300",
+      regular: "400",
+      bold: "700",
+      black: "900",
+    },
     colors: {
       white: "#ffffff",
       light: "#f8fafc",

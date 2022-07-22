@@ -57,15 +57,13 @@ const LootImg = styled.img`
 
 const TimelineTitle = ({ children }) => (
   <div className="timeline-title">
-    <Text classes="text-sm" regular>
-      {children}
-    </Text>
+    <Text classes="text-sm font-regular">{children}</Text>
   </div>
 );
 
 const TimelineInfo = ({ children }) => (
   <div className="timeline-info">
-    <Text classes="text-xs">{children}</Text>
+    <Text classes="text-xs font-thin">{children}</Text>
   </div>
 );
 
@@ -101,10 +99,10 @@ export const TimeLine = ({ encounters }) => (
                             alt="loot-img"
                           />
                           <div className="w-10/12">
-                            <Text classes="text-[6px] leading-3 my-1 lg:text-[8px] tracking-widerest">
+                            <Text classes="text-[6px] font-thin leading-3 my-1 lg:text-[8px] tracking-widerest">
                               {type.toUpperCase()}
                             </Text>
-                            <Text classes="text-xxs lg:text-xs leading-[14px]">
+                            <Text classes="text-[0.65rem] font-light lg:text-xs leading-[14px]">
                               {name}
                             </Text>
                           </div>

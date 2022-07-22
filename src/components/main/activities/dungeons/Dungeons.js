@@ -11,13 +11,13 @@ const powerLevelIcon = `${process.env.PUBLIC_URL}/assets/power-level-icon.png`;
 
 const Mode = ({ modeType, powerLevel }) => (
   <div className="flex">
-    <Text classes="flex-initial text-sm mr-2">{modeType}:</Text>
+    <Text classes="flex-initial text-xs font-thin mr-2">{modeType}:</Text>
     <img
       className="flex-none w-2 h-2 relative top-1 mr-0.5"
       src={powerLevelIcon}
       alt="power-level-img"
     />
-    <Text classes="flex-initial text-sm">{powerLevel}</Text>
+    <Text classes="flex-initial text-xs font-thin">{powerLevel}</Text>
   </div>
 );
 
@@ -41,17 +41,17 @@ export const Dungeons = () => {
           data.dungeons.map(
             ({ name, location, description, modes, modifiers, encounters }) => (
               <div key={uniqueId("dungeon_")} className="py-3">
-                <Text classes="text-xxs sm:text-sm tracking-widerest">
+                <Text classes="text-[0.65rem] font-thin sm:text-sm tracking-widerest">
                   {location.toUpperCase()}
                 </Text>
-                <h1 className="text-3xl xs:text-4xl md:5xl text-white bold my-0">
+                <h1 className="text-3xl font-bold xs:text-4xl md:5xl text-white bold my-0">
                   {name}
                 </h1>
-                <Text classes="text-xxs sm:text-sm mb-3 italic">
+                <Text classes="text-[0.65rem] font-thin sm:text-sm mb-3 italic">
                   {description}
                 </Text>
                 <div className="mb-3">
-                  <h6 className="text-sm text-white">LIGHT LEVEL</h6>
+                  <h6 className="text-sm font-bold text-white">LIGHT LEVEL</h6>
                   <div className="my-2">
                     {modes.map(
                       ({ type, recommendedLightLevel, uniqueLoot }) => (
@@ -66,10 +66,12 @@ export const Dungeons = () => {
                                 key={uniqueId("unique_loot_")}
                                 className="mt-2"
                               >
-                                <Text classes="text-sm" light>
+                                <Text classes="text-sm font-regular">
                                   {title}
                                 </Text>
-                                <Text classes="text-sm">{description}</Text>
+                                <Text classes="text-xs font-thin">
+                                  {description}
+                                </Text>
                               </div>
                             ))}
                         </Fragment>
@@ -77,11 +79,11 @@ export const Dungeons = () => {
                     )}
                   </div>
                 </div>
-                <div className="mb-3">
+                <div className={`${modifiers.length > 0 ? "mb-8" : "mb-3"}`}>
                   {modifiers &&
                     modifiers.map(({ type, typeModifiers }) => (
                       <div key={uniqueId("modifier_")} className="my-2">
-                        <h6 className="text-sm text-white">
+                        <h6 className="text-sm text-white font-bold">
                           MODIFIERS ({type.toUpperCase()})
                         </h6>
                         {typeModifiers.map(
@@ -93,16 +95,18 @@ export const Dungeons = () => {
                               <div className="flex">
                                 <div className="mr-2">
                                   <ModifierImg
-                                    className="relative h-7 top-4 md:h-6 md:top-2"
+                                    className="relative h-7 top-1 md:h-6 md:top-2"
                                     src={iconPath}
                                     alt="modifier-img"
                                   />
                                 </div>
                                 <div>
-                                  <Text classes="text-sm" regular>
+                                  <Text classes="text-sm font-regular">
                                     {name}
                                   </Text>
-                                  <Text classes="text-sm">{description}</Text>
+                                  <Text classes="text-xs font-thin">
+                                    {description}
+                                  </Text>
                                 </div>
                               </div>
                             </div>
@@ -112,7 +116,7 @@ export const Dungeons = () => {
                     ))}
                 </div>
                 <div className="mb-3">
-                  <h6 className="text-sm text-white">ENCOUNTERS</h6>
+                  <h6 className="text-sm text-white font-bold">ENCOUNTERS</h6>
                   <TimeLine encounters={encounters} />
                 </div>
               </div>
