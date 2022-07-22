@@ -42,7 +42,7 @@ export const Menu = ({ children }) => {
                           className={classNames(
                             item.current
                               ? "font-regular text-white"
-                              : "font-thin text-light hover:text-white",
+                              : "font-thin text-light hover:text-dark hover:bg-white",
                             "px-3 py-2 rounded-md text-xs uppercase lg:text-sm"
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -76,20 +76,24 @@ export const Menu = ({ children }) => {
               <Disclosure.Panel className="md:hidden">
                 <div className="absolute bg-white w-mobileMenu rounded ml-2 shadow-2xl px-2 py-2 space-y-1">
                   {navigation.map((item) => (
-                    <Disclosure.Button
+                    <Link
                       key={item.name}
-                      className={classNames(
-                        item.current
-                          ? "font-regular text-dark"
-                          : "font-thin hover:text-dark",
-                        "block px-3 py-2 rounded-md text-xs uppercase lg:text-sm"
-                      )}
-                      aria-current={item.current ? "page" : undefined}
+                      to={item.href}
+                      className={"focus-visible:outline-none"}
+                      onClick={() => setCurrentLink(item)}
                     >
-                      <Link to={item.href} onClick={() => setCurrentLink(item)}>
+                      <Disclosure.Button
+                        className={classNames(
+                          item.current
+                            ? "font-regular text-dark"
+                            : "font-thin hover:text-white hover:bg-dark",
+                          "block px-3 py-2 rounded-md text-xs uppercase lg:text-sm focus-visible:outline-none "
+                        )}
+                        aria-current={item.current ? "page" : undefined}
+                      >
                         {item.name}
-                      </Link>
-                    </Disclosure.Button>
+                      </Disclosure.Button>
+                    </Link>
                   ))}
                 </div>
               </Disclosure.Panel>
