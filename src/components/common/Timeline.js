@@ -94,7 +94,7 @@ export const TimeLine = ({ encounters }) => (
                       ).map(({ name, type, iconPath }) => (
                         <div key={uniqueId(`${name}_`)} className="mb-8 h-32">
                           <LootImg
-                            className="h-14 md:h-16 xl:h-20"
+                            className="h-14 md:h-16"
                             src={iconPath}
                             alt="loot-img"
                           />

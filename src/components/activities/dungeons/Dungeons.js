@@ -36,7 +36,7 @@ export const Dungeons = () => {
     <div className="p-2 mb-5">
       <TitleText>DUNGEONS</TitleText>
       <SubTitleText>Encounters, modifiers, and loot</SubTitleText>
-      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-12 lg:gap-14 xl:gap-16 px-1 md:px-2">
+      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-12 lg:gap-14 xl:gap-32 px-1 md:px-2 mt-12">
         {data &&
           data.dungeons.map(
             ({
@@ -75,7 +75,7 @@ export const Dungeons = () => {
                                 key={uniqueId("unique_loot_")}
                                 className="mt-2"
                               >
-                                <Text classes="text-sm font-regular">
+                                <Text classes="text-xs font-regular">
                                   {title}
                                 </Text>
                                 <Text classes="text-xs font-thin">
