@@ -36,18 +36,27 @@ export const Dungeons = () => {
     <div className="p-2 mb-5">
       <TitleText>DUNGEONS</TitleText>
       <SubTitleText>Encounters, modifiers, and loot</SubTitleText>
-      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-5 px-1 md:px-2">
+      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-12 lg:gap-14 xl:gap-16 px-1 md:px-2">
         {data &&
           data.dungeons.map(
-            ({ name, location, description, modes, modifiers, encounters }) => (
+            ({
+              name,
+              location,
+              description,
+              image,
+              modes,
+              modifiers,
+              encounters,
+            }) => (
               <div key={uniqueId("dungeon_")} className="py-3">
-                <Text classes="text-[0.65rem] font-thin sm:text-sm tracking-widerest">
+                <img src={image} />
+                <Text classes="text-[0.5rem] font-thin lg:text-xs tracking-widerest mt-3 mb-1">
                   {location.toUpperCase()}
                 </Text>
-                <h1 className="text-3xl font-bold xs:text-4xl md:5xl text-white my-1">
+                <h1 className="text-3xl font-bold xs:text-4xl md:5xl text-white mb-1">
                   {name}
                 </h1>
-                <Text classes="text-[0.65rem] font-thin sm:text-sm mb-3 italic">
+                <Text classes="text-[0.65rem] font-thin g:text-xs mb-3 italic">
                   {description}
                 </Text>
                 <div className="mb-3">
@@ -84,13 +93,16 @@ export const Dungeons = () => {
                     modifiers.map(({ type, typeModifiers }) => (
                       <div key={uniqueId("modifier_")} className="my-2">
                         <h6 className="text-sm text-white font-bold">
-                          MODIFIERS ({type.toUpperCase()})
+                          MODIFIERS
                         </h6>
+                        <p className="text-xs font-thin text-white my-1 tracking-widerest">
+                          // {type.toUpperCase()}
+                        </p>
                         {typeModifiers.map(
                           ({ name, description, iconPath }) => (
                             <div
                               key={uniqueId("type_modifier_")}
-                              className="my-2"
+                              className="mb-2 mt-1"
                             >
                               <div className="flex">
                                 <div className="mr-2">

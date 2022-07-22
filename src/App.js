@@ -1,4 +1,7 @@
+// import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+// import { getMilestones, getDefinition } from "./api/destinyApi";
+// import { DEFINITIONS } from "./utils/destinyData";
 import { Menu } from "./components/menu/Menu";
 import { Daily } from "./components/activities/daily/Daily";
 import { Dungeons } from "./components/activities/dungeons/Dungeons";
@@ -8,7 +11,7 @@ import { Season } from "./components/activities/season/Season";
 
 function App() {
   // useEffect(() => {
-  // getDestinyActivities();
+  //   getDestinyActivities();
   // }, []);
 
   // const getDestinyActivities = async () => {

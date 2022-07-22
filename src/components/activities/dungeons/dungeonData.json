@@ -4,6 +4,7 @@
       "name": "Duality",
       "location": "Derelict Leviathan // The Moon",
       "description": "Dive into the depths of the exiled emperor's mind in search of dark secrets",
+      "image": "https://www.bungie.net/img/destiny_content/pgcr/dungeon_duality.jpg",
       "modes": [
         {
           "type": "Legend",
@@ -379,6 +380,7 @@
       "name": "Grasp of Avarice",
       "location": "The Cosmodrome // Earth",
       "description": "A cautionary tale for adventurers willing to trade their humanity for riches",
+      "image": "https://www.bungie.net/img/destiny_content/pgcr/30th-anniversary-grasp-of-avarice.jpg",
       "modes": [
         {
           "type": "Legend",
@@ -685,6 +687,7 @@
       "name": "Prophecy",
       "location": "IX Realms // The Reckoning",
       "description": "Enter the realm of the Nine and ask the question: \"What is the nature of the Darkness?\"",
+      "image": "https://www.bungie.net/img/destiny_content/pgcr/dungeon_prophecy.jpg",
       "modes": [
         {
           "type": "Minimum",
@@ -1024,6 +1027,7 @@
       "name": "Pit of Heresy",
       "location": "Sorrow's Harbor // The Moon",
       "description": "Deep beneath Sorrow's Harbor, the Hive keep their darkest secrets",
+      "image": "https://www.bungie.net/img/destiny_content/pgcr/dungeon_pit_of_heresy.jpg",
       "modes": [
         {
           "type": "Minimum",
