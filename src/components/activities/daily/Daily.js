@@ -1,7 +1,7 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { TitleText } from "../../../common/TitleText";
-import { SubTitleText } from "../../../common/SubTitleText";
+import { TitleText } from "../../common/TitleText";
+import { SubTitleText } from "../../common/SubTitleText";
 
 export const Daily = () => {
   const [resetTime, setResetTime] = useState("");

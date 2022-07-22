@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import { SubTitleText } from "../../common/SubTitleText";
+import { TitleText } from "../../common/TitleText";
 import moment from "moment";
-import { SubTitleText } from "../../../common/SubTitleText";
-import { TitleText } from "../../../common/TitleText";
 
 export const Weekly = () => {
   const [resetDays, setResetDays] = useState("");

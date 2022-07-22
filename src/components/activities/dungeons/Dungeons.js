@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
-import { Text } from "../../../common/Text";
-import { SubTitleText } from "../../../common/SubTitleText";
-import { TimeLine } from "../../../common/Timeline";
-import { TitleText } from "../../../common/TitleText";
+import { Text } from "../../common/Text";
+import { SubTitleText } from "../../common/SubTitleText";
+import { TimeLine } from "../../common/Timeline";
+import { TitleText } from "../../common/TitleText";
 import { uniqueId } from "lodash";
 import dungeonData from "./dungeonData.json";
 import styled from "styled-components";

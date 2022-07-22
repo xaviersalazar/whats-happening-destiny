@@ -1,5 +1,5 @@
-import { TitleText } from "../../../common/TitleText";
-import { SubTitleText } from "../../../common/SubTitleText";
+import { TitleText } from "../../common/TitleText";
+import { SubTitleText } from "../../common/SubTitleText";
 
 export const Raids = () => {
   return (
