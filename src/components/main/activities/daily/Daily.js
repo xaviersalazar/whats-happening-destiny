@@ -28,7 +28,7 @@ export const Daily = () => {
   }, []);
 
   return (
-    <div className="mb-5">
+    <div className="p-2 mb-5">
       <TitleText>DAILY</TitleText>
       <SubTitleText>Reset {resetTime}</SubTitleText>
     </div>

@@ -40,13 +40,5 @@ export const Main = () => {
   //   });
   // };
 
-  return (
-    <div className="p-2">
-      <Daily />
-      <Weekly />
-      <Dungeons />
-      <Raids />
-      <Season />
-    </div>
-  );
+  return <div className="p-2">Main</div>;
 };

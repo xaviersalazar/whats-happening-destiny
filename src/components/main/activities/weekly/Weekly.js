@@ -14,7 +14,7 @@ export const Weekly = () => {
   }, []);
 
   return (
-    <div className="mb-5">
+    <div className="p-2 mb-5">
       <TitleText>WEEKLY</TitleText>
       <SubTitleText>
         {resetDays.start} to {resetDays.end}

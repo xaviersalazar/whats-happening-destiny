@@ -33,7 +33,7 @@ export const Dungeons = () => {
   }, []);
 
   return (
-    <div className="mb-5">
+    <div className="p-2 mb-5">
       <TitleText>DUNGEONS</TitleText>
       <SubTitleText>Encounters, modifiers, and loot</SubTitleText>
       <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-5 px-1 md:px-2">
@@ -44,7 +44,7 @@ export const Dungeons = () => {
                 <Text classes="text-[0.65rem] font-thin sm:text-sm tracking-widerest">
                   {location.toUpperCase()}
                 </Text>
-                <h1 className="text-3xl font-bold xs:text-4xl md:5xl text-white bold my-0">
+                <h1 className="text-3xl font-bold xs:text-4xl md:5xl text-white my-1">
                   {name}
                 </h1>
                 <Text classes="text-[0.65rem] font-thin sm:text-sm mb-3 italic">
