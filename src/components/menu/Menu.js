@@ -21,7 +21,7 @@ export const Menu = ({ children }) => (
           <div className="mx-auto px-2 md:px-3">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <p className="text-white text-sm lg:text-base">
+                <p className="text-white text-xs font-thin md:text-sm lg:text-md">
                   WHATS HAPPENING DESTINY
                 </p>
                 <div className="hidden md:block">
@@ -32,8 +32,8 @@ export const Menu = ({ children }) => (
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "regular text-white"
-                            : "super-light hover:text-white",
+                            ? "font-regular text-white"
+                            : "font-thin text-light hover:text-white",
                           "px-3 py-2 rounded-md text-xs uppercase lg:text-sm"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -44,13 +44,13 @@ export const Menu = ({ children }) => (
                   </div>
                 </div>
               </div>
-              <div className="mr-2 flex md:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-light">
+              <div className="flex md:hidden">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-5 w-5" aria-hidden="true" />
+                    <XIcon className="block h-4 w-4" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-5 w-5" aria-hidden="true" />
+                    <MenuIcon className="block h-4 w-4" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -73,8 +73,8 @@ export const Menu = ({ children }) => (
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "regular text-dark"
-                        : "super-light hover:text-dark",
+                        ? "font-regular text-dark"
+                        : "font-thin hover:text-dark",
                       "block px-3 py-2 rounded-md text-xs uppercase lg:text-sm"
                     )}
                     aria-current={item.current ? "page" : undefined}

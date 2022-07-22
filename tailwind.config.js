@@ -19,7 +19,7 @@ module.exports = {
     },
     colors: {
       white: "#ffffff",
-      light: "#f8fafc",
+      light: "#e2e8f0",
       dark: "#0e1111",
     },
     letterSpacing: {
