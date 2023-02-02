@@ -1,12 +1,10 @@
-import { Button, NextUIProvider } from "@nextui-org/react";
+import { useRoutes } from "react-router-dom";
+import { NextUIProvider } from "@nextui-org/react";
+import routes from "./components/routes";
+import theme from "./theme";
 
 function App() {
-  return (
-    <NextUIProvider>
-      <h1>Hello</h1>
-      <Button>Click Me!</Button>
-    </NextUIProvider>
-  );
+  return <NextUIProvider theme={theme}>{useRoutes(routes)}</NextUIProvider>;
 }
 
 export default App;
