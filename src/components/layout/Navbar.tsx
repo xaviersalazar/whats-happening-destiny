@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Navbar as NextUiNavbar, Link, styled } from "@nextui-org/react";
+import {
+  Navbar as NextUiNavbar,
+  Link,
+  styled,
+  Image,
+  Text,
+} from "@nextui-org/react";
+import logoWhiteUrl from "../../assets/logo-white.png";
 
 type Item = {
   name: string;
@@ -21,6 +28,7 @@ const Box = styled("div", {
 
 const Navbar = () => {
   const [currMenuItem, setCurrMenuItem] = useState<number>(0);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <Box css={{ maxW: "100%" }}>
@@ -30,16 +38,24 @@ const Navbar = () => {
           paddingTop: "$10",
           paddingLeft: "$10",
           paddingRight: "$10",
+          justifyContent: "space-between",
+        }}
+        containerCss={{
+          padding: "$0",
+          maxWidth: "100%",
         }}
       >
         <NextUiNavbar.Brand showIn="xs">
-          <NextUiNavbar.Toggle aria-label="toggle navigation" />
+          <NextUiNavbar.Toggle
+            aria-label="toggle navigation"
+            onChange={() => setIsMenuOpen(!isMenuOpen)}
+          />
         </NextUiNavbar.Brand>
         <NextUiNavbar.Content
           enableCursorHighlight
           hideIn="xs"
-          activeColor="primary"
-          variant="underline-rounded"
+          activeColor="neutral"
+          variant="highlight-rounded"
         >
           {menuItems.map(({ name }, index) => (
             <NextUiNavbar.Link
@@ -47,7 +63,8 @@ const Navbar = () => {
               isActive={index === currMenuItem}
               href="#"
               itemCss={{
-                fontWeight: "$thin",
+                fontWeight: index === currMenuItem ? "$black" : "$thin",
+                fontSize: "$xs",
               }}
               onClick={() => setCurrMenuItem(index)}
             >
@@ -56,17 +73,37 @@ const Navbar = () => {
           ))}
         </NextUiNavbar.Content>
         <NextUiNavbar.Content>
-          <NextUiNavbar.Link color="inherit" href="#">
-            WHDestiny
+          <NextUiNavbar.Link
+            href="#"
+            css={{
+              display: isMenuOpen ? "none" : "initial",
+            }}
+          >
+            <Image
+              src={logoWhiteUrl}
+              width={186}
+              alt="logo"
+              css={{
+                position: "relative",
+                bottom: "$6",
+              }}
+            />
           </NextUiNavbar.Link>
         </NextUiNavbar.Content>
         <NextUiNavbar.Collapse>
           {menuItems.map(({ name }, index) => (
-            <NextUiNavbar.CollapseItem key={index}>
+            <NextUiNavbar.CollapseItem
+              key={index}
+              css={{
+                paddingLeft: "$8",
+                paddingRight: "$8",
+              }}
+            >
               <Link
-                color="primary"
+                color="text"
                 css={{
                   minWidth: "100%",
+                  fontWeight: index === currMenuItem ? "$black" : "$thin",
                 }}
                 href="#"
               >
