@@ -1,5 +1,5 @@
 import { Link } from "@nextui-org/react";
-import { Box } from "../shared";
+import { Box } from "../common";
 
 const Footer = () => (
   <Box

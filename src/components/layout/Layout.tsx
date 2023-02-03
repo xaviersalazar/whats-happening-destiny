@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Box } from "../shared";
+import { Box } from "../common";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 

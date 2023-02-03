@@ -2,8 +2,8 @@ import { Text } from "@nextui-org/react";
 import Box from "./Box";
 
 interface PageProps {
-  title: string;
-  subTitle: string;
+  title?: string;
+  subTitle?: string;
   children?: React.ReactNode;
 }
 
@@ -36,7 +36,19 @@ const Page = ({ title, subTitle, children }: PageProps) => (
     >
       {title}
     </Text>
-    <Text b weight="thin" size="$sm">
+    <Text
+      b
+      weight="thin"
+      css={{
+        marginLeft: "$2",
+        "@xs": {
+          fontSize: "$sm",
+        },
+        "@md": {
+          fontSize: "$md",
+        },
+      }}
+    >
       {subTitle}
     </Text>
     {children}

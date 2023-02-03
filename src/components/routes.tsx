@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import Layout from "./layout/Layout";
-import { Page } from "./shared";
-import PageLoader from "./shared/PageLoader";
+import { Page, PageLoader, NoMatch } from "./common";
 
 const Home = lazy(() => import("./home/Home"));
 const Raids = lazy(() => import("./raids/Raids"));
@@ -30,6 +29,10 @@ const routes = [
             </Page>
           </Suspense>
         ),
+      },
+      {
+        path: "*",
+        element: <NoMatch />,
       },
     ],
   },
