@@ -1,6 +1,12 @@
-import { useState } from "react";
-import { Navbar as NextUiNavbar, Link, styled, Image } from "@nextui-org/react";
+import { useEffect, useRef, useState } from "react";
+import {
+  Navbar as NextUiNavbar,
+  Link as NextUiLink,
+  styled,
+  Image,
+} from "@nextui-org/react";
 import logoWhiteUrl from "../../assets/logo-white.png";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type Item = {
   name: string;
@@ -21,8 +27,19 @@ const Box = styled("div", {
 });
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const navbarToggleRef = useRef() as any;
+
   const [currMenuItem, setCurrMenuItem] = useState<number>(0);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  const onItemClicked = (href: string, index: number) => {
+    setCurrMenuItem(index);
+    navigate(href);
+    isMenuOpen && navbarToggleRef.current.click();
+  };
 
   return (
     <Box css={{ maxW: "100%" }}>
@@ -45,6 +62,7 @@ const Navbar = () => {
         <NextUiNavbar.Brand showIn="xs">
           <NextUiNavbar.Toggle
             aria-label="toggle navigation"
+            ref={navbarToggleRef}
             onChange={() => setIsMenuOpen(!isMenuOpen)}
           />
         </NextUiNavbar.Brand>
@@ -54,16 +72,15 @@ const Navbar = () => {
           activeColor="neutral"
           variant="highlight-rounded"
         >
-          {menuItems.map(({ name }, index) => (
+          {menuItems.map(({ name, href }, index) => (
             <NextUiNavbar.Link
               key={index}
               isActive={index === currMenuItem}
-              href="#"
               itemCss={{
                 fontWeight: index === currMenuItem ? "$black" : "$thin",
                 fontSize: "$xs",
               }}
-              onClick={() => setCurrMenuItem(index)}
+              onClick={() => onItemClicked(href, index)}
             >
               {name}
             </NextUiNavbar.Link>
@@ -71,10 +88,10 @@ const Navbar = () => {
         </NextUiNavbar.Content>
         <NextUiNavbar.Content>
           <NextUiNavbar.Link
-            href="#"
             css={{
               display: isMenuOpen ? "none" : "initial",
             }}
+            onClick={() => onItemClicked("/", 0)}
           >
             <Image
               src={logoWhiteUrl}
@@ -93,7 +110,7 @@ const Navbar = () => {
             paddingTop: "$16",
           }}
         >
-          {menuItems.map(({ name }, index) => (
+          {menuItems.map(({ name, href }, index) => (
             <NextUiNavbar.CollapseItem
               key={index}
               css={{
@@ -101,16 +118,16 @@ const Navbar = () => {
                 paddingRight: "$8",
               }}
             >
-              <Link
+              <NextUiLink
                 color="text"
                 css={{
                   minWidth: "100%",
                   fontWeight: index === currMenuItem ? "$black" : "$thin",
                 }}
-                href="#"
+                onClick={() => onItemClicked(href, index)}
               >
                 {name}
-              </Link>
+              </NextUiLink>
             </NextUiNavbar.CollapseItem>
           ))}
         </NextUiNavbar.Collapse>

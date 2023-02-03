@@ -1,7 +1,5 @@
-import { Page } from "../shared";
+import { Text } from "@nextui-org/react";
 
-const Home = () => (
-  <Page title="WHATS HAPPENING" subTitle="This week in Destiny" />
-);
+const Home = () => <Text h1>Home page</Text>;
 
 export default Home;
