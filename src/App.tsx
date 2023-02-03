@@ -1,10 +1,14 @@
-import { useRoutes } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
-import routes from "./components/routes";
 import theme from "./theme";
+import router from "./components/router";
 
 function App() {
-  return <NextUIProvider theme={theme}>{useRoutes(routes)}</NextUIProvider>;
+  return (
+    <NextUIProvider theme={theme}>
+      <RouterProvider router={router} />
+    </NextUIProvider>
+  );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import { Text } from "@nextui-org/react";
+import { styled, Text } from "@nextui-org/react";
 import Box from "./Box";
 
 interface PageProps {
@@ -18,18 +18,15 @@ const Page = ({ title, subTitle, children }: PageProps) => (
     }}
   >
     <Text
-      h1
       weight="black"
       css={{
         lineHeight: "$xs",
+        fontSize: "$6xl",
         marginBottom: "$0",
         "@xs": {
-          fontSize: "$6xl",
-        },
-        "@sm": {
           fontSize: "$7xl",
         },
-        "@md": {
+        "@sm": {
           fontSize: "$8xl",
         },
       }}
@@ -44,7 +41,7 @@ const Page = ({ title, subTitle, children }: PageProps) => (
         "@xs": {
           fontSize: "$sm",
         },
-        "@md": {
+        "@sm": {
           fontSize: "$md",
         },
       }}

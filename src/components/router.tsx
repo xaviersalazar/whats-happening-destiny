@@ -1,11 +1,12 @@
 import { lazy, Suspense } from "react";
 import Layout from "./layout/Layout";
-import { Page, PageLoader, NoMatch } from "./common";
+import { Page, NoMatch, Loader } from "./common";
+import { createBrowserRouter } from "react-router-dom";
 
 const Home = lazy(() => import("./home/Home"));
 const Raids = lazy(() => import("./raids/Raids"));
 
-const routes = [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
@@ -13,21 +14,21 @@ const routes = [
       {
         index: true,
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <Page title="WHATS HAPPENING" subTitle="This week in Destiny">
+          <Page title="WHATS HAPPENING" subTitle="This week in Destiny">
+            <Suspense fallback={<Loader />}>
               <Home />
-            </Page>
-          </Suspense>
+            </Suspense>
+          </Page>
         ),
       },
       {
         path: "/raids",
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <Page title="RAIDS" subTitle="Current raids in rotation">
+          <Page title="RAIDS" subTitle="Current raids in rotation">
+            <Suspense fallback={<Loader />}>
               <Raids />
-            </Page>
-          </Suspense>
+            </Suspense>
+          </Page>
         ),
       },
       {
@@ -36,6 +37,6 @@ const routes = [
       },
     ],
   },
-];
+]);
 
-export default routes;
+export default router;
