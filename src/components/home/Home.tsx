@@ -1,16 +1,7 @@
-import { Button, Text } from "@nextui-org/react";
-import { Box } from "../shared";
+import { Page } from "../shared";
 
 const Home = () => (
-  <Box
-    css={{
-      height: "100%",
-      padding: "$10",
-    }}
-  >
-    <Text>Home</Text>
-    <Button>Click</Button>
-  </Box>
+  <Page title="WHATS HAPPENING" subTitle="This week in Destiny" />
 );
 
 export default Home;

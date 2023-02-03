@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Navbar as NextUiNavbar,
-  Link,
-  styled,
-  Image,
-  Text,
-} from "@nextui-org/react";
+import { Navbar as NextUiNavbar, Link, styled, Image } from "@nextui-org/react";
 import logoWhiteUrl from "../../assets/logo-white.png";
 
 type Item = {
@@ -33,7 +27,7 @@ const Navbar = () => {
   return (
     <Box css={{ maxW: "100%" }}>
       <NextUiNavbar
-        variant="sticky"
+        variant="floating"
         css={{
           paddingTop: "$10",
           paddingLeft: "$10",
@@ -41,7 +35,10 @@ const Navbar = () => {
           justifyContent: "space-between",
         }}
         containerCss={{
-          padding: "$0",
+          paddingLeft: "$10",
+          paddingRight: "$10",
+          marginLeft: "$0 !important",
+          marginRight: "$0 !important",
           maxWidth: "100%",
         }}
       >
@@ -81,16 +78,21 @@ const Navbar = () => {
           >
             <Image
               src={logoWhiteUrl}
-              width={186}
+              width={128}
               alt="logo"
               css={{
                 position: "relative",
-                bottom: "$6",
+                bottom: "$9",
+                paddingTop: "$12",
               }}
             />
           </NextUiNavbar.Link>
         </NextUiNavbar.Content>
-        <NextUiNavbar.Collapse>
+        <NextUiNavbar.Collapse
+          css={{
+            paddingTop: "$16",
+          }}
+        >
           {menuItems.map(({ name }, index) => (
             <NextUiNavbar.CollapseItem
               key={index}
