@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   Navbar as NextUiNavbar,
   Link as NextUiLink,
@@ -6,7 +6,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import logoWhiteUrl from "../../assets/logo-white.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type Item = {
   name: string;
@@ -28,7 +28,6 @@ const Box = styled("div", {
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
 
   const navbarToggleRef = useRef() as any;
 
@@ -108,6 +107,10 @@ const Navbar = () => {
         <NextUiNavbar.Collapse
           css={{
             paddingTop: "$16",
+            "& ul": {
+              borderBottomLeftRadius: "$3xl",
+              borderBottomRightRadius: "$3xl",
+            },
           }}
         >
           {menuItems.map(({ name, href }, index) => (

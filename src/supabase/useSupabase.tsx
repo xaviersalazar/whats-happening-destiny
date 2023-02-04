@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { Activity } from "../types/activities";
 import supabase from "./client";
 
 const useSupabase = (fileName: string) => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<Activity | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
 
@@ -18,7 +19,7 @@ const useSupabase = (fileName: string) => {
     if (error) setError(error);
 
     const jsonData = await data?.text();
-    const activityData = JSON.parse(jsonData as any);
+    const activityData = JSON.parse(jsonData as any) as Activity;
 
     setData(activityData);
     setLoading(false);

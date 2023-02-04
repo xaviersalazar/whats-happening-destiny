@@ -9,6 +9,7 @@ const Footer = () => (
       paddingRight: "$12",
       paddingTop: "$16",
       paddingBottom: "$16",
+      marginTop: "auto",
     }}
   >
     <Link href="#">@xaviersalazar</Link>
