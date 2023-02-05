@@ -1,10 +1,15 @@
 import { Card, styled, Text } from "@nextui-org/react";
-import { Fragment } from "react";
-import useSupabase from "../../supabase/useSupabase";
-import { Box, Encounters, Loader } from "../common";
-import { fileMap } from "../utils/fileMap";
 import { isEmpty, uniqueId } from "lodash";
+import { Box, Loader } from "../common";
 import powerLevelIcon from "../../assets/power-level-icon.png";
+import useSupabase from "../../supabase/useSupabase";
+import { fileMap } from "../utils/fileMap";
+import { Fragment } from "react";
+import Encounters from "./Encounters";
+
+interface RnDProps {
+  activityType: string;
+}
 
 type SectionProps = {
   id?: string;
@@ -86,8 +91,10 @@ const ModifierImage = styled("img", {
   top: "0.25rem",
 });
 
-const Raids = () => {
-  const { data, loading } = useSupabase(`activities/${fileMap.RAIDS}`);
+const RnD = ({ activityType }: RnDProps) => {
+  const { data, loading } = useSupabase(
+    `activities/${fileMap[activityType as keyof Object]}`
+  );
 
   if (loading) return <Loader />;
 
@@ -224,4 +231,4 @@ const Raids = () => {
   );
 };
 
-export default Raids;
+export default RnD;

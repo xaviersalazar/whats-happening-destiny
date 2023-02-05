@@ -4,7 +4,7 @@ import { Page, NoMatch, Loader } from "./common";
 import { createBrowserRouter } from "react-router-dom";
 
 const Home = lazy(() => import("./home/Home"));
-const Raids = lazy(() => import("./raids/Raids"));
+const RnD = lazy(() => import("./rnd/RnD"));
 
 const router = createBrowserRouter([
   {
@@ -22,11 +22,21 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/dungeons",
+        element: (
+          <Page title="DUNGEONS" subTitle="Current dungeons in rotation">
+            <Suspense fallback={<Loader />}>
+              <RnD activityType="DUNGEONS" />
+            </Suspense>
+          </Page>
+        ),
+      },
+      {
         path: "/raids",
         element: (
           <Page title="RAIDS" subTitle="Current raids in rotation">
             <Suspense fallback={<Loader />}>
-              <Raids />
+              <RnD activityType="RAIDS" />
             </Suspense>
           </Page>
         ),

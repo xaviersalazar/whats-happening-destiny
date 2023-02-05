@@ -3,7 +3,7 @@ import { styled as styledNextUi, Text } from "@nextui-org/react";
 import styled, { keyframes } from "styled-components";
 import { concat, flatten, isEmpty, uniqueId } from "lodash";
 import { Encounter } from "../../types/activities";
-import Box from "./Box";
+import { Box } from "../common";
 
 interface EncounterProps {
   encounters: [Encounter];
