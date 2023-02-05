@@ -141,6 +141,7 @@ const Encounters = ({ encounters }: EncounterProps) => (
                         </Text>
                         <Text
                           size="x-small"
+                          className="lg:text-xs"
                           weight="light"
                           css={{ lineHeight: "$sm" }}
                         >

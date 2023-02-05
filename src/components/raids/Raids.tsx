@@ -94,7 +94,7 @@ const Raids = () => {
   return (
     <Box
       css={{
-        paddingTop: "$4",
+        paddingTop: "$12",
         paddingBottom: "$4",
       }}
     >
@@ -124,7 +124,7 @@ const Raids = () => {
                 />
                 <Text
                   weight="thin"
-                  size="$xs"
+                  className="text-xs xl:text-sm"
                   css={{
                     letterSpacing: "$widest",
                     marginBottom: "$0",
@@ -134,8 +134,8 @@ const Raids = () => {
                   {location.toUpperCase()}
                 </Text>
                 <Text
-                  size="$5xl"
                   weight="extrabold"
+                  className="text-5xl xl:text-6xl"
                   css={{
                     margin: "$0",
                     lineHeight: "$xs",
@@ -144,8 +144,8 @@ const Raids = () => {
                   {name}
                 </Text>
                 <Text
-                  size="$sm"
                   weight="thin"
+                  className="text-sm xl:text-base"
                   css={{
                     fontStyle: "italic",
                     marginTop: "$4",
@@ -171,7 +171,7 @@ const Raids = () => {
                         key={uniqueId("extra_rewards_")}
                         css={{ marginBottom: "$2" }}
                       >
-                        <Text size="$sm" weight="semibold">
+                        <Text size="$sm" weight="normal">
                           {title}
                         </Text>
                         <Text size="$sm" weight="thin">
@@ -197,7 +197,7 @@ const Raids = () => {
                                   height={28}
                                 />
                                 <Box css={{ marginLeft: "$4" }}>
-                                  <Text size="$sm" weight="semibold">
+                                  <Text size="$sm" weight="normal">
                                     {name}
                                   </Text>
                                   <Text size="$sm" weight="thin">
