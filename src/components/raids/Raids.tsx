@@ -1,7 +1,7 @@
 import { Card, Grid, Image, styled, Text } from "@nextui-org/react";
 import { Fragment } from "react";
 import useSupabase from "../../supabase/useSupabase";
-import { Box, Loader } from "../common";
+import { Box, Encounters, Loader } from "../common";
 import { fileMap } from "../utils/fileMap";
 import { isEmpty, uniqueId } from "lodash";
 import powerLevelIcon from "../../assets/power-level-icon.png";
@@ -51,7 +51,7 @@ const Mode = ({ modeType, powerLevel }: ModeProps) => (
     }}
   >
     <Text
-      size="$xs"
+      size="$sm"
       weight="normal"
       css={{ marginRight: "$2", flex: "0 1 auto" }}
     >
@@ -68,7 +68,7 @@ const Mode = ({ modeType, powerLevel }: ModeProps) => (
       }}
     />
     <Text
-      size="$xs"
+      size="$sm"
       weight="semibold"
       css={{ color: "$warning", flex: "0 1 auto" }}
     >
@@ -82,14 +82,14 @@ const ModifierImage = styled("img", {
   background: "$almostBlack",
   borderRadius: "50%",
   padding: "$1",
+  position: "relative",
+  top: "0.25rem",
 });
 
 const Raids = () => {
   const { data, loading } = useSupabase(`activities/${fileMap.RAIDS}`);
 
   if (loading) return <Loader />;
-
-  console.log(data);
 
   return (
     <Box
@@ -156,7 +156,7 @@ const Raids = () => {
                     {name}
                   </Text>
                   <Text
-                    size="$xs"
+                    size="$sm"
                     weight="thin"
                     css={{
                       fontStyle: "italic",
@@ -181,7 +181,7 @@ const Raids = () => {
                       {modifiers.map(({ typeModifiers }) => (
                         <Fragment key={uniqueId("modifier_")}>
                           <Grid.Container
-                            gap={2}
+                            gap={1}
                             css={{
                               paddingLeft: "$0",
                               paddingRight: "$0",
@@ -196,10 +196,10 @@ const Raids = () => {
                                       height={28}
                                     />
                                     <Box css={{ marginLeft: "$4" }}>
-                                      <Text size="$xs" weight="normal">
+                                      <Text size="$sm" weight="semibold">
                                         {name}
                                       </Text>
-                                      <Text size="$xs" weight="thin">
+                                      <Text size="$sm" weight="thin">
                                         {description}
                                       </Text>
                                     </Box>
@@ -215,18 +215,23 @@ const Raids = () => {
                   {!isEmpty(extraRewards) && (
                     <Section id="extras_" sectionTitle="EXTRAS">
                       {extraRewards.map(({ title, description }) => (
-                        <Fragment key={uniqueId("extra_rewards_")}>
-                          <Text size="$xs" weight="normal">
+                        <Box
+                          key={uniqueId("extra_rewards_")}
+                          css={{ marginBottom: "$2" }}
+                        >
+                          <Text size="$sm" weight="semibold">
                             {title}
                           </Text>
-                          <Text size="$xs" weight="thin">
+                          <Text size="$sm" weight="thin">
                             {description}
                           </Text>
-                        </Fragment>
+                        </Box>
                       ))}
                     </Section>
                   )}
-                  <Section id="encounters_" sectionTitle="ENCOUNTERS"></Section>
+                  <Section id="encounters_" sectionTitle="ENCOUNTERS">
+                    <Encounters encounters={encounters} />
+                  </Section>
                 </Box>
               </Card>
             </Grid>

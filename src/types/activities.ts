@@ -1,19 +1,19 @@
 interface ArmorItem {
-  name?: string;
-  type?: string;
-  iconPath?: string;
+  name: string;
+  type: string;
+  iconPath: string;
 }
 
 interface Armor {
-  character?: string;
-  items?: [ArmorItem];
+  character: string;
+  items: [ArmorItem];
 }
 
 interface Weapon {
-  name?: string;
-  type?: string;
-  iconPath?: string;
-  isExotic?: boolean;
+  name: string;
+  type: string;
+  iconPath: string;
+  isExotic: boolean;
 }
 
 export interface Encounter {
@@ -21,9 +21,9 @@ export interface Encounter {
   description?: string;
   dropsLoot?: boolean;
   doubleLoot?: boolean;
-  loot?: {
-    weapons?: [Weapon];
-    armor?: [Armor];
+  loot: {
+    weapons: [Weapon];
+    armor: [Armor];
   } | null;
 }
 
