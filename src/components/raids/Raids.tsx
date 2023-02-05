@@ -1,4 +1,4 @@
-import { Card, Grid, Image, styled, Text } from "@nextui-org/react";
+import { Card, styled, Text } from "@nextui-org/react";
 import { Fragment } from "react";
 import useSupabase from "../../supabase/useSupabase";
 import { Box, Encounters, Loader } from "../common";
@@ -98,14 +98,7 @@ const Raids = () => {
         paddingBottom: "$4",
       }}
     >
-      <Grid.Container
-        gap={4}
-        justify="center"
-        css={{
-          paddingLeft: "$0",
-          paddingRight: "$0",
-        }}
-      >
+      <div className="grid grid-cols-1 gap-10 pl-0 pr-0 lg:grid-cols-2">
         {data?.data.map(
           ({
             name,
@@ -117,127 +110,116 @@ const Raids = () => {
             modifiers,
             encounters,
           }) => (
-            <Grid
-              key={name}
-              xs={12}
-              css={{ paddingLeft: "$8", paddingRight: "$8" }}
-              id={name}
+            <Card
+              key={uniqueId("raid_")}
+              variant="flat"
+              css={{
+                background: "inherit",
+              }}
             >
-              <Card
-                variant="flat"
-                css={{
-                  background: "inherit",
-                }}
-              >
-                <Box id={uniqueId("information_")} css={{ padding: "$4" }}>
-                  <Card.Image
-                    src={image}
-                    css={{ borderRadius: "$md", marginBottom: "$8" }}
-                  />
-                  <Text
-                    weight="thin"
-                    size="$xs"
-                    css={{
-                      letterSpacing: "$widest",
-                      marginBottom: "$0",
-                      marginLeft: "$1",
-                    }}
-                  >
-                    {location.toUpperCase()}
-                  </Text>
-                  <Text
-                    size="$5xl"
-                    weight="extrabold"
-                    css={{
-                      margin: "$0",
-                      lineHeight: "$xs",
-                    }}
-                  >
-                    {name}
-                  </Text>
-                  <Text
-                    size="$sm"
-                    weight="thin"
-                    css={{
-                      fontStyle: "italic",
-                      marginTop: "$4",
-                      marginLeft: "$1",
-                    }}
-                  >
-                    {description}
-                  </Text>
-                  <Section id="light_level_" sectionTitle="LIGHT LEVEL">
-                    {modes.map(({ type, recommendedLightLevel }) => (
-                      <Fragment key={uniqueId("mode_")}>
-                        <Mode
-                          modeType={type}
-                          powerLevel={recommendedLightLevel}
-                        />
+              <Box id={uniqueId("information_")} css={{ padding: "$0" }}>
+                <Card.Image
+                  src={image}
+                  css={{ borderRadius: "$md", marginBottom: "$8" }}
+                />
+                <Text
+                  weight="thin"
+                  size="$xs"
+                  css={{
+                    letterSpacing: "$widest",
+                    marginBottom: "$0",
+                    marginLeft: "$1",
+                  }}
+                >
+                  {location.toUpperCase()}
+                </Text>
+                <Text
+                  size="$5xl"
+                  weight="extrabold"
+                  css={{
+                    margin: "$0",
+                    lineHeight: "$xs",
+                  }}
+                >
+                  {name}
+                </Text>
+                <Text
+                  size="$sm"
+                  weight="thin"
+                  css={{
+                    fontStyle: "italic",
+                    marginTop: "$4",
+                    marginLeft: "$1",
+                  }}
+                >
+                  {description}
+                </Text>
+                <Section id="light_level_" sectionTitle="LIGHT LEVEL">
+                  {modes.map(({ type, recommendedLightLevel }) => (
+                    <Fragment key={uniqueId("mode_")}>
+                      <Mode
+                        modeType={type}
+                        powerLevel={recommendedLightLevel}
+                      />
+                    </Fragment>
+                  ))}
+                </Section>
+                {!isEmpty(extraRewards) && (
+                  <Section id="extras_" sectionTitle="EXTRAS">
+                    {extraRewards.map(({ title, description }) => (
+                      <Box
+                        key={uniqueId("extra_rewards_")}
+                        css={{ marginBottom: "$2" }}
+                      >
+                        <Text size="$sm" weight="semibold">
+                          {title}
+                        </Text>
+                        <Text size="$sm" weight="thin">
+                          {description}
+                        </Text>
+                      </Box>
+                    ))}
+                  </Section>
+                )}
+                {!isEmpty(modifiers) && (
+                  <Section id="modifiers_" sectionTitle="MODIFIERS">
+                    {modifiers.map(({ typeModifiers }) => (
+                      <Fragment key={uniqueId("modifier_")}>
+                        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                          {typeModifiers?.map(
+                            ({ name, description, iconPath }) => (
+                              <Box
+                                key={uniqueId("type_modifier_")}
+                                css={{ display: "flex" }}
+                              >
+                                <ModifierImage
+                                  src={iconPath as string}
+                                  height={28}
+                                />
+                                <Box css={{ marginLeft: "$4" }}>
+                                  <Text size="$sm" weight="semibold">
+                                    {name}
+                                  </Text>
+                                  <Text size="$sm" weight="thin">
+                                    {description}
+                                  </Text>
+                                </Box>
+                              </Box>
+                            )
+                          )}
+                        </div>
                       </Fragment>
                     ))}
                   </Section>
-                  {!isEmpty(modifiers) && (
-                    <Section id="modifiers_" sectionTitle="MODIFIERS">
-                      {modifiers.map(({ typeModifiers }) => (
-                        <Fragment key={uniqueId("modifier_")}>
-                          <Grid.Container
-                            gap={1}
-                            css={{
-                              paddingLeft: "$0",
-                              paddingRight: "$0",
-                            }}
-                          >
-                            {typeModifiers?.map(
-                              ({ name, description, iconPath }) => (
-                                <Grid key={uniqueId("type_modifier_")} xs={12}>
-                                  <Box css={{ display: "flex" }}>
-                                    <ModifierImage
-                                      src={iconPath as string}
-                                      height={28}
-                                    />
-                                    <Box css={{ marginLeft: "$4" }}>
-                                      <Text size="$sm" weight="semibold">
-                                        {name}
-                                      </Text>
-                                      <Text size="$sm" weight="thin">
-                                        {description}
-                                      </Text>
-                                    </Box>
-                                  </Box>
-                                </Grid>
-                              )
-                            )}
-                          </Grid.Container>
-                        </Fragment>
-                      ))}
-                    </Section>
-                  )}
-                  {!isEmpty(extraRewards) && (
-                    <Section id="extras_" sectionTitle="EXTRAS">
-                      {extraRewards.map(({ title, description }) => (
-                        <Box
-                          key={uniqueId("extra_rewards_")}
-                          css={{ marginBottom: "$2" }}
-                        >
-                          <Text size="$sm" weight="semibold">
-                            {title}
-                          </Text>
-                          <Text size="$sm" weight="thin">
-                            {description}
-                          </Text>
-                        </Box>
-                      ))}
-                    </Section>
-                  )}
-                  <Section id="encounters_" sectionTitle="ENCOUNTERS">
-                    <Encounters encounters={encounters} />
-                  </Section>
-                </Box>
-              </Card>
-            </Grid>
+                )}
+                <Section id="encounters_" sectionTitle="ENCOUNTERS">
+                  <Encounters encounters={encounters} />
+                </Section>
+              </Box>
+            </Card>
           )
         )}
-      </Grid.Container>
+      </div>
     </Box>
   );
 };

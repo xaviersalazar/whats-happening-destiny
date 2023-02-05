@@ -1,9 +1,9 @@
-import { Grid, styled as styledNextUi, Text } from "@nextui-org/react";
+import { Fragment } from "react";
+import { styled as styledNextUi, Text } from "@nextui-org/react";
 import styled, { keyframes } from "styled-components";
 import { concat, flatten, isEmpty, uniqueId } from "lodash";
 import { Encounter } from "../../types/activities";
 import Box from "./Box";
-import { Fragment } from "react";
 
 interface EncounterProps {
   encounters: [Encounter];
@@ -103,60 +103,52 @@ const Encounters = ({ encounters }: EncounterProps) => (
             <Text size="$md" weight="semibold">
               {title} {doubleLoot && "(x2 Rewards)"}
             </Text>
-            <Text size="$sm" weight="thin">
+            <Text size="$sm" weight="thin" css={{ marginBottom: "$8" }}>
               {description}
             </Text>
             {dropsLoot && (
               <LootItems>
-                <Grid.Container
-                  gap={1}
-                  css={{
-                    paddingLeft: "$0",
-                    paddingRight: "$0",
-                  }}
-                >
+                <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6">
                   {!isEmpty(loot) &&
                     concat(
                       loot.weapons,
                       flatten(loot.armor.map(({ items }) => items))
                     ).map(({ name, type, iconPath, ...rest }) => (
-                      <Grid xs={3}>
-                        <Box
+                      <Box
+                        key={uniqueId("loot_")}
+                        css={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <LootImg
+                          src={iconPath}
+                          className="h-16 w-16 md:h-20 md:w-20 lg:h-16 lg:w-16 xl:h-20 xl:w-20 2xl:h-24 2xl:w-24"
+                          alt="loot-icon"
+                          {...rest}
+                        />
+                        <Text
+                          size="xx-small"
+                          weight="thin"
                           css={{
-                            display: "flex",
-                            flexDirection: "column",
+                            marginTop: "$3",
+                            marginBottom: "$2",
+                            letterSpacing: "$widest",
+                            lineHeight: "$xs",
                           }}
                         >
-                          <LootImg
-                            src={iconPath}
-                            height={64}
-                            width={64}
-                            alt="loot-icon"
-                            {...rest}
-                          />
-                          <Text
-                            size="xx-small"
-                            weight="thin"
-                            css={{
-                              marginTop: "$3",
-                              marginBottom: "$2",
-                              letterSpacing: "$widest",
-                              lineHeight: "$xs",
-                            }}
-                          >
-                            {type.toUpperCase()}
-                          </Text>
-                          <Text
-                            size="x-small"
-                            weight="light"
-                            css={{ lineHeight: "$sm" }}
-                          >
-                            {name}
-                          </Text>
-                        </Box>
-                      </Grid>
+                          {type.toUpperCase()}
+                        </Text>
+                        <Text
+                          size="x-small"
+                          weight="light"
+                          css={{ lineHeight: "$sm" }}
+                        >
+                          {name}
+                        </Text>
+                      </Box>
                     ))}
-                </Grid.Container>
+                </div>
               </LootItems>
             )}
           </EncounterListItem>
