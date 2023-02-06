@@ -5,7 +5,13 @@ import theme from "./theme";
 import router from "./components/router";
 import "./App.css";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 30 * (60 * 1000),
+    },
+  },
+});
 
 function App() {
   return (
