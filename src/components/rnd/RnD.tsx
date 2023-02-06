@@ -1,11 +1,11 @@
+import { useQuery } from "react-query";
 import { Card, styled, Text } from "@nextui-org/react";
 import { isEmpty, uniqueId } from "lodash";
 import { Box, Loader } from "../common";
 import powerLevelIcon from "../../assets/power-level-icon.png";
-import useSupabase from "../../supabase/useSupabase";
-import { fileMap } from "../utils/fileMap";
 import { Fragment } from "react";
 import Encounters from "./Encounters";
+import { fetchDungeonData, fetchRaidData } from "../../api/api";
 
 interface RnDProps {
   activityType: string;
@@ -92,11 +92,12 @@ const ModifierImage = styled("img", {
 });
 
 const RnD = ({ activityType }: RnDProps) => {
-  const { data, loading } = useSupabase(
-    `activities/${fileMap[activityType as keyof Object]}`
-  );
+  const whichFetch = activityType === "raid" ? fetchRaidData : fetchDungeonData;
+  const { isLoading, data } = useQuery(`${activityType}Data`, whichFetch);
 
-  if (loading) return <Loader />;
+  if (isLoading) return <Loader />;
+
+  console.log(data);
 
   return (
     <Box
@@ -106,7 +107,7 @@ const RnD = ({ activityType }: RnDProps) => {
       }}
     >
       <div className="grid grid-cols-1 gap-10 pl-0 pr-0 lg:grid-cols-2">
-        {data?.data.map(
+        {data?.map(
           ({
             name,
             location,

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: (
           <Page title="DUNGEONS" subTitle="Current dungeons in rotation">
             <Suspense fallback={<Loader />}>
-              <RnD activityType="DUNGEONS" />
+              <RnD activityType="dungeon" />
             </Suspense>
           </Page>
         ),
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: (
           <Page title="RAIDS" subTitle="Current raids in rotation">
             <Suspense fallback={<Loader />}>
-              <RnD activityType="RAIDS" />
+              <RnD activityType="raid" />
             </Suspense>
           </Page>
         ),

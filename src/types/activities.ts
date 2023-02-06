@@ -48,7 +48,7 @@ interface Mode {
   recommendedLightLevel?: string;
 }
 
-interface RnD {
+export interface RnD {
   name: string;
   location: string;
   description: string;
@@ -69,10 +69,4 @@ export interface LostSector {
   champions: [string];
   burn: string;
   shields: [string];
-}
-
-interface ActivityData extends LostSector, RnD {}
-
-export interface Activity {
-  data: [ActivityData];
 }
