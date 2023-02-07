@@ -56,3 +56,13 @@ export const fetchDestinyDestinationDefinition = async (
 
   return data as any;
 };
+
+export const fetchDestinyActivityModifierDefinition = async (
+  modifierDefinitionHash: string
+) => {
+  const { data } = await bungieApiURL({
+    url: `Manifest/DestinyActivityModifierDefinition/${modifierDefinitionHash}`,
+  });
+
+  return data as any;
+};
