@@ -1,5 +1,5 @@
 import { Box } from "../common";
-import { Nightfall } from "../activities";
+import { CurrentLostSector, CurrentNightfall } from "../activities";
 
 const Home = () => {
   return (
@@ -9,8 +9,9 @@ const Home = () => {
         paddingBottom: "$4",
       }}
     >
-      <div className="grid grid-cols-1 gap-x-10 gap-y-2 px-0 lg:grid-cols-2">
-        <Nightfall />
+      <div className="grid grid-cols-1 gap-10 px-0 lg:grid-cols-2">
+        <CurrentNightfall />
+        <CurrentLostSector />
       </div>
     </Box>
   );

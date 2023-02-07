@@ -5,10 +5,11 @@ import { Activity, Box, Loader, Section } from "../common";
 import powerLevelIcon from "../../assets/power-level-icon.png";
 import { Fragment } from "react";
 import Encounters from "./Encounters";
-import { fetchDungeonData, fetchRaidData } from "../../api/api";
+import { fetchWhDestinyData } from "../../api/api";
 
 interface RnDProps {
   activityType: string;
+  fileName: string;
 }
 
 type ModeProps = {
@@ -58,9 +59,10 @@ const ModifierImage = styled("img", {
   top: "0.25rem",
 });
 
-const RnD = ({ activityType }: RnDProps) => {
-  const whichFetch = activityType === "raid" ? fetchRaidData : fetchDungeonData;
-  const { isLoading, data } = useQuery(`${activityType}Data`, whichFetch);
+const RnD = ({ activityType, fileName }: RnDProps) => {
+  const { isLoading, data } = useQuery(`${activityType}`, () =>
+    fetchWhDestinyData(fileName)
+  );
 
   if (isLoading) return <Loader />;
 

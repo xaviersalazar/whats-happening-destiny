@@ -22,7 +22,7 @@ const ModifierImage = styled("img", {
   top: "0.25rem",
 });
 
-const Nightfall = () => {
+const CurrentNightfall = () => {
   const { data, isSuccess, isLoading } = useQuery(
     "Milestones",
     fetchDestinyMilestones
@@ -63,7 +63,7 @@ const Nightfall = () => {
 
   const modifierQueries = useQueries(
     modifierHashes.map((activityModifierHash) => ({
-      queryKey: ["ActivityModifierDefinition", activityModifierHash],
+      queryKey: ["NightfallActivityModifierDefinition", activityModifierHash],
       queryFn: () =>
         fetchDestinyActivityModifierDefinition(activityModifierHash),
       enabled: !!nightfall,
@@ -196,4 +196,4 @@ const Nightfall = () => {
   );
 };
 
-export default Nightfall;
+export default CurrentNightfall;

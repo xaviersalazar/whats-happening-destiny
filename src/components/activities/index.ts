@@ -1,3 +1,4 @@
-import Nightfall from "./Nightfall";
+import CurrentNightfall from "./CurrentNightfall";
+import CurrentLostSector from "./CurrentLostSector";
 
-export { Nightfall };
+export { CurrentNightfall, CurrentLostSector };

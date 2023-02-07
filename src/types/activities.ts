@@ -60,13 +60,14 @@ export interface RnD {
 }
 
 export interface LostSector {
-  date: string;
-  lostSector: string;
-  destination: string;
-  lostSectorImg: string;
-  exoticReward: string;
-  modifiers: [Modifier];
-  champions: [string];
-  burn: string;
-  shields: [string];
+  "Date (DD-MM-YYYY)": string;
+  "Lost sector": string;
+  Planet: string;
+  "Exotic reward": string;
+  Champions: string;
+  Burn: string;
+  Shields: string;
+  Notes: string;
 }
+
+export interface ActivityData extends LostSector, RnD {}

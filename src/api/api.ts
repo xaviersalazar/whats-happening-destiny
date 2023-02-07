@@ -1,5 +1,5 @@
 import axios from "axios";
-import { RnD } from "../types/activities";
+import { ActivityData } from "../types/activities";
 
 export const BUNGIE_BASE_URL = "https://www.bungie.net/";
 
@@ -21,16 +21,21 @@ const bungieApiURL = axios.create({
   },
 });
 
-export const fetchDungeonData = async () => {
-  const { data } = await whDestinyDataURL({ url: "dungeon-data.json" });
+export const fetchWhDestinyData = async (file: string) => {
+  const { data } = await whDestinyDataURL({ url: file });
 
-  return data as [RnD];
+  return data as [ActivityData];
 };
 
-export const fetchRaidData = async () => {
-  const { data } = await whDestinyDataURL({ url: "raid-data.json" });
+export const searchDestinyEntities = async (
+  entityDefinition: string,
+  searchTerm: string
+) => {
+  const { data } = await bungieApiURL({
+    url: `Armory/Search/${entityDefinition}/${searchTerm}`,
+  });
 
-  return data as [RnD];
+  return data as any;
 };
 
 export const fetchDestinyMilestones = async () => {

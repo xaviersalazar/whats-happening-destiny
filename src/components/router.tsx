@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: (
           <Page title="DUNGEONS" subTitle="Current dungeons in rotation">
             <Suspense fallback={<Loader />}>
-              <RnD activityType="dungeon" />
+              <RnD activityType="Dungeon" fileName="dungeon-data.json" />
             </Suspense>
           </Page>
         ),
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: (
           <Page title="RAIDS" subTitle="Current raids in rotation">
             <Suspense fallback={<Loader />}>
-              <RnD activityType="raid" />
+              <RnD activityType="Raid" fileName="raid-data.json" />
             </Suspense>
           </Page>
         ),
