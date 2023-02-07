@@ -1,6 +1,8 @@
+import Activity from "./Activity";
 import Box from "./Box";
-import Page from "./Page";
-import NoMatch from "./NoMatch";
 import Loader from "./Loader";
+import NoMatch from "./NoMatch";
+import Page from "./Page";
+import Section from "./Section";
 
-export { Box, Page, NoMatch, Loader };
+export { Activity, Box, Loader, NoMatch, Page, Section };

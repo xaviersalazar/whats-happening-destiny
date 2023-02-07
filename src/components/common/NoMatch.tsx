@@ -11,21 +11,17 @@ const NoMatch = () => (
       }}
     >
       <Text
-        h1
+        weight="black"
+        className="text-6xl md:text-7xl xl:text-8xl"
         css={{
-          marginTop: "$12",
+          lineHeight: "$xs",
           marginBottom: "$0",
-          "@sm": {
-            fontSize: "$5xl",
-          },
-          "@md": {
-            fontSize: "$6xl",
-          },
+          marginTop: "$12",
         }}
       >
         Nothing found here
       </Text>
-      <Text b weight="thin" size="$md">
+      <Text weight="thin" size="$md">
         Return to <Link href="/">home</Link>
       </Text>
     </Box>

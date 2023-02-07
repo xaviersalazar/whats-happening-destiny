@@ -1,4 +1,4 @@
-import { Card, styled, Text } from "@nextui-org/react";
+import { styled, Text } from "@nextui-org/react";
 import { useQueries, useQuery } from "react-query";
 import {
   BUNGIE_BASE_URL,
@@ -7,12 +7,11 @@ import {
   fetchDestinyDestinationDefinition,
   fetchDestinyMilestones,
 } from "../../api/api";
-import useProgressiveImage from "../../hooks/useProgressiveImage";
 import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
-import { Box, Loader } from "../common";
-import placeholderImg from "../../assets/black-bg.jpg";
+import { Activity, Box, Loader } from "../common";
 import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
+import { firstPeriodRegex } from "../../utils/helpers";
 
 type SectionProps = {
   sectionTitle: string;
@@ -74,7 +73,7 @@ const Nightfall = () => {
     }))
   ) as any;
 
-  const loadingNightfall =
+  const isLoadingNightfalls =
     isLoading && nightfalls.every((nightfall: any) => nightfall.isLoading);
 
   const nightfall = nightfalls[nightfalls.length - 1]?.data?.Response;
@@ -106,12 +105,6 @@ const Nightfall = () => {
     (modifier: any) => modifier.isLoading
   );
 
-  const nightfallImg = useProgressiveImage(
-    `${BUNGIE_BASE_URL}/${nightfall?.pgcrImage}`
-  );
-
-  const firstPeriodRegex = /.+?(?=\.)/gm;
-
   const modifiers = [
     modifierQueries?.filter((modifierData: any) =>
       modifierData.data?.Response?.displayProperties?.name.match(
@@ -126,148 +119,111 @@ const Nightfall = () => {
     ) || [],
   ];
 
+  if (isLoading || isLoadingNightfalls || isLoadingModifiers) return <Loader />;
+
   if (!isSuccess && nightfalls.every((nightfall: any) => nightfall.isSuccess))
     return null;
 
-  return loadingNightfall ? (
-    <Loader />
-  ) : (
-    <Card
-      variant="flat"
-      css={{
-        background: "$white",
-      }}
+  return (
+    <Activity
+      imageSrc={`${BUNGIE_BASE_URL}/${nightfall?.pgcrImage}`}
+      subTitle={`NIGHTFALL ${
+        destinationData &&
+        ` // ${destinationData?.Response?.displayProperties?.name.toUpperCase()}`
+      }`}
+      title={nightfall?.displayProperties.description}
+      description={`Resets ${moment(nightfallEndDate).fromNow()}`}
     >
-      <Box id={uniqueId("information_")} css={{ padding: "$0" }}>
-        <Card.Image
-          src={nightfallImg || placeholderImg}
-          css={{ borderRadius: "$md", marginBottom: "$8" }}
-        />
-        <Text
-          weight="thin"
-          className="text-xs xl:text-sm"
-          css={{
-            letterSpacing: "$widest",
-            marginBottom: "$0",
-            marginLeft: "$1",
-          }}
-        >
-          NIGHTFALL{" "}
-          {destinationData &&
-            ` // ${destinationData?.Response?.displayProperties?.name.toUpperCase()}`}
-        </Text>
-        <Text
-          weight="extrabold"
-          className="text-4xl"
-          css={{
-            margin: "$0",
-            lineHeight: "$xs",
-          }}
-        >
-          {nightfall?.displayProperties.description}
-        </Text>
-        <Text
-          weight="thin"
-          className="text-sm xl:text-base"
-          css={{
-            fontStyle: "italic",
-            marginTop: "$4",
-            marginLeft: "$1",
-          }}
-        >
-          Resets {moment(nightfallEndDate).fromNow()}
-        </Text>
-        {!isEmpty(modifiers?.[0]) && !isLoadingModifiers && (
-          <Section sectionTitle="CHAMPIONS">
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-              {modifiers[0].map(
-                (modifierData: any) =>
-                  modifierData.data?.Response?.displayProperties.name && (
-                    <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
-                      <ModifierImage
-                        src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
-                        className="h-6 w-6"
-                      />
-                      <Box css={{ marginLeft: "$4" }}>
-                        <Text size="$sm" weight="normal">
-                          {modifierData.data?.Response?.displayProperties?.name}
-                        </Text>
-                        <Text size="$xs" weight="thin">
-                          {modifierData.data?.Response?.displayProperties?.description?.match(
-                            firstPeriodRegex
-                          )?.[0] ||
-                            modifierData.data?.Response?.displayProperties
-                              ?.description}
-                        </Text>
-                      </Box>
+      {!isEmpty(modifiers?.[0]) && !isLoadingModifiers && (
+        <Section sectionTitle="CHAMPIONS">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
+            {modifiers[0].map(
+              (modifierData: any) =>
+                modifierData.data?.Response?.displayProperties.name && (
+                  <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
+                    <ModifierImage
+                      src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
+                      className="h-6 w-6"
+                    />
+                    <Box css={{ marginLeft: "$4" }}>
+                      <Text size="$sm" weight="normal">
+                        {modifierData.data?.Response?.displayProperties?.name}
+                      </Text>
+                      <Text size="$xs" weight="thin">
+                        {modifierData.data?.Response?.displayProperties?.description?.match(
+                          firstPeriodRegex
+                        )?.[0] ||
+                          modifierData.data?.Response?.displayProperties
+                            ?.description}
+                      </Text>
                     </Box>
-                  )
-              )}
-            </div>
-          </Section>
-        )}
-        {!isEmpty(modifiers?.[1]) && !isLoadingModifiers && (
-          <Section sectionTitle="MODIFIERS">
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-              {modifiers[1].map(
-                (modifierData: any) =>
-                  modifierData.data?.Response?.displayProperties.name && (
-                    <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
-                      <ModifierImage
-                        src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
-                        className="h-6 w-6"
-                      />
-                      <Box css={{ marginLeft: "$4" }}>
-                        <Text size="$sm" weight="normal">
-                          {modifierData.data?.Response?.displayProperties?.name}
-                        </Text>
-                        <Text size="$xs" weight="thin">
-                          {modifierData.data?.Response?.displayProperties?.description?.match(
-                            firstPeriodRegex
-                          )?.[0] ||
-                            modifierData.data?.Response?.displayProperties
-                              ?.description}
-                        </Text>
-                      </Box>
-                    </Box>
-                  )
-              )}
-            </div>
-          </Section>
-        )}
-        <Section sectionTitle="REWARDS">
-          <div className="grid grid-cols-1 gap-x-2 gap-y-3 mt-4">
-            <div className="flex gap-x-2">
-              <img
-                src={ACTIVITY_REWARDS_ICONS["Ascendant Shard"]}
-                className="h-6 w-6 rounded-[0.25em]"
-              />
-              <Text size="$sm" weight="thin">
-                Ascendant Shard
-              </Text>
-            </div>
-            <div className="flex gap-x-2">
-              <img
-                src={ACTIVITY_REWARDS_ICONS["Exotic Gear"]}
-                className="h-6 w-6 rounded-[0.25em]"
-              />
-              <Text size="$sm" weight="thin">
-                Exotic Gear
-              </Text>
-            </div>
-            <div className="flex gap-x-2">
-              <img
-                src={ACTIVITY_REWARDS_ICONS["Adept Nightfall Weapon"]}
-                className="h-6 w-6 rounded-[0.25em]"
-              />
-              <Text size="$sm" weight="thin">
-                Adept Nightfall Weapon
-              </Text>
-            </div>
+                  </Box>
+                )
+            )}
           </div>
         </Section>
-      </Box>
-    </Card>
+      )}
+      {!isEmpty(modifiers?.[1]) && !isLoadingModifiers && (
+        <Section sectionTitle="MODIFIERS">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
+            {modifiers[1].map(
+              (modifierData: any) =>
+                modifierData.data?.Response?.displayProperties.name && (
+                  <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
+                    <ModifierImage
+                      src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
+                      className="h-6 w-6"
+                    />
+                    <Box css={{ marginLeft: "$4" }}>
+                      <Text size="$sm" weight="normal">
+                        {modifierData.data?.Response?.displayProperties?.name}
+                      </Text>
+                      <Text size="$xs" weight="thin">
+                        {modifierData.data?.Response?.displayProperties?.description?.match(
+                          firstPeriodRegex
+                        )?.[0] ||
+                          modifierData.data?.Response?.displayProperties
+                            ?.description}
+                      </Text>
+                    </Box>
+                  </Box>
+                )
+            )}
+          </div>
+        </Section>
+      )}
+      <Section sectionTitle="REWARDS">
+        <div className="grid grid-cols-1 gap-x-2 gap-y-3 mt-4">
+          <div className="flex gap-x-2">
+            <img
+              src={ACTIVITY_REWARDS_ICONS["Ascendant Shard"]}
+              className="h-6 w-6 rounded-[0.25rem]"
+            />
+            <Text size="$sm" weight="thin">
+              Ascendant Shard
+            </Text>
+          </div>
+          <div className="flex gap-x-2">
+            <img
+              src={ACTIVITY_REWARDS_ICONS["Exotic Gear"]}
+              className="h-6 w-6 rounded-[0.25rem]"
+            />
+            <Text size="$sm" weight="thin">
+              Exotic Gear
+            </Text>
+          </div>
+          <div className="flex gap-x-2">
+            <img
+              src={ACTIVITY_REWARDS_ICONS["Adept Nightfall Weapon"]}
+              className="h-6 w-6 rounded-[0.25rem]"
+            />
+            <Text size="$sm" weight="thin">
+              Adept Nightfall Weapon
+            </Text>
+          </div>
+        </div>
+      </Section>
+    </Activity>
   );
 };
 
