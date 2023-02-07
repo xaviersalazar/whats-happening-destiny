@@ -19,7 +19,7 @@ const Section = ({ id, sectionTitle, children }: SectionProps) => (
     }}
   >
     <Box css={{ width: "fit-content", marginBottom: "$4" }}>
-      <Text size="$xl" weight="bold">
+      <Text className="text-md md:text-lg" weight="bold">
         {sectionTitle}
       </Text>
       <Box

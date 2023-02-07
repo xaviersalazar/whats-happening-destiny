@@ -8,41 +8,10 @@ import {
   fetchDestinyMilestones,
 } from "../../api/api";
 import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
-import { Activity, Box, Loader } from "../common";
+import { Activity, Box, Loader, Section } from "../common";
 import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
 import { firstPeriodRegex } from "../../utils/helpers";
-
-type SectionProps = {
-  sectionTitle: string;
-  children?: any;
-};
-
-const Section = ({ sectionTitle, children }: SectionProps) => (
-  <Box
-    css={{
-      marginTop: "$4",
-      marginBottom: "$4",
-      marginLeft: "$1",
-      marginRight: "$2",
-    }}
-  >
-    <Box css={{ width: "fit-content", marginBottom: "$4" }}>
-      <Text size="$xl" weight="bold">
-        {sectionTitle}
-      </Text>
-      <Box
-        css={{
-          width: "75%",
-          height: "0.12rem",
-          borderRadius: "$2xl",
-          background: "$almostBlack",
-        }}
-      />
-    </Box>
-    {children}
-  </Box>
-);
 
 const ModifierImage = styled("img", {
   maxWidth: "initial",

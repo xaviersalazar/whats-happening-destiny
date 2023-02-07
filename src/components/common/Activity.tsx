@@ -18,16 +18,15 @@ const Activity = ({
   children,
 }: ActivityProps) => {
   return (
-    <>
-      <div className="rounded-md w-full h-full">
+    <div id={uniqueId("activity_")}>
+      <div className="rounded-md w-auto h-auto">
         <img className="rounded-xl" src={imageSrc} />
       </div>
       <Card
-        key={uniqueId("activity_")}
         variant="flat"
         css={{
           background: "inherit",
-          marginTop: "$0",
+          marginTop: "$2",
         }}
       >
         <Box id={uniqueId("information_")} css={{ padding: "$0" }}>
@@ -44,7 +43,7 @@ const Activity = ({
           </Text>
           <Text
             weight="extrabold"
-            className="text-5xl xl:text-6xl"
+            className="text-4xl md:text-5xl xl:text-6xl"
             css={{
               margin: "$0",
               lineHeight: "$xs",
@@ -66,7 +65,7 @@ const Activity = ({
           {children}
         </Box>
       </Card>
-    </>
+    </div>
   );
 };
 
