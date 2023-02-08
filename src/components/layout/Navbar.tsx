@@ -15,8 +15,6 @@ type Item = {
 
 const menuItems: Array<Item> = [
   { name: "HOME", href: "/" },
-  { name: "DAILY", href: "/daily" },
-  { name: "WEEKLY", href: "/weekly" },
   { name: "DUNGEONS", href: "/dungeons" },
   { name: "RAIDS", href: "/raids" },
   { name: "SEASON", href: "/season" },
