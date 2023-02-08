@@ -60,7 +60,7 @@ export interface RnD {
 }
 
 export interface LostSector {
-  "Date (DD-MM-YYYY)": string;
+  Date: string;
   "Lost sector": string;
   Planet: string;
   "Exotic reward": string;

@@ -34,7 +34,7 @@ const CurrentLostSector = () => {
         .set("minute", 0)
         .set("second", 0);
 
-      setResetTime(moment(nextDailyReset).fromNow());
+      setResetTime(moment(nextDailyReset).utc().fromNow());
     }
   }, []);
 
@@ -42,16 +42,29 @@ const CurrentLostSector = () => {
     fetchWhDestinyData("lost-sector-data.json")
   );
 
-  const currentLostSector = data?.find(
-    (lostSector) =>
-      lostSector["Date (DD-MM-YYYY)"] === moment().format("DD-MM-YYYY")
-  );
+  const currentLostSector = data?.find((lostSector) => {
+    const now = moment().utc();
 
-  const { isLoading: isLoadingLostSector, data: lostSectorData } = useQuery(
+    if (
+      now.isSameOrBefore(
+        moment().set("hour", 11).set("minute", 0).set("second", 0).utc()
+      )
+    )
+      return (
+        lostSector.Date === moment().subtract(1, "day").format("DD-MM-YYYY")
+      );
+    else return lostSector.Date === moment().format("DD-MM-YYYY");
+  });
+
+  const {
+    isLoading: isLoadingLostSector,
+    isSuccess: isLostSectorSuccess,
+    data: lostSectorData,
+  } = useQuery(
     "SearchLostSector",
     () =>
       searchDestinyEntities(
-        "DestinyActivityDefinition",
+        "LostSectorSearch",
         currentLostSector?.["Lost sector"] as string
       ),
     { enabled: !!data }
@@ -68,7 +81,7 @@ const CurrentLostSector = () => {
 
   const lostSectorQueries = useQueries(
     lostSectorSearchResults.map((lostSector) => ({
-      queryKey: ["LostSectorActivityModifierDefinition", lostSector.hash],
+      queryKey: ["LostSectorActivityDefinition", lostSector.hash],
       queryFn: () => fetchDestinyActivityDefinition(lostSector.hash),
       enabled:
         !isEmpty(lostSectorSearchResults[0]) &&
@@ -92,7 +105,7 @@ const CurrentLostSector = () => {
 
   const modifierQueries = useQueries(
     modifierHashes.map((activityModifierHash) => ({
-      queryKey: ["NightfallActivityModifierDefinition", activityModifierHash],
+      queryKey: ["LostSectorActivityModifierDefinition", activityModifierHash],
       queryFn: () =>
         fetchDestinyActivityModifierDefinition(activityModifierHash),
       enabled: !!lostSectorQueries,
@@ -124,20 +137,25 @@ const CurrentLostSector = () => {
   )
     return <Loader />;
 
-  if (!isSuccess) return null;
+  if (
+    !isSuccess &&
+    !isLostSectorSuccess &&
+    lostSectorQueries.every((lostSector) => lostSector.isSuccess)
+  )
+    return null;
 
   return (
     <Activity
       imageSrc={`${BUNGIE_BASE_URL}/${lostSectorQueries[0]?.data?.Response?.pgcrImage}`}
       subTitle={`LOST SECTOR ${
-        data && ` // ${data?.[0].Planet.toUpperCase()}`
+        currentLostSector && ` // ${currentLostSector?.Planet.toUpperCase()}`
       }`}
       title={currentLostSector?.["Lost sector"] as string}
       description={`Resets ${resetTime}`}
     >
       <Section sectionTitle="CHAMPIONS">
         <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-          {data?.[0].Champions.split(",").map((champion) => {
+          {currentLostSector?.Champions.split(",").map((champion) => {
             const champ = champion.match(beforeParenRegex)?.[0].trim() || "";
 
             return !isEmpty(champ) ? (
@@ -196,7 +214,7 @@ const CurrentLostSector = () => {
               className="h-6 w-6 rounded-[0.25rem]"
             />
             <Text size="$sm" weight="thin">
-              Exotic {data?.[0]["Exotic reward"]}
+              Exotic {currentLostSector?.["Exotic reward"]}
             </Text>
           </div>
         </div>
