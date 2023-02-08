@@ -1,4 +1,4 @@
-import { styled, Text } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
 import { useQueries, useQuery } from "react-query";
 import {
   BUNGIE_BASE_URL,
@@ -8,19 +8,10 @@ import {
   fetchDestinyMilestones,
 } from "../../api/api";
 import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
-import { Activity, Box, Loader, Section } from "../common";
+import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
-import { firstPeriodRegex } from "../../utils/helpers";
-
-const ModifierImage = styled("img", {
-  maxWidth: "initial",
-  background: "$almostBlack",
-  borderRadius: "50%",
-  padding: "$1",
-  position: "relative",
-  top: "0.25rem",
-});
+import { beforePeriodRegex } from "../../utils/helpers";
 
 const CurrentNightfall = () => {
   const { data, isSuccess, isLoading } = useQuery(
@@ -120,7 +111,7 @@ const CurrentNightfall = () => {
                       </Text>
                       <Text size="$xs" weight="thin">
                         {modifierData.data?.Response?.displayProperties?.description?.match(
-                          firstPeriodRegex
+                          beforePeriodRegex
                         )?.[0] ||
                           modifierData.data?.Response?.displayProperties
                             ?.description}
@@ -149,7 +140,7 @@ const CurrentNightfall = () => {
                       </Text>
                       <Text size="$xs" weight="thin">
                         {modifierData.data?.Response?.displayProperties?.description?.match(
-                          firstPeriodRegex
+                          beforePeriodRegex
                         )?.[0] ||
                           modifierData.data?.Response?.displayProperties
                             ?.description}

@@ -1,4 +1,4 @@
-import { styled, Text } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
 import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
 import { useEffect, useState } from "react";
@@ -11,17 +11,8 @@ import {
   searchDestinyEntities,
 } from "../../api/api";
 import { CHAMPIONS, OTHER_ICONS } from "../../utils/d2Data";
-import { firstPeriodRegex, parenRegex } from "../../utils/helpers";
-import { Activity, Box, Loader, Section } from "../common";
-
-const ModifierImage = styled("img", {
-  maxWidth: "initial",
-  background: "$almostBlack",
-  borderRadius: "50%",
-  padding: "$1",
-  position: "relative",
-  top: "0.25rem",
-});
+import { beforePeriodRegex, beforeParenRegex } from "../../utils/helpers";
+import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 
 const CurrentLostSector = () => {
   const [resetTime, setResetTime] = useState<string>("");
@@ -149,7 +140,7 @@ const CurrentLostSector = () => {
       <Section sectionTitle="CHAMPIONS">
         <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
           {data?.[0].Champions.split(",").map((champion) => {
-            const champ = champion.match(parenRegex)?.[0].trim() || "";
+            const champ = champion.match(beforeParenRegex)?.[0].trim() || "";
 
             return !isEmpty(champ) ? (
               <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
@@ -187,7 +178,7 @@ const CurrentLostSector = () => {
                       </Text>
                       <Text size="$xs" weight="thin">
                         {modifierData.data?.Response?.displayProperties?.description?.match(
-                          firstPeriodRegex
+                          beforePeriodRegex
                         )?.[0] ||
                           modifierData.data?.Response?.displayProperties
                             ?.description}

@@ -1,4 +1,4 @@
-const firstPeriodRegex = /.+?(?=\.)/gm;
-const parenRegex = /.+?(?=\()/gm;
+const beforePeriodRegex = /.+?(?=\.)/gm;
+const beforeParenRegex = /.+?(?=\()/gm;
 
-export { firstPeriodRegex, parenRegex };
+export { beforePeriodRegex, beforeParenRegex };
