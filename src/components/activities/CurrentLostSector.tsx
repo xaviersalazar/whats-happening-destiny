@@ -126,8 +126,6 @@ const CurrentLostSector = () => {
 
   if (!isSuccess) return null;
 
-  console.log(lostSectorQueries);
-
   return (
     <Activity
       imageSrc={`${BUNGIE_BASE_URL}/${lostSectorQueries[0]?.data?.Response?.pgcrImage}`}
