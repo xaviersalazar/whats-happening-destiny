@@ -5,22 +5,21 @@ A information website about events, activities, etc that are currently going in 
 
 ## Pages
 #### Home
-An overview of major activities going on during that week
-#### Daily
-A more detailed view of all activities that rotate daily
-#### Weekly
-A more detailed view of all activities that rotate weekly
+An overview of major activities going on during that week (weekly & daily rotators)
 #### Dungeons 
 A view of all dungeons currently available to include encounters and their loot
 *This list here will probably change every few seasons or so*
+- Spire of the Watcher **(*need to add*)**
 - Duality
 - Grasp of Avarice
 - Pit of Heresy
 - Prophecy
 - Shattered Throne
+  
 #### Raids
 A view of all raids currently available to include encounters, challenges and loot
 *This list will also probably change every few seasons or so*
+- King's Fall **(*need to add*)**
 - Vow of the Disciple
 - Deep Stone Crypt
 - Garden of Salvation
