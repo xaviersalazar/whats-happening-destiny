@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 const Home = lazy(() => import("./home/Home"));
 const RnD = lazy(() => import("./rnd/RnD"));
+const Season = lazy(() => import("./season/Season"));
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,16 @@ const router = createBrowserRouter([
           <Page title="RAIDS" subTitle="Current raids in rotation">
             <Suspense fallback={<Loader />}>
               <RnD activityType="Raid" fileName="raid-data.json" />
+            </Suspense>
+          </Page>
+        ),
+      },
+      {
+        path: "/season",
+        element: (
+          <Page title="SEASON" subTitle="Current season">
+            <Suspense fallback={<Loader />}>
+              <Season />
             </Suspense>
           </Page>
         ),
