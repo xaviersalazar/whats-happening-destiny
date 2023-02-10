@@ -5,7 +5,7 @@ import {
   getDestinyDefinition,
   getDestinyManifest,
 } from "../../api/api";
-import { get, setMany } from "idb-keyval";
+import { get, setMany, update } from "idb-keyval";
 import { Box, Loader } from "../../components/common";
 import {
   CurrentLostSector,
@@ -13,7 +13,8 @@ import {
 } from "../../components/activities";
 
 const Home = () => {
-  const [isUpdatingManifest, setIsUpdatingManifest] = useState(true);
+  const [isCurrVersion, setIsCurrVersion] = useState<boolean>(true);
+  const [isUpdatingManifest, setIsUpdatingManifest] = useState<boolean>(true);
 
   const { isLoading, isSuccess, data } = useQuery(
     "Manifest",
@@ -55,8 +56,13 @@ const Home = () => {
     } else {
       // Manifest version found, check to see if its outdated
       if (storedManifestVersion !== data?.Response.version) {
-        // Update ManifestVersion and manifests
+        // Update ManifestVersion and definitions
         console.log("update stored manifest with new data");
+        setIsCurrVersion(false);
+
+        definitions.forEach((definition) => {
+          definition.refetch();
+        });
       } else {
         // Got the latest manifest, continue on
         console.log("got the latest manifest");
@@ -72,7 +78,8 @@ const Home = () => {
   }, [data]);
 
   useEffect(() => {
-    if (isDefinitionsSuccess) {
+    if (isDefinitionsSuccess && isCurrVersion) {
+      // Manifest up to date OR is a first-time save
       setMany([
         ["ManifestVersion", data?.Response?.version],
         [DEFINITIONS[0], definitions[0].data],
@@ -88,6 +95,20 @@ const Home = () => {
           console.log("something went wrong trying to save the manifest(s)");
           setIsUpdatingManifest(false);
         });
+    }
+
+    if (isDefinitionsSuccess && !isCurrVersion) {
+      // Manifest wasn't up to date, update values
+      update("ManifestVersion", () => data?.Response?.version);
+      update(DEFINITIONS[0], () => definitions[0].data);
+      update(DEFINITIONS[1], () => definitions[1].data);
+      update(DEFINITIONS[2], () => definitions[2].data);
+      update(DEFINITIONS[3], () => definitions[3].data).then(() => {
+        console.log("finished updating all definitions");
+
+        setIsUpdatingManifest(false);
+        setIsCurrVersion(true);
+      });
     }
   }, [isDefinitionsSuccess]);
 
