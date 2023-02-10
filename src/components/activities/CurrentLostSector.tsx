@@ -1,20 +1,29 @@
-import { Text } from "@nextui-org/react";
-import { isEmpty, uniqueId } from "lodash";
-import moment from "moment";
 import { useEffect, useState } from "react";
-import { useQueries, useQuery } from "react-query";
-import {
-  BUNGIE_BASE_URL,
-  fetchDestinyActivityDefinition,
-  fetchDestinyActivityModifierDefinition,
-  fetchWhDestinyData,
-  searchDestinyEntities,
-} from "../../api/api";
-import { CHAMPIONS, OTHER_ICONS } from "../../utils/d2Data";
-import { beforePeriodRegex, beforeParenRegex } from "../../utils/helpers";
+import { Text } from "@nextui-org/react";
+import { useQuery } from "react-query";
+import { isEmpty, map, uniqueId } from "lodash";
+import moment from "moment";
+import { getMany } from "idb-keyval";
+import { BUNGIE_BASE_URL, fetchWhDestinyData } from "../../api/api";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
+import { beforePeriodRegex } from "../../utils/helpers";
+import { Modifier } from "../../types/modifier";
+import { LostSector } from "../../types/lostSector";
+import { ActivityData } from "../../types/activities";
+import { OTHER_ICONS } from "../../utils/d2Data";
+
+type CurrentLostSector = {
+  lostSector: LostSector;
+  whDestinyData: ActivityData;
+  destination: string;
+  champions: Modifier[];
+  modifiers: Modifier[];
+};
 
 const CurrentLostSector = () => {
+  const [isLoadingLostSector, setIsLoadingLostSector] = useState<boolean>(true);
+  const [currentLostSector, setCurrentLostSector] =
+    useState<CurrentLostSector | null>(null);
   const [resetTime, setResetTime] = useState<string>("");
 
   useEffect(() => {
@@ -42,162 +51,134 @@ const CurrentLostSector = () => {
     fetchWhDestinyData("lost-sector-data.json")
   );
 
-  const currentLostSector = data?.find((lostSector) => {
-    const now = moment().utc();
+  const getLostSector = async () => {
+    const definitions = await getMany([
+      "DestinyActivityDefinition",
+      "DestinyActivityModifierDefinition",
+    ]);
 
-    if (
-      now.isSameOrBefore(
-        moment().set("hour", 11).set("minute", 0).set("second", 0).utc()
-      )
-    )
-      return (
-        lostSector.Date === moment().subtract(1, "day").format("DD-MM-YYYY")
-      );
-    else return lostSector.Date === moment().format("DD-MM-YYYY");
-  });
+    const lostSectorToday = data?.find((lostSector) => {
+      const now = moment().utc();
 
-  const {
-    isLoading: isLoadingLostSector,
-    isSuccess: isLostSectorSuccess,
-    data: lostSectorData,
-  } = useQuery(
-    "SearchLostSector",
-    () =>
-      searchDestinyEntities(
-        "LostSectorSearch",
-        currentLostSector?.["Lost sector"] as string
-      ),
-    { enabled: !!data }
-  );
-
-  const lostSectorSearchResults = [
-    lostSectorData?.Response?.results?.results?.find((result: any) =>
-      result?.displayProperties?.name.includes(": Legend")
-    ) || [],
-    lostSectorData?.Response?.results?.results?.find((result: any) =>
-      result?.displayProperties?.name.includes(": Master")
-    ) || [],
-  ];
-
-  const lostSectorQueries = useQueries(
-    lostSectorSearchResults.map((lostSector) => ({
-      queryKey: ["LostSectorActivityDefinition", lostSector.hash],
-      queryFn: () => fetchDestinyActivityDefinition(lostSector.hash),
-      enabled:
-        !isEmpty(lostSectorSearchResults[0]) &&
-        !isEmpty(lostSectorSearchResults[1]),
-    }))
-  );
-
-  const isLoadingActivities = lostSectorQueries.every(
-    (lostSector: any) => lostSector.isLoading
-  );
-
-  const masterLostSector = lostSectorQueries?.[1]?.data?.Response;
-
-  const modifierHashes = [
-    ...new Set(
-      masterLostSector?.modifiers.map(
-        (modifier: any) => modifier.activityModifierHash
-      )
-    ),
-  ] as string[];
-
-  const modifierQueries = useQueries(
-    modifierHashes.map((activityModifierHash) => ({
-      queryKey: ["LostSectorActivityModifierDefinition", activityModifierHash],
-      queryFn: () =>
-        fetchDestinyActivityModifierDefinition(activityModifierHash),
-      enabled: !!lostSectorQueries,
-    }))
-  ) as any;
-
-  const isLoadingModifiers = modifierQueries.every(
-    (modifier: any) => modifier.isLoading
-  );
-
-  const modifiers = [
-    modifierQueries?.filter((modifierData: any) =>
-      modifierData.data?.Response?.displayProperties?.name.match(
-        /Champion|Champions/g
-      )
-    ) || [],
-    modifierQueries?.filter(
-      (modifierData: any) =>
-        !modifierData.data?.Response?.displayProperties?.name.match(
-          /Champion|Champions/g
+      if (
+        now.isSameOrBefore(
+          moment().set("hour", 11).set("minute", 0).set("second", 0).utc()
         )
-    ) || [],
-  ];
+      )
+        return (
+          lostSector.Date === moment().subtract(1, "day").format("DD-MM-YYYY")
+        );
+      else return lostSector.Date === moment().format("DD-MM-YYYY");
+    });
 
-  if (
-    isLoading ||
-    isLoadingLostSector ||
-    (isLoadingActivities && isLoadingModifiers)
-  )
-    return <Loader />;
+    const lostSectors = map(definitions[0], (value) => {
+      if (
+        value.displayProperties?.name.includes(
+          lostSectorToday?.["Lost sector"]
+        ) &&
+        (value.displayProperties?.name.includes(": Legend") ||
+          value.displayProperties?.name.includes(": Master"))
+      ) {
+        return value as LostSector;
+      }
+    }).filter((data) => data);
 
-  if (
-    !isSuccess &&
-    !isLostSectorSuccess &&
-    lostSectorQueries.every((lostSector) => lostSector.isSuccess)
-  )
-    return null;
+    const lostSector = lostSectors[lostSectors.length - 1] as LostSector;
+
+    const modifierHashes = [
+      ...new Set(
+        lostSector?.modifiers.map(
+          ({ activityModifierHash }) => activityModifierHash
+        )
+      ),
+    ];
+    const modifiers = modifierHashes.map(
+      (modifierHash) => definitions[1][modifierHash]
+    ) as Modifier[];
+    const separatedModifiers = [
+      modifiers.filter(({ displayProperties }) =>
+        displayProperties.name.match(/Champion|Champions/g)
+      ),
+      modifiers.filter(
+        ({ displayProperties }) =>
+          !displayProperties.name.match(/Champion|Champions/g)
+      ),
+    ];
+
+    setCurrentLostSector({
+      lostSector,
+      whDestinyData: lostSectorToday as ActivityData,
+      destination: lostSectorToday?.Planet as string,
+      champions: separatedModifiers[0],
+      modifiers: separatedModifiers[1],
+    });
+
+    setIsLoadingLostSector(false);
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      getLostSector();
+    }
+  }, [isSuccess]);
+
+  if (!isSuccess) return null;
+
+  if (isLoading || isLoadingLostSector) return <Loader />;
 
   return (
     <Activity
-      imageSrc={`${BUNGIE_BASE_URL}/${lostSectorQueries[0]?.data?.Response?.pgcrImage}`}
-      subTitle={`LOST SECTOR ${
-        currentLostSector && ` // ${currentLostSector?.Planet.toUpperCase()}`
-      }`}
-      title={currentLostSector?.["Lost sector"] as string}
+      imageSrc={`${BUNGIE_BASE_URL}/${currentLostSector?.lostSector.pgcrImage}`}
+      subTitle={`LOST SECTOR ${` // ${currentLostSector?.destination.toUpperCase()}`}`}
+      title={currentLostSector?.whDestinyData["Lost sector"] || ""}
       description={`Resets ${resetTime}`}
     >
-      <Section sectionTitle="CHAMPIONS">
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-          {currentLostSector?.Champions.split(",").map((champion) => {
-            const champ = champion.match(beforeParenRegex)?.[0].trim() || "";
-
-            return !isEmpty(champ) ? (
-              <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
-                <ModifierImage
-                  src={CHAMPIONS[champ as keyof typeof CHAMPIONS].iconPath}
-                  className="h-6 w-6"
-                />
-                <Box css={{ marginLeft: "$4" }}>
-                  <Text size="$sm" weight="normal">
-                    Champions: {champion.split("(")[0]}
-                  </Text>
-                  <Text size="$xs" weight="thin">
-                    {CHAMPIONS[champ as keyof typeof CHAMPIONS].description}
-                  </Text>
-                </Box>
-              </Box>
-            ) : null;
-          })}
-        </div>
-      </Section>
-      {!isEmpty(modifiers?.[1]) && !isLoadingModifiers && (
-        <Section sectionTitle="MODIFIERS">
+      {!isEmpty(currentLostSector?.champions) && (
+        <Section sectionTitle="CHAMPIONS">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-            {modifiers[1].map(
-              (modifierData: any) =>
-                modifierData.data?.Response?.displayProperties.name && (
+            {currentLostSector?.champions.map(
+              ({ displayProperties }) =>
+                displayProperties.name && (
                   <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
                     <ModifierImage
-                      src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
+                      src={`${BUNGIE_BASE_URL}${displayProperties.icon}`}
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
                       <Text size="$sm" weight="normal">
-                        {modifierData.data?.Response?.displayProperties?.name}
+                        {displayProperties?.name}
                       </Text>
                       <Text size="$xs" weight="thin">
-                        {modifierData.data?.Response?.displayProperties?.description?.match(
+                        {displayProperties?.description?.match(
                           beforePeriodRegex
-                        )?.[0] ||
-                          modifierData.data?.Response?.displayProperties
-                            ?.description}
+                        )?.[0] || displayProperties?.description}
+                      </Text>
+                    </Box>
+                  </Box>
+                )
+            )}
+          </div>
+        </Section>
+      )}
+      {!isEmpty(currentLostSector?.modifiers) && (
+        <Section sectionTitle="MODIFIERS">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
+            {currentLostSector?.modifiers.map(
+              ({ displayProperties }) =>
+                displayProperties.name && (
+                  <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
+                    <ModifierImage
+                      src={`${BUNGIE_BASE_URL}${displayProperties.icon}`}
+                      className="h-6 w-6"
+                    />
+                    <Box css={{ marginLeft: "$4" }}>
+                      <Text size="$sm" weight="normal">
+                        {displayProperties?.name}
+                      </Text>
+                      <Text size="$xs" weight="thin">
+                        {displayProperties?.description?.match(
+                          beforePeriodRegex
+                        )?.[0] || displayProperties?.description}
                       </Text>
                     </Box>
                   </Box>
@@ -214,7 +195,7 @@ const CurrentLostSector = () => {
               className="h-6 w-6 rounded-[0.25rem]"
             />
             <Text size="$sm" weight="thin">
-              Exotic {currentLostSector?.["Exotic reward"]}
+              Exotic {currentLostSector?.whDestinyData["Exotic reward"]}
             </Text>
           </div>
         </div>

@@ -12,7 +12,10 @@ import { CurrentLostSector, CurrentNightfall } from "../activities";
 const Home = () => {
   const [isUpdatingManifest, setIsUpdatingManifest] = useState(true);
 
-  const { isLoading, data } = useQuery("Manifest", getDestinyManifest);
+  const { isLoading, isSuccess, data } = useQuery(
+    "Manifest",
+    getDestinyManifest
+  );
   const definitions = useQueries(
     DEFINITIONS.map((definition) => ({
       queryKey: [
@@ -85,6 +88,8 @@ const Home = () => {
     }
   }, [isDefinitionsSuccess]);
 
+  if (!isSuccess) return null;
+
   if (isUpdatingManifest || isLoading || isLoadingDefinitions)
     return <Loader />;
 
@@ -97,7 +102,7 @@ const Home = () => {
     >
       <div className="grid grid-cols-1 gap-10 px-0 lg:grid-cols-2">
         <CurrentNightfall />
-        {/* <CurrentLostSector /> */}
+        <CurrentLostSector />
       </div>
     </Box>
   );
