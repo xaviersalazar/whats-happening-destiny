@@ -1,22 +1,22 @@
-interface ArmorItem {
+type ArmorItem = {
   name: string;
   type: string;
   iconPath: string;
-}
+};
 
-interface Armor {
+type Armor = {
   character: string;
   items: [ArmorItem];
-}
+};
 
-interface Weapon {
+type Weapon = {
   name: string;
   type: string;
   iconPath: string;
   isExotic: boolean;
-}
+};
 
-export interface Encounter {
+export type Encounter = {
   title?: string;
   description?: string;
   dropsLoot?: boolean;
@@ -25,30 +25,30 @@ export interface Encounter {
     weapons: [Weapon];
     armor: [Armor];
   } | null;
-}
+};
 
-interface TypeModifier {
+type TypeModifier = {
   name?: string;
   description?: string;
   iconPath?: string;
-}
+};
 
-export interface Modifier {
+export type Modifier = {
   type?: string;
   typeModifiers?: [TypeModifier];
-}
+};
 
-interface ExtraReward {
+type ExtraReward = {
   title?: string;
   description?: string;
-}
+};
 
-interface Mode {
+type Mode = {
   type?: string;
   recommendedLightLevel?: string;
-}
+};
 
-export interface RnD {
+export type RnD = {
   name: string;
   location: string;
   description: string;
@@ -57,9 +57,9 @@ export interface RnD {
   extraRewards: [ExtraReward];
   modifiers: [Modifier];
   encounters: [Encounter];
-}
+};
 
-export interface LostSector {
+export type LostSector = {
   Date: string;
   "Lost sector": string;
   Planet: string;
@@ -68,6 +68,6 @@ export interface LostSector {
   Burn: string;
   Shields: string;
   Notes: string;
-}
+};
 
 export interface ActivityData extends LostSector, RnD {}

@@ -1,19 +1,29 @@
+import { useEffect, useState } from "react";
 import { Text } from "@nextui-org/react";
-import { useQueries, useQuery } from "react-query";
-import {
-  BUNGIE_BASE_URL,
-  fetchDestinyActivityDefinition,
-  fetchDestinyActivityModifierDefinition,
-  fetchDestinyDestinationDefinition,
-  fetchDestinyMilestones,
-} from "../../api/api";
-import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
-import { Activity, Box, Loader, ModifierImage, Section } from "../common";
+import { useQuery } from "react-query";
 import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
+import { getMany } from "idb-keyval";
+import { BUNGIE_BASE_URL, fetchDestinyMilestones } from "../../api/api";
+import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
+import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { beforePeriodRegex } from "../../utils/helpers";
+import { Nightfall } from "../../types/nightfall";
+import { Modifier } from "../../types/modifier";
+import { Destination } from "../../types/destination";
+
+type CurrentNightfall = {
+  nightfall: Nightfall;
+  destination: Destination;
+  champions: Modifier[];
+  modifiers: Modifier[];
+};
 
 const CurrentNightfall = () => {
+  const [isLoadingNightfall, setIsLoadingNightfall] = useState<boolean>(true);
+  const [currentNightfall, setCurrentNightfall] =
+    useState<CurrentNightfall | null>(null);
+
   const { data, isSuccess, isLoading } = useQuery(
     "Milestones",
     fetchDestinyMilestones
@@ -25,96 +35,91 @@ const CurrentNightfall = () => {
   const nightfallEndDate =
     data?.Response?.[ACTIVITY_HASH.Nightfall]?.endDate || "";
 
-  const nightfalls = useQueries(
-    nightfallActivities?.map((activity: any) => ({
-      queryKey: ["ActivityDefinition", activity.activityHash],
-      queryFn: () => fetchDestinyActivityDefinition(activity.activityHash),
-      enabled: !!activity.activityHash,
-    }))
-  ) as any;
+  const getNightfall = async () => {
+    const definitions = await getMany([
+      "DestinyActivityDefinition",
+      "DestinyDestinationDefinition",
+      "DestinyActivityModifierDefinition",
+    ]);
 
-  const isLoadingNightfalls =
-    isLoading && nightfalls.every((nightfall: any) => nightfall.isLoading);
+    const nightfalls = nightfallActivities?.map(
+      ({ activityHash }) => definitions[0][activityHash]
+    );
 
-  const nightfall = nightfalls[nightfalls.length - 1]?.data?.Response;
+    const nightfall = nightfalls[nightfalls.length - 1] as Nightfall;
+    const destination = definitions[1][
+      nightfall.destinationHash
+    ] as Destination;
 
-  const { data: destinationData } = useQuery(
-    "DestinationDefinition",
-    () => fetchDestinyDestinationDefinition(nightfall.destinationHash),
-    {
-      enabled: !!nightfall,
-    }
-  );
-
-  const modifierHashes = [
-    ...new Set(
-      nightfall?.modifiers.map((modifier: any) => modifier.activityModifierHash)
-    ),
-  ] as string[];
-
-  const modifierQueries = useQueries(
-    modifierHashes.map((activityModifierHash) => ({
-      queryKey: ["NightfallActivityModifierDefinition", activityModifierHash],
-      queryFn: () =>
-        fetchDestinyActivityModifierDefinition(activityModifierHash),
-      enabled: !!nightfall,
-    }))
-  ) as any;
-
-  const isLoadingModifiers = modifierQueries.every(
-    (modifier: any) => modifier.isLoading
-  );
-
-  const modifiers = [
-    modifierQueries?.filter((modifierData: any) =>
-      modifierData.data?.Response?.displayProperties?.name.match(
-        /Champion|Champions/g
-      )
-    ) || [],
-    modifierQueries?.filter(
-      (modifierData: any) =>
-        !modifierData.data?.Response?.displayProperties?.name.match(
-          /Champion|Champions/g
+    const modifierHashes = [
+      ...new Set(
+        nightfall.modifiers.map(
+          ({ activityModifierHash }) => activityModifierHash
         )
-    ) || [],
-  ];
+      ),
+    ];
+    const modifiers = modifierHashes.map(
+      (modifierHash) => definitions[2][modifierHash]
+    ) as Modifier[];
+    const separatedModifiers = [
+      modifiers.filter(({ displayProperties }) =>
+        displayProperties.name.match(/Champion|Champions/g)
+      ),
+      modifiers.filter(
+        ({ displayProperties }) =>
+          !displayProperties.name.match(/Champion|Champions/g)
+      ),
+    ];
 
-  if (isLoading || isLoadingNightfalls || isLoadingModifiers) return <Loader />;
+    setCurrentNightfall({
+      nightfall,
+      destination,
+      champions: separatedModifiers[0],
+      modifiers: separatedModifiers[1],
+    });
 
-  if (!isSuccess && nightfalls.every((nightfall: any) => nightfall.isSuccess))
-    return null;
+    setIsLoadingNightfall(false);
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      getNightfall();
+    }
+  }, [isSuccess]);
+
+  if (!isSuccess) return null;
+
+  if (isLoading || isLoadingNightfall) return <Loader />;
 
   return (
     <Activity
-      imageSrc={`${BUNGIE_BASE_URL}/${nightfall?.pgcrImage}`}
-      subTitle={`NIGHTFALL ${
-        destinationData &&
-        ` // ${destinationData?.Response?.displayProperties?.name.toUpperCase()}`
-      }`}
-      title={nightfall?.displayProperties.description}
+      imageSrc={`${BUNGIE_BASE_URL}/${currentNightfall?.nightfall.pgcrImage}`}
+      subTitle={`NIGHTFALL ${` // ${
+        currentNightfall?.destination.displayProperties?.name.toUpperCase() ||
+        ""
+      }`}`}
+      title={currentNightfall?.nightfall.displayProperties.description || ""}
       description={`Resets ${moment(nightfallEndDate).fromNow()}`}
     >
-      {!isEmpty(modifiers?.[0]) && !isLoadingModifiers && (
+      {!isEmpty(currentNightfall?.champions) && (
         <Section sectionTitle="CHAMPIONS">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-            {modifiers[0].map(
-              (modifierData: any) =>
-                modifierData.data?.Response?.displayProperties.name && (
+            {currentNightfall?.champions.map(
+              ({ displayProperties }) =>
+                displayProperties.name && (
                   <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
                     <ModifierImage
-                      src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
+                      src={`${BUNGIE_BASE_URL}${displayProperties.icon}`}
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
                       <Text size="$sm" weight="normal">
-                        {modifierData.data?.Response?.displayProperties?.name}
+                        {displayProperties?.name}
                       </Text>
                       <Text size="$xs" weight="thin">
-                        {modifierData.data?.Response?.displayProperties?.description?.match(
+                        {displayProperties?.description?.match(
                           beforePeriodRegex
-                        )?.[0] ||
-                          modifierData.data?.Response?.displayProperties
-                            ?.description}
+                        )?.[0] || displayProperties?.description}
                       </Text>
                     </Box>
                   </Box>
@@ -123,27 +128,25 @@ const CurrentNightfall = () => {
           </div>
         </Section>
       )}
-      {!isEmpty(modifiers?.[1]) && !isLoadingModifiers && (
+      {!isEmpty(currentNightfall?.modifiers) && (
         <Section sectionTitle="MODIFIERS">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-2 mt-4">
-            {modifiers[1].map(
-              (modifierData: any) =>
-                modifierData.data?.Response?.displayProperties.name && (
+            {currentNightfall?.modifiers.map(
+              ({ displayProperties }) =>
+                displayProperties.name && (
                   <Box key={uniqueId("modifier_")} css={{ display: "flex" }}>
                     <ModifierImage
-                      src={`${BUNGIE_BASE_URL}${modifierData.data?.Response?.displayProperties.icon}`}
+                      src={`${BUNGIE_BASE_URL}${displayProperties.icon}`}
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
                       <Text size="$sm" weight="normal">
-                        {modifierData.data?.Response?.displayProperties?.name}
+                        {displayProperties?.name}
                       </Text>
                       <Text size="$xs" weight="thin">
-                        {modifierData.data?.Response?.displayProperties?.description?.match(
+                        {displayProperties?.description?.match(
                           beforePeriodRegex
-                        )?.[0] ||
-                          modifierData.data?.Response?.displayProperties
-                            ?.description}
+                        )?.[0] || displayProperties?.description}
                       </Text>
                     </Box>
                   </Box>
