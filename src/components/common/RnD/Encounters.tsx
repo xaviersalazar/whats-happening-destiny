@@ -108,7 +108,7 @@ const Encounters = ({ encounters }: EncounterProps) => (
             </Text>
             {dropsLoot && (
               <LootItems>
-                <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6">
+                <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-6">
                   {!isEmpty(loot) &&
                     concat(
                       loot.weapons,
@@ -116,6 +116,7 @@ const Encounters = ({ encounters }: EncounterProps) => (
                     ).map(({ name, type, iconPath, ...rest }) => (
                       <Box
                         key={uniqueId("loot_")}
+                        className="h-auto max-w-16 md:max-w-20 lg:max-w-16 xl:max-w-20"
                         css={{
                           display: "flex",
                           flexDirection: "column",
@@ -123,7 +124,7 @@ const Encounters = ({ encounters }: EncounterProps) => (
                       >
                         <LootImg
                           src={iconPath}
-                          className="h-16 w-16 md:h-20 md:w-20 lg:h-16 lg:w-16 xl:h-20 xl:w-20 2xl:h-24 2xl:w-24"
+                          className="h-16 w-16 md:h-20 md:w-20 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
                           alt="loot-icon"
                           {...rest}
                         />

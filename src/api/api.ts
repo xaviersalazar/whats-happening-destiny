@@ -30,7 +30,7 @@ const bungieApiURL = axios.create({
 });
 
 export const getWhDestinyData = async (file: string) => {
-  const { data } = await whDestinyDataURL({ url: file });
+  const { data } = await whDestinyDataURL({ url: `${file}.json` });
 
   return data as [ActivityData];
 };

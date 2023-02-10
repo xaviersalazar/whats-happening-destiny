@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { styled, Text } from "@nextui-org/react";
 import { isEmpty, uniqueId } from "lodash";
-import { ActivityData, RnD } from "../../../types/activities";
-import powerLevelIcon from "../../assets/power-level-icon.png";
+import { ActivityData } from "../../../types/activities";
+import powerLevelIcon from "../../../assets/power-level-icon.png";
 import Encounters from "./Encounters";
 import Box from "../Box";
 import Activity from "../Activity";

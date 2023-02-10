@@ -11,6 +11,7 @@ import { beforePeriodRegex } from "../../utils/helpers";
 import { Nightfall } from "../../types/nightfall";
 import { Modifier } from "../../types/modifier";
 import { Destination } from "../../types/destination";
+import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentNightfall = {
   nightfall: Nightfall;
@@ -23,6 +24,7 @@ const CurrentNightfall = () => {
   const [isLoadingNightfall, setIsLoadingNightfall] = useState<boolean>(true);
   const [currentNightfall, setCurrentNightfall] =
     useState<CurrentNightfall | null>(null);
+  const [activityImage, setActivityImage] = useState(placeholderImage);
 
   const { data, isSuccess, isLoading } = useQuery(
     "Milestones",
@@ -34,6 +36,12 @@ const CurrentNightfall = () => {
 
   const nightfallEndDate =
     data?.Response?.[ACTIVITY_HASH.Nightfall]?.endDate || "";
+
+  const loadActivityImage = (src: string) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => setActivityImage(src);
+  };
 
   const getNightfall = async () => {
     const definitions = await getMany([
@@ -71,6 +79,8 @@ const CurrentNightfall = () => {
       ),
     ];
 
+    loadActivityImage(`${BUNGIE_BASE_URL}/${nightfall.pgcrImage}`);
+
     setCurrentNightfall({
       nightfall,
       destination,
@@ -87,13 +97,13 @@ const CurrentNightfall = () => {
     }
   }, [isSuccess]);
 
-  if (!isSuccess) return null;
+  if (!isSuccess && !(isLoading || isLoadingNightfall)) return null;
 
   if (isLoading || isLoadingNightfall) return <Loader />;
 
   return (
     <Activity
-      imageSrc={`${BUNGIE_BASE_URL}/${currentNightfall?.nightfall.pgcrImage}`}
+      imageSrc={activityImage}
       subTitle={`NIGHTFALL ${` // ${
         currentNightfall?.destination.displayProperties?.name.toUpperCase() ||
         ""

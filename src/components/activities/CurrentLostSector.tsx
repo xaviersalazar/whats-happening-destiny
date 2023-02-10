@@ -11,6 +11,7 @@ import { Modifier } from "../../types/modifier";
 import { LostSector } from "../../types/lostSector";
 import { ActivityData } from "../../types/activities";
 import { OTHER_ICONS } from "../../utils/d2Data";
+import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentLostSector = {
   lostSector: LostSector;
@@ -24,6 +25,7 @@ const CurrentLostSector = () => {
   const [isLoadingLostSector, setIsLoadingLostSector] = useState<boolean>(true);
   const [currentLostSector, setCurrentLostSector] =
     useState<CurrentLostSector | null>(null);
+  const [activityImage, setActivityImage] = useState(placeholderImage);
   const [resetTime, setResetTime] = useState<string>("");
 
   useEffect(() => {
@@ -48,8 +50,14 @@ const CurrentLostSector = () => {
   }, []);
 
   const { isLoading, isSuccess, data } = useQuery("LostSector", () =>
-    getWhDestinyData("lost-sector-data.json")
+    getWhDestinyData("lost-sector-data")
   );
+
+  const loadActivityImage = (src: string) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => setActivityImage(src);
+  };
 
   const getLostSector = async () => {
     const definitions = await getMany([
@@ -105,6 +113,8 @@ const CurrentLostSector = () => {
       ),
     ];
 
+    loadActivityImage(`${BUNGIE_BASE_URL}/${lostSector.pgcrImage}`);
+
     setCurrentLostSector({
       lostSector,
       whDestinyData: lostSectorToday as ActivityData,
@@ -122,13 +132,13 @@ const CurrentLostSector = () => {
     }
   }, [isSuccess]);
 
-  if (!isSuccess) return null;
+  if (!isSuccess && !(isLoading || isLoadingLostSector)) return null;
 
   if (isLoading || isLoadingLostSector) return <Loader />;
 
   return (
     <Activity
-      imageSrc={`${BUNGIE_BASE_URL}/${currentLostSector?.lostSector.pgcrImage}`}
+      imageSrc={activityImage}
       subTitle={`LOST SECTOR ${` // ${currentLostSector?.destination.toUpperCase()}`}`}
       title={currentLostSector?.whDestinyData["Lost sector"] || ""}
       description={`Resets ${resetTime}`}

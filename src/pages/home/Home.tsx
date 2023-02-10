@@ -91,7 +91,8 @@ const Home = () => {
     }
   }, [isDefinitionsSuccess]);
 
-  if (!isSuccess) return null;
+  if (!isSuccess && !(isUpdatingManifest || isLoading || isLoadingDefinitions))
+    return null;
 
   if (isUpdatingManifest || isLoading || isLoadingDefinitions)
     return <Loader />;
