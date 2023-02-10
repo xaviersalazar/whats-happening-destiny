@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { isEmpty, map, uniqueId } from "lodash";
 import moment from "moment";
 import { getMany } from "idb-keyval";
-import { BUNGIE_BASE_URL, fetchWhDestinyData } from "../../api/api";
+import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { beforePeriodRegex } from "../../utils/helpers";
 import { Modifier } from "../../types/modifier";
@@ -48,7 +48,7 @@ const CurrentLostSector = () => {
   }, []);
 
   const { isLoading, isSuccess, data } = useQuery("LostSector", () =>
-    fetchWhDestinyData("lost-sector-data.json")
+    getWhDestinyData("lost-sector-data.json")
   );
 
   const getLostSector = async () => {

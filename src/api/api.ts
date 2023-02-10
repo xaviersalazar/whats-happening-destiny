@@ -29,7 +29,7 @@ const bungieApiURL = axios.create({
   },
 });
 
-export const fetchWhDestinyData = async (file: string) => {
+export const getWhDestinyData = async (file: string) => {
   const { data } = await whDestinyDataURL({ url: file });
 
   return data as [ActivityData];
@@ -51,60 +51,13 @@ export const getDestinyDefinition = async (definitionPath: string) => {
   return data as JSON;
 };
 
-export const searchDestinyEntities = async (
-  entityDefinition: string,
-  searchTerm: string
-) => {
-  const { data } = await bungieApiURL({
-    url: `Armory/Search/${entityDefinition}/${searchTerm}`,
-  });
-
-  return data as any;
-};
-
-export const fetchDestinyMilestones = async () => {
+export const getDestinyMilestones = async () => {
   const { data } = await bungieApiURL({ url: "Milestones" });
 
   return data as Milestones;
 };
 
-export const fetchDestinyActivityDefinition = async (activityHash: string) => {
-  const { data } = await bungieApiURL({
-    url: `Manifest/DestinyActivityDefinition/${activityHash}`,
-  });
-
-  return data as any;
-};
-
-export const fetchDestinyDestinationDefinition = async (
-  destinationHash: string
-) => {
-  const { data } = await bungieApiURL({
-    url: `Manifest/DestinyDestinationDefinition/${destinationHash}`,
-  });
-
-  return data as any;
-};
-
-export const fetchDestinyActivityModifierDefinition = async (
-  modifierDefinitionHash: string
-) => {
-  const { data } = await bungieApiURL({
-    url: `Manifest/DestinyActivityModifierDefinition/${modifierDefinitionHash}`,
-  });
-
-  return data as any;
-};
-
-export const fetchDestinySeasonDefinition = async (seasonHash: string) => {
-  const { data } = await bungieApiURL({
-    url: `Manifest/DestinySeasonDefinition/${seasonHash}`,
-  });
-
-  return data as any;
-};
-
-export const fetchDestinySettings = async () => {
+export const getDestinySettings = async () => {
   const { data } = await axios("https://www.bungie.net/Platform/Settings/", {
     headers: {
       Accept: "application/json",

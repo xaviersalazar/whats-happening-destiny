@@ -6,8 +6,11 @@ import {
   getDestinyManifest,
 } from "../../api/api";
 import { get, setMany } from "idb-keyval";
-import { Box, Loader } from "../common";
-import { CurrentLostSector, CurrentNightfall } from "../activities";
+import { Box, Loader } from "../../components/common";
+import {
+  CurrentLostSector,
+  CurrentNightfall,
+} from "../../components/activities";
 
 const Home = () => {
   const [isUpdatingManifest, setIsUpdatingManifest] = useState(true);

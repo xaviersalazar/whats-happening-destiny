@@ -3,9 +3,10 @@ import Layout from "./layout/Layout";
 import { Page, NoMatch, Loader } from "./common";
 import { createBrowserRouter } from "react-router-dom";
 
-const Home = lazy(() => import("./home/Home"));
-const RnD = lazy(() => import("./rnd/RnD"));
-const Season = lazy(() => import("./season/Season"));
+const Home = lazy(() => import("../pages/home/Home"));
+const Raids = lazy(() => import("../pages/raids/Raids"));
+const Dungeons = lazy(() => import("../pages/dungeons/Dungeons"));
+const Season = lazy(() => import("../pages/season/Season"));
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: (
           <Page title="DUNGEONS" subTitle="Current dungeons in rotation">
             <Suspense fallback={<Loader />}>
-              <RnD activityType="Dungeon" fileName="dungeon-data.json" />
+              <Dungeons />
             </Suspense>
           </Page>
         ),
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         element: (
           <Page title="RAIDS" subTitle="Current raids in rotation">
             <Suspense fallback={<Loader />}>
-              <RnD activityType="Raid" fileName="raid-data.json" />
+              <Raids />
             </Suspense>
           </Page>
         ),

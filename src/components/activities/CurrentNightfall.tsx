@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
 import { getMany } from "idb-keyval";
-import { BUNGIE_BASE_URL, fetchDestinyMilestones } from "../../api/api";
+import { BUNGIE_BASE_URL, getDestinyMilestones } from "../../api/api";
 import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { beforePeriodRegex } from "../../utils/helpers";
@@ -26,7 +26,7 @@ const CurrentNightfall = () => {
 
   const { data, isSuccess, isLoading } = useQuery(
     "Milestones",
-    fetchDestinyMilestones
+    getDestinyMilestones
   );
 
   const nightfallActivities =
