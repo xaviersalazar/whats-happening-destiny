@@ -10,6 +10,7 @@ import { Box, Loader } from "../../components/common";
 import {
   CurrentLostSector,
   CurrentNightfall,
+  CurrentRaid,
 } from "../../components/activities";
 
 const Home = () => {
@@ -128,6 +129,7 @@ const Home = () => {
       <div className="grid grid-cols-1 gap-10 px-0 lg:grid-cols-2">
         <CurrentNightfall />
         <CurrentLostSector />
+        <CurrentRaid />
       </div>
     </Box>
   );

@@ -96,6 +96,15 @@ const OTHER_ICONS = {
   },
 };
 
+const RAID_MILESTONE_HASHES = [
+  2136320298, // Vow of the Disciple
+  2712317338, // Garden of Salvation
+  3181387331, // Last Wish
+  541780856, // Deep Stone Crypt
+  1888320892, // Vault of Glass
+  292102995, // King's Fall
+];
+
 export {
   ACTIVITY_HASH,
   ACTIVITY_REWARDS_ICONS,
@@ -104,4 +113,5 @@ export {
   BURNS,
   SHIELDS,
   OTHER_ICONS,
+  RAID_MILESTONE_HASHES,
 };
