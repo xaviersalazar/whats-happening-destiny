@@ -70,4 +70,9 @@ export type LostSector = {
   Notes: string;
 };
 
-export interface ActivityData extends LostSector, RnD {}
+export type Dungeon = {
+  name: string;
+  activityHashes: [number];
+};
+
+export interface ActivityData extends LostSector, RnD, Dungeon {}

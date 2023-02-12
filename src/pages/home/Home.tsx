@@ -11,6 +11,7 @@ import {
   CurrentLostSector,
   CurrentNightfall,
   CurrentRaid,
+  CurrentDungeon,
 } from "../../components/activities";
 
 const Home = () => {
@@ -130,6 +131,7 @@ const Home = () => {
         <CurrentNightfall />
         <CurrentLostSector />
         <CurrentRaid />
+        <CurrentDungeon />
       </div>
     </Box>
   );
