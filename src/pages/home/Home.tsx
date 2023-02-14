@@ -13,6 +13,7 @@ import {
   CurrentNightfall,
   CurrentRaid,
   CurrentDungeon,
+  CurrentPsiOps,
 } from "../../components/activities";
 import { useSeason } from "../../context/Season";
 import { isEmpty } from "lodash";
@@ -211,6 +212,7 @@ const Home = () => {
         <CurrentLostSector />
         <CurrentRaid />
         <CurrentDungeon />
+        <CurrentPsiOps />
       </div>
     </Box>
   );

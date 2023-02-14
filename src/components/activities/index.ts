@@ -1,6 +1,13 @@
-import CurrentNightfall from "./CurrentNightfall";
-import CurrentLostSector from "./CurrentLostSector";
-import CurrentRaid from "./CurrentRaid";
 import CurrentDungeon from "./CurrentDungeon";
+import CurrentLostSector from "./CurrentLostSector";
+import CurrentNightfall from "./CurrentNightfall";
+import CurrentPsiOps from "./CurrentPsiOps";
+import CurrentRaid from "./CurrentRaid";
 
-export { CurrentNightfall, CurrentLostSector, CurrentRaid, CurrentDungeon };
+export {
+  CurrentDungeon,
+  CurrentLostSector,
+  CurrentNightfall,
+  CurrentPsiOps,
+  CurrentRaid,
+};

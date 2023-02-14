@@ -28,27 +28,6 @@ const CurrentLostSector = () => {
   const [activityImage, setActivityImage] = useState(placeholderImage);
   const [resetTime, setResetTime] = useState<string>("");
 
-  useEffect(() => {
-    const now = moment();
-
-    if (now.isBefore(moment().hour(11))) {
-      const resetTime = moment()
-        .set("hour", 11)
-        .set("minute", 0)
-        .set("second", 0);
-
-      setResetTime(moment(resetTime).fromNow());
-    } else {
-      const nextDailyReset = moment()
-        .add(1, "day")
-        .set("hour", 11)
-        .set("minute", 0)
-        .set("second", 0);
-
-      setResetTime(moment(nextDailyReset).utc().fromNow());
-    }
-  }, []);
-
   const { isLoading, isSuccess, data } = useQuery("LostSector", () =>
     getWhDestinyData("lost-sector-data")
   );
@@ -125,6 +104,27 @@ const CurrentLostSector = () => {
 
     setIsLoadingLostSector(false);
   };
+
+  useEffect(() => {
+    const now = moment();
+
+    if (now.isBefore(moment().hour(11))) {
+      const resetTime = moment()
+        .set("hour", 11)
+        .set("minute", 0)
+        .set("second", 0);
+
+      setResetTime(moment(resetTime).fromNow());
+    } else {
+      const nextDailyReset = moment()
+        .add(1, "day")
+        .set("hour", 11)
+        .set("minute", 0)
+        .set("second", 0);
+
+      setResetTime(moment(nextDailyReset).utc().fromNow());
+    }
+  }, []);
 
   useEffect(() => {
     if (isSuccess) {
