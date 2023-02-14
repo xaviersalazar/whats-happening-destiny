@@ -1,7 +1,10 @@
-const Season = () => {
-  // GET curr season -> DestinySeasonDefinition -> Response.destiny2CoreSettings.currentSeasonHash
+import { Page } from "../../components/common";
+import { useSeason } from "../../context/Season";
 
-  return <h1>Nothing here yet</h1>;
+const Season = () => {
+  const { currentSeason } = useSeason();
+
+  return <Page title="SEASON" subTitle={currentSeason?.name} />;
 };
 
 export default Season;

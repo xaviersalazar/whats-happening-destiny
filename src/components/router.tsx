@@ -1,12 +1,12 @@
 import { lazy, Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 import Layout from "./layout/Layout";
 import { Page, NoMatch, Loader } from "./common";
-import { createBrowserRouter } from "react-router-dom";
+import Season from "../pages/season/Season";
 
 const Home = lazy(() => import("../pages/home/Home"));
 const Raids = lazy(() => import("../pages/raids/Raids"));
 const Dungeons = lazy(() => import("../pages/dungeons/Dungeons"));
-const Season = lazy(() => import("../pages/season/Season"));
 
 const router = createBrowserRouter([
   {
@@ -45,13 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/season",
-        element: (
-          <Page title="SEASON" subTitle="Current season">
-            <Suspense fallback={<Loader />}>
-              <Season />
-            </Suspense>
-          </Page>
-        ),
+        element: <Season />,
       },
       {
         path: "*",
