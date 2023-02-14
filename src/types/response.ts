@@ -13,6 +13,17 @@ export interface Manifest {
   };
 }
 
+export interface Settings {
+  Response: {
+    destiny2CoreSettings: {
+      currentSeasonHash: number;
+      currentSeasonalArtifactHash: number;
+      futureSeasonHashes: [number];
+      pastSeasonHashes: [number];
+    }
+  }
+}
+
 export type MilestoneActivities = {
   activityHash: string;
   booleanActivityOptions: {
