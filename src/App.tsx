@@ -3,8 +3,8 @@ import { RouterProvider } from "react-router-dom";
 import { NextUIProvider } from "@nextui-org/react";
 import theme from "./theme";
 import router from "./components/router";
-import "./App.css";
 import { SeasonProvider } from "./context/Season";
+import "./App.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

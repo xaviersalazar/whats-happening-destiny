@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { getMany } from "idb-keyval";
 import moment from "moment";
 import { isEmpty, uniqueId } from "lodash";
+import { useSeason } from "../../context/Season";
 import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
 import { Dungeon } from "../../types/dungeon";
 import { Destination } from "../../types/destination";
@@ -19,10 +20,9 @@ type CurrentDungeon = {
   modifiers: Modifier[];
 };
 
-const CURR_SEASON_IN_WEEKS = 12;
-const CURR_SEASON_END_DATE = "2023-02-28T17:00:00Z";
-
 const CurrentDungeon = () => {
+  const { currentSeason } = useSeason();
+
   const [isLoadingDungeon, setIsLoadingDungeon] = useState<boolean>(true);
   const [currentDungeon, setCurrentDungeon] = useState<CurrentDungeon | null>(
     null
@@ -34,6 +34,7 @@ const CurrentDungeon = () => {
   );
 
   const resetTime = moment()
+    .add(1, "week")
     .set("day", 2)
     .set("hour", 11)
     .set("minute", 0)
@@ -53,28 +54,33 @@ const CurrentDungeon = () => {
       "DestinyActivityModifierDefinition",
     ]);
 
-    let timeLeftInSeasonInWeeks = moment(CURR_SEASON_END_DATE).diff(
+    const totalDaysInSeason = moment(currentSeason?.endDate).diff(
+      currentSeason?.startDate,
+      "days"
+    );
+    const daysLeftInSeason = moment(currentSeason?.endDate).diff(
       moment(),
-      "weeks"
+      "days"
     );
 
-    if (moment().isAfter(resetTime)) {
-      timeLeftInSeasonInWeeks -= 1;
-    }
+    const currDungeonRotation = Math.floor(
+      ((totalDaysInSeason - daysLeftInSeason) / 7) % data!.length
+    );
 
-    const dungeonData =
-      data?.[CURR_SEASON_IN_WEEKS - timeLeftInSeasonInWeeks - 1];
+    const dungeonData = data?.[currDungeonRotation];
 
     const dungeons = dungeonData?.activityHashes.map(
       (activityHash) => definitions[0][activityHash]
     );
 
     const dungeon = dungeons?.[dungeons?.length - 1] as Dungeon;
-    const destination = definitions[1][dungeon.destinationHash] as Destination;
+    const destination = definitions?.[1][
+      dungeon?.destinationHash
+    ] as Destination;
 
     const modifierHashes = [
       ...new Set(
-        dungeon.modifiers.map(
+        dungeon?.modifiers?.map(
           ({ activityModifierHash }) => activityModifierHash
         )
       ),
@@ -83,16 +89,16 @@ const CurrentDungeon = () => {
       (modifierHash) => definitions[2][modifierHash]
     ) as Modifier[];
     const separatedModifiers = [
-      modifiers.filter(({ displayProperties }) =>
+      modifiers?.filter(({ displayProperties }) =>
         displayProperties.name.match(/Champion|Champions/g)
       ),
-      modifiers.filter(
+      modifiers?.filter(
         ({ displayProperties }) =>
           !displayProperties.name.match(/Champion|Champions/g)
       ),
     ];
 
-    loadActivityImage(`${BUNGIE_BASE_URL}/${dungeon.pgcrImage}`);
+    loadActivityImage(`${BUNGIE_BASE_URL}/${dungeon?.pgcrImage}`);
 
     setCurrentDungeon({
       dungeon,
@@ -110,7 +116,11 @@ const CurrentDungeon = () => {
     }
   }, [isSuccess]);
 
-  if (!isSuccess && !(isLoading || isLoadingDungeon)) return null;
+  if (
+    (!isSuccess || isEmpty(currentDungeon?.dungeon)) &&
+    !(isLoading || isLoadingDungeon)
+  )
+    return null;
 
   if (isLoading || isLoadingDungeon) return <Loader />;
 
@@ -118,9 +128,9 @@ const CurrentDungeon = () => {
     <Activity
       imageSrc={activityImage}
       subTitle={`DUNGEON ${` // ${
-        currentDungeon?.destination.displayProperties?.name.toUpperCase() || ""
+        currentDungeon?.destination?.displayProperties.name.toUpperCase() || ""
       }`}`}
-      title={currentDungeon?.dungeon.originalDisplayProperties.name || ""}
+      title={currentDungeon?.dungeon?.originalDisplayProperties.name || ""}
       description={`Resets ${moment(resetTime).fromNow()}`}
     >
       {!isEmpty(currentDungeon?.champions) && (

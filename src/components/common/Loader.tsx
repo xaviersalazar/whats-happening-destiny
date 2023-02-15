@@ -1,4 +1,9 @@
+import { Text } from "@nextui-org/react";
 import styled, { keyframes } from "styled-components";
+
+interface LoaderProps {
+  updatingManifest?: boolean;
+}
 
 const foldingCubeAngle = keyframes`
   0%, 10% {
@@ -84,7 +89,7 @@ const FoldingCubeFour = styled(Cube)`
   }
 `;
 
-const Loader = () => (
+const Loader = ({ updatingManifest = false }: LoaderProps) => (
   <LoaderWrapper>
     <div className="spinner">
       <FoldingCube>
@@ -94,6 +99,11 @@ const Loader = () => (
         <FoldingCubeThree />
       </FoldingCube>
     </div>
+    {updatingManifest && (
+      <Text size="$xs" weight="thin">
+        Updating manifest...
+      </Text>
+    )}
   </LoaderWrapper>
 );
 

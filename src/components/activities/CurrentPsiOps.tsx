@@ -99,8 +99,6 @@ const CurrentPsiOps = () => {
 
     loadActivityImage(`${BUNGIE_BASE_URL}/${psiOps.pgcrImage}`);
 
-    console.log(psiOps);
-
     setCurrentPsiOps({
       psiOps,
       destination,
