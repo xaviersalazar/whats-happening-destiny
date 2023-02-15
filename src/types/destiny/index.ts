@@ -1,4 +1,5 @@
 import { ActivityDefinition } from "./activityDefinition";
+import { Collectible } from "./collectible";
 import { Destination } from "./destination";
 import { DisplayProperties } from "./displayProperties";
 import { Manifest } from "./manifest";
@@ -10,6 +11,7 @@ import { Settings } from "./settings";
 
 export type {
   ActivityDefinition,
+  Collectible,
   Destination,
   DisplayProperties,
   Manifest,

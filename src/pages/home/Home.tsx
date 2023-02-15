@@ -5,6 +5,7 @@ import {
   CurrentRaid,
   CurrentDungeon,
   CurrentPsiOps,
+  CurrentWellspring,
 } from "../../components/activities";
 
 const Home = () => (
@@ -20,6 +21,7 @@ const Home = () => (
       <CurrentRaid />
       <CurrentDungeon />
       <CurrentPsiOps />
+      <CurrentWellspring />
     </div>
   </Box>
 );

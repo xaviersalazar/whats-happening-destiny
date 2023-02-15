@@ -76,6 +76,12 @@ export type ActivityRotator = {
   activityHashes: number[];
 };
 
+export type WellspringRotator = {
+  name: string;
+  activityHashes: number[];
+  collectibleHashes: number[];
+};
+
 export type AltarsRotator = {
   name: string;
   collectibleHashes: number[];
@@ -85,4 +91,5 @@ export interface WHDestinyData
   extends RnD,
     LostSectorRotator,
     ActivityRotator,
+    WellspringRotator,
     AltarsRotator {}

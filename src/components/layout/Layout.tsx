@@ -10,8 +10,8 @@ import {
   getDestinySettings,
 } from "../../api/api";
 import { useSeason } from "../../context/Season";
+import { Season } from "../../types/destiny";
 import { Settings } from "../../types/destiny/settings";
-import { Season } from "../../types/season";
 import { Box, Loader } from "../common";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
@@ -137,6 +137,7 @@ const Layout = () => {
         [DEFINITIONS[3], definitions[3].data],
         [DEFINITIONS[4], definitions[4].data],
         [DEFINITIONS[5], definitions[5].data],
+        [DEFINITIONS[6], definitions[6].data],
       ])
         .then(() => {
           // Get the current season
@@ -159,15 +160,16 @@ const Layout = () => {
       update(DEFINITIONS[2], () => definitions[2].data);
       update(DEFINITIONS[3], () => definitions[3].data);
       update(DEFINITIONS[4], () => definitions[4].data);
-      update(DEFINITIONS[5], () => definitions[5].data).then(() => {
-        // Set current version of manifest
-        // Get the current season
-        console.log("finished updating all definitions");
+      update(DEFINITIONS[5], () => definitions[5].data),
+        update(DEFINITIONS[6], () => definitions[6].data).then(() => {
+          // Set current version of manifest
+          // Get the current season
+          console.log("finished updating all definitions");
 
-        setIsCurrVersion(true);
+          setIsCurrVersion(true);
 
-        getSeason();
-      });
+          getSeason();
+        });
     }
   }, [isDefinitionsSuccess]);
 

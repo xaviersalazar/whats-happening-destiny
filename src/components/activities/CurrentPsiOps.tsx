@@ -12,6 +12,7 @@ import { ActivityRotator } from "../../types/whDestinyData";
 import { ActivityDefinition, Destination, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
 import placeholderImage from "../../assets/placeholder.jpeg";
+
 type CurrentPsiOps = {
   psiOps: ActivityDefinition;
   destination: Destination;

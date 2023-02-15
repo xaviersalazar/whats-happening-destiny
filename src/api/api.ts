@@ -11,6 +11,7 @@ export const DEFINITIONS = [
   "DestinySeasonDefinition",
   "DestinySeasonPassDefinition",
   "DestinyProgressionDefinition",
+  "DestinyCollectibleDefinition",
 ];
 
 const whDestinyDataURL = axios.create({

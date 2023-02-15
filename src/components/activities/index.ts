@@ -3,6 +3,7 @@ import CurrentLostSector from "./CurrentLostSector";
 import CurrentNightfall from "./CurrentNightfall";
 import CurrentPsiOps from "./CurrentPsiOps";
 import CurrentRaid from "./CurrentRaid";
+import CurrentWellspring from "./CurrentWellspring";
 
 export {
   CurrentDungeon,
@@ -10,4 +11,5 @@ export {
   CurrentNightfall,
   CurrentPsiOps,
   CurrentRaid,
+  CurrentWellspring,
 };
