@@ -6,6 +6,7 @@ import moment from "moment";
 import { isEmpty, uniqueId } from "lodash";
 import { useSeason } from "../../context/Season";
 import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
+import useResetTime from "../../hooks/useResetTime";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { PsiOps } from "../../types/psiOps";
 import { Destination } from "../../types/destination";
@@ -21,14 +22,15 @@ type CurrentPsiOps = {
 };
 
 const CurrentPsiOps = () => {
+  const { currentSeason } = useSeason();
+  const { resetTime } = useResetTime();
+
   const [isLoadingPsiOps, setIsLoadingPsiOps] = useState<boolean>(true);
   const [currentPsiOps, setCurrentPsiOps] = useState<CurrentPsiOps | null>(
     null
   );
   const [activityImage, setActivityImage] = useState(placeholderImage);
-  const [resetTime, setResetTime] = useState<string>("");
 
-  const { currentSeason } = useSeason();
   const { isLoading, isSuccess, data } = useQuery("CurrentPsiOps", () =>
     getWhDestinyData("psiops-schedule-s19")
   );
@@ -60,13 +62,7 @@ const CurrentPsiOps = () => {
     );
     let currPsiOps = {} as any;
 
-    const now = moment().utc();
-
-    if (
-      now.isSameOrBefore(
-        moment().set("hour", 11).set("minute", 0).set("second", 0).utc()
-      )
-    )
+    if (moment().utc().get("hour") <= 17)
       currPsiOps = data?.[currPsiOpsRotation] as any;
     else {
       if (currPsiOpsRotation === 2) {
@@ -110,33 +106,16 @@ const CurrentPsiOps = () => {
   };
 
   useEffect(() => {
-    const now = moment();
-
-    if (now.isBefore(moment().hour(11))) {
-      const resetTime = moment()
-        .set("hour", 11)
-        .set("minute", 0)
-        .set("second", 0);
-
-      setResetTime(moment(resetTime).fromNow());
-    } else {
-      const nextDailyReset = moment()
-        .add(1, "day")
-        .set("hour", 11)
-        .set("minute", 0)
-        .set("second", 0);
-
-      setResetTime(moment(nextDailyReset).utc().fromNow());
-    }
-  }, []);
-
-  useEffect(() => {
     if (isSuccess) {
       getPsiOps();
     }
   }, [isSuccess]);
 
-  if (!isSuccess && !(isLoading || isLoadingPsiOps)) return null;
+  if (
+    (!isSuccess || isEmpty(currentPsiOps?.psiOps)) &&
+    !(isLoading || isLoadingPsiOps)
+  )
+    return null;
 
   if (isLoading || isLoadingPsiOps) return <Loader />;
 
@@ -147,7 +126,7 @@ const CurrentPsiOps = () => {
         currentPsiOps?.destination.displayProperties?.name.toUpperCase() || ""
       }`}`}
       title={currentPsiOps?.psiOps.originalDisplayProperties.name || ""}
-      description={`Resets ${resetTime}`}
+      description={`Resets ${moment(resetTime.daily).fromNow()}`}
     >
       {!isEmpty(currentPsiOps?.champions) && (
         <Section sectionTitle="CHAMPIONS">

@@ -5,6 +5,7 @@ import { isEmpty, map, uniqueId } from "lodash";
 import moment from "moment";
 import { getMany } from "idb-keyval";
 import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
+import useResetTime from "../../hooks/useResetTime";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { beforePeriodRegex } from "../../utils/helpers";
 import { Modifier } from "../../types/modifier";
@@ -22,11 +23,12 @@ type CurrentLostSector = {
 };
 
 const CurrentLostSector = () => {
+  const { resetTime } = useResetTime();
+
   const [isLoadingLostSector, setIsLoadingLostSector] = useState<boolean>(true);
   const [currentLostSector, setCurrentLostSector] =
     useState<CurrentLostSector | null>(null);
   const [activityImage, setActivityImage] = useState(placeholderImage);
-  const [resetTime, setResetTime] = useState<string>("");
 
   const { isLoading, isSuccess, data } = useQuery("LostSector", () =>
     getWhDestinyData("lost-sector-data")
@@ -45,13 +47,7 @@ const CurrentLostSector = () => {
     ]);
 
     const lostSectorToday = data?.find((lostSector) => {
-      const now = moment().utc();
-
-      if (
-        now.isSameOrBefore(
-          moment().set("hour", 11).set("minute", 0).set("second", 0).utc()
-        )
-      )
+      if (moment().utc().get("hour") <= 17)
         return (
           lostSector.Date === moment().subtract(1, "day").format("DD-MM-YYYY")
         );
@@ -106,27 +102,6 @@ const CurrentLostSector = () => {
   };
 
   useEffect(() => {
-    const now = moment();
-
-    if (now.isBefore(moment().hour(11))) {
-      const resetTime = moment()
-        .set("hour", 11)
-        .set("minute", 0)
-        .set("second", 0);
-
-      setResetTime(moment(resetTime).fromNow());
-    } else {
-      const nextDailyReset = moment()
-        .add(1, "day")
-        .set("hour", 11)
-        .set("minute", 0)
-        .set("second", 0);
-
-      setResetTime(moment(nextDailyReset).utc().fromNow());
-    }
-  }, []);
-
-  useEffect(() => {
     if (isSuccess) {
       getLostSector();
     }
@@ -141,7 +116,7 @@ const CurrentLostSector = () => {
       imageSrc={activityImage}
       subTitle={`LOST SECTOR ${` // ${currentLostSector?.destination.toUpperCase()}`}`}
       title={currentLostSector?.whDestinyData["Lost sector"] || ""}
-      description={`Resets ${resetTime}`}
+      description={`Resets ${moment(resetTime.daily).fromNow()}`}
     >
       {!isEmpty(currentLostSector?.champions) && (
         <Section sectionTitle="CHAMPIONS">
