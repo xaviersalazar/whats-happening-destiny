@@ -8,14 +8,12 @@ import { useSeason } from "../../context/Season";
 import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
 import useResetTime from "../../hooks/useResetTime";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
-import { PsiOps } from "../../types/psiOps";
-import { Destination } from "../../types/destination";
-import { Modifier } from "../../types/modifier";
+import { ActivityRotator } from "../../types/whDestinyData";
+import { ActivityDefinition, Destination, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
 import placeholderImage from "../../assets/placeholder.jpeg";
-
 type CurrentPsiOps = {
-  psiOps: PsiOps;
+  psiOps: ActivityDefinition;
   destination: Destination;
   champions: Modifier[];
   modifiers: Modifier[];
@@ -60,19 +58,21 @@ const CurrentPsiOps = () => {
     const currPsiOpsRotation = Math.floor(
       ((totalDaysInSeason - daysLeftInSeason) / 7) % data!.length
     );
-    let currPsiOps = {} as any;
+    let currPsiOps = {} as ActivityRotator;
 
     if (moment().utc().get("hour") <= 17)
-      currPsiOps = data?.[currPsiOpsRotation] as any;
+      currPsiOps = data?.[currPsiOpsRotation] as ActivityRotator;
     else {
       if (currPsiOpsRotation === 2) {
-        currPsiOps = data?.[0] as any;
+        currPsiOps = data?.[0] as ActivityRotator;
       } else {
-        currPsiOps = data?.[currPsiOpsRotation + 1] as any;
+        currPsiOps = data?.[currPsiOpsRotation + 1] as ActivityRotator;
       }
     }
 
-    const psiOps = definitions[0][currPsiOps?.activityHashes[1]] as PsiOps;
+    const psiOps = definitions[0][
+      currPsiOps?.activityHashes?.[1]
+    ] as ActivityDefinition;
     const destination = definitions[1][psiOps.destinationHash] as Destination;
 
     const modifierHashes = [

@@ -7,15 +7,13 @@ import { isEmpty, uniqueId } from "lodash";
 import { useSeason } from "../../context/Season";
 import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
 import useResetTime from "../../hooks/useResetTime";
-import { Dungeon } from "../../types/dungeon";
-import { Destination } from "../../types/destination";
-import { Modifier } from "../../types/modifier";
+import { ActivityDefinition, Destination, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentDungeon = {
-  dungeon: Dungeon;
+  dungeon: ActivityDefinition;
   destination: Destination;
   champions: Modifier[];
   modifiers: Modifier[];
@@ -69,7 +67,7 @@ const CurrentDungeon = () => {
       (activityHash) => definitions[0][activityHash]
     );
 
-    const dungeon = dungeons?.[dungeons?.length - 1] as Dungeon;
+    const dungeon = dungeons?.[dungeons?.length - 1] as ActivityDefinition;
     const destination = definitions?.[1][
       dungeon?.destinationHash
     ] as Destination;

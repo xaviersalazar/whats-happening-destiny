@@ -1,12 +1,11 @@
 import { Fragment } from "react";
 import { styled as styledNextUi, Text } from "@nextui-org/react";
-import styled, { keyframes } from "styled-components";
 import { concat, flatten, isEmpty, uniqueId } from "lodash";
-import { Encounter } from "../../../types/activities";
+import styled, { keyframes } from "styled-components";
+import { Encounter } from "../../../types/whDestinyData";
 import Box from "../Box";
-
 interface EncounterProps {
-  encounters: [Encounter];
+  encounters: Encounter[];
 }
 
 const pulseAnimation = keyframes`

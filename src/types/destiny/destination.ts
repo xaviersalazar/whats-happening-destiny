@@ -1,9 +1,4 @@
-type DisplayProperties = {
-  description: string;
-  hasIcon: boolean;
-  icon: string;
-  name: string;
-};
+import { DisplayProperties } from "./displayProperties";
 
 export type Destination = {
   blacklisted: boolean;

@@ -10,7 +10,7 @@ import {
   getDestinySettings,
 } from "../../api/api";
 import { useSeason } from "../../context/Season";
-import { Settings } from "../../types/response";
+import { Settings } from "../../types/destiny/settings";
 import { Season } from "../../types/season";
 import { Box, Loader } from "../common";
 import Footer from "./Footer";

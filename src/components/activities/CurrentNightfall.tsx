@@ -7,14 +7,12 @@ import { getMany } from "idb-keyval";
 import { BUNGIE_BASE_URL, getDestinyMilestones } from "../../api/api";
 import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
+import { ActivityDefinition, Destination, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
-import { Nightfall } from "../../types/nightfall";
-import { Modifier } from "../../types/modifier";
-import { Destination } from "../../types/destination";
 import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentNightfall = {
-  nightfall: Nightfall;
+  nightfall: ActivityDefinition;
   destination: Destination;
   champions: Modifier[];
   modifiers: Modifier[];
@@ -54,7 +52,7 @@ const CurrentNightfall = () => {
       ({ activityHash }) => definitions[0][activityHash]
     );
 
-    const nightfall = nightfalls[nightfalls.length - 1] as Nightfall;
+    const nightfall = nightfalls[nightfalls.length - 1] as ActivityDefinition;
     const destination = definitions[1][
       nightfall.destinationHash
     ] as Destination;

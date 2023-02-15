@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ActivityData } from "../types/activities";
-import { Manifest, Milestones } from "../types/response";
+import { Manifest, Milestones, Settings } from "../types/destiny";
+import { WHDestinyData } from "../types/whDestinyData";
 
 export const BUNGIE_BASE_URL = "https://www.bungie.net";
 
@@ -34,7 +34,7 @@ const bungieApiURL = axios.create({
 export const getWhDestinyData = async (file: string) => {
   const { data } = await whDestinyDataURL({ url: `${file}.json` });
 
-  return data as [ActivityData];
+  return data as WHDestinyData[];
 };
 
 export const getDestinyManifest = async () => {
@@ -67,5 +67,5 @@ export const getDestinySettings = async () => {
     },
   });
 
-  return data as any;
+  return data as Settings;
 };

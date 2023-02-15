@@ -6,7 +6,7 @@ type ArmorItem = {
 
 type Armor = {
   character: string;
-  items: [ArmorItem];
+  items: ArmorItem[];
 };
 
 type Weapon = {
@@ -22,8 +22,8 @@ export type Encounter = {
   dropsLoot?: boolean;
   doubleLoot?: boolean;
   loot: {
-    weapons: [Weapon];
-    armor: [Armor];
+    weapons: Weapon[];
+    armor: Armor[];
   } | null;
 };
 
@@ -35,7 +35,7 @@ type TypeModifier = {
 
 export type Modifier = {
   type?: string;
-  typeModifiers?: [TypeModifier];
+  typeModifiers?: TypeModifier[];
 };
 
 type ExtraReward = {
@@ -48,18 +48,19 @@ type Mode = {
   recommendedLightLevel?: string;
 };
 
+// Raid aNd Dungeon
 export type RnD = {
   name: string;
   location: string;
   description: string;
   image: string;
-  modes: [Mode];
-  extraRewards: [ExtraReward];
-  modifiers: [Modifier];
-  encounters: [Encounter];
+  modes: Mode[];
+  extraRewards: ExtraReward[];
+  modifiers: Modifier[];
+  encounters: Encounter[];
 };
 
-export type LostSector = {
+export type LostSectorRotator = {
   Date: string;
   "Lost sector": string;
   Planet: string;
@@ -70,9 +71,18 @@ export type LostSector = {
   Notes: string;
 };
 
-export type Dungeon = {
+export type ActivityRotator = {
   name: string;
-  activityHashes: [number];
+  activityHashes: number[];
 };
 
-export interface ActivityData extends LostSector, RnD, Dungeon {}
+export type AltarsRotator = {
+  name: string;
+  collectibleHashes: number[];
+};
+
+export interface WHDestinyData
+  extends RnD,
+    LostSectorRotator,
+    ActivityRotator,
+    AltarsRotator {}

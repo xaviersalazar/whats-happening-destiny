@@ -8,15 +8,14 @@ import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
 import useResetTime from "../../hooks/useResetTime";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { beforePeriodRegex } from "../../utils/helpers";
-import { Modifier } from "../../types/modifier";
-import { LostSector } from "../../types/lostSector";
-import { ActivityData } from "../../types/activities";
+import { ActivityDefinition, Modifier } from "../../types/destiny";
+import { WHDestinyData } from "../../types/whDestinyData";
 import { OTHER_ICONS } from "../../utils/d2Data";
 import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentLostSector = {
-  lostSector: LostSector;
-  whDestinyData: ActivityData;
+  lostSector: ActivityDefinition;
+  whDestinyData: WHDestinyData;
   destination: string;
   champions: Modifier[];
   modifiers: Modifier[];
@@ -62,11 +61,13 @@ const CurrentLostSector = () => {
         (value.displayProperties?.name.includes(": Legend") ||
           value.displayProperties?.name.includes(": Master"))
       ) {
-        return value as LostSector;
+        return value as ActivityDefinition;
       }
     }).filter((data) => data);
 
-    const lostSector = lostSectors[lostSectors.length - 1] as LostSector;
+    const lostSector = lostSectors[
+      lostSectors.length - 1
+    ] as ActivityDefinition;
 
     const modifierHashes = [
       ...new Set(
@@ -92,7 +93,7 @@ const CurrentLostSector = () => {
 
     setCurrentLostSector({
       lostSector,
-      whDestinyData: lostSectorToday as ActivityData,
+      whDestinyData: lostSectorToday as WHDestinyData,
       destination: lostSectorToday?.Planet as string,
       champions: separatedModifiers[0],
       modifiers: separatedModifiers[1],

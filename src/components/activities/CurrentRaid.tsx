@@ -6,15 +6,13 @@ import moment from "moment";
 import { isEmpty, uniqueId } from "lodash";
 import { BUNGIE_BASE_URL, getDestinyMilestones } from "../../api/api";
 import { RAID_MILESTONE_HASHES } from "../../utils/d2Data";
-import { Raid } from "../../types/raid";
-import { Destination } from "../../types/destination";
-import { Modifier } from "../../types/modifier";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
+import { ActivityDefinition, Destination, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
 import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentRaid = {
-  raid: Raid;
+  raid: ActivityDefinition;
   destination: Destination;
   startDate: string;
   endDate: string;
@@ -65,7 +63,7 @@ const CurrentRaid = () => {
 
     const raid = definitions[0][
       raidActivity?.activityHash as keyof Object
-    ] as Raid;
+    ] as ActivityDefinition;
     const destination = definitions[1][raid.destinationHash] as Destination;
 
     const modifierHashes = [

@@ -1,15 +1,15 @@
 import { Fragment } from "react";
 import { styled, Text } from "@nextui-org/react";
 import { isEmpty, uniqueId } from "lodash";
-import { ActivityData } from "../../../types/activities";
-import powerLevelIcon from "../../../assets/power-level-icon.png";
+import { WHDestinyData } from "../../../types/whDestinyData";
 import Encounters from "./Encounters";
 import Box from "../Box";
 import Activity from "../Activity";
 import Section from "../Section";
+import powerLevelIcon from "../../../assets/power-level-icon.png";
 
 interface RnDProps {
-  data: [ActivityData] | undefined;
+  data: WHDestinyData[] | undefined;
 }
 
 interface ModeProps {
