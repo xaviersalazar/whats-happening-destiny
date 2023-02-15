@@ -62,8 +62,6 @@ const CurrentAltars = () => {
       (collectibleHash) => collectibleDefinitions[collectibleHash]
     ) as Collectible[];
 
-    console.log(currAltars?.collectibleHashes);
-
     setCurrentAltars({
       name: currAltars?.name,
       rewards,

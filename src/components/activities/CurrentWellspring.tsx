@@ -9,18 +9,12 @@ import { BUNGIE_BASE_URL, getWhDestinyData } from "../../api/api";
 import useResetTime from "../../hooks/useResetTime";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { WellspringRotator } from "../../types/whDestinyData";
-import {
-  ActivityDefinition,
-  Collectible,
-  Destination,
-  Modifier,
-} from "../../types/destiny";
+import { ActivityDefinition, Collectible, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
 import placeholderImage from "../../assets/placeholder.jpeg";
 
 type CurrentWellspring = {
   wellspring: ActivityDefinition;
-  destination: Destination;
   reward: Collectible;
   champions: Modifier[];
   modifiers: Modifier[];
@@ -48,7 +42,6 @@ const CurrentWellspring = () => {
   const getWellspring = async () => {
     const definitions = await getMany([
       "DestinyActivityDefinition",
-      "DestinyDestinationDefinition",
       "DestinyActivityModifierDefinition",
       "DestinyCollectibleDefinition",
     ]);
@@ -83,10 +76,7 @@ const CurrentWellspring = () => {
     const wellspring = definitions[0][
       currWellspring?.activityHashes?.[1]
     ] as ActivityDefinition;
-    const destination = definitions[1][
-      wellspring.destinationHash
-    ] as Destination;
-    const weapon = definitions[3][
+    const weapon = definitions[2][
       currWellspring?.collectibleHashes[0]
     ] as Collectible;
 
@@ -98,7 +88,7 @@ const CurrentWellspring = () => {
       ),
     ];
     const modifiers = modifierHashes.map(
-      (modifierHash) => definitions[2][modifierHash]
+      (modifierHash) => definitions[1][modifierHash]
     ) as Modifier[];
     const separatedModifiers = [
       modifiers.filter(({ displayProperties }) =>
@@ -114,7 +104,6 @@ const CurrentWellspring = () => {
 
     setCurrentWellspring({
       wellspring,
-      destination,
       reward: weapon,
       champions: separatedModifiers[0],
       modifiers: separatedModifiers[1],
@@ -140,10 +129,7 @@ const CurrentWellspring = () => {
   return (
     <Activity
       imageSrc={activityImage}
-      subTitle={`WELLSPRING ${` // ${
-        currentWellspring?.destination.displayProperties?.name.toUpperCase() ||
-        ""
-      }`}`}
+      subTitle="WELLSPRING // SAVATHÛN'S THRONE WORLD"
       title={currentWellspring?.wellspring.originalDisplayProperties.name || ""}
       description={`Resets ${moment(resetTime.daily).fromNow()}`}
     >
