@@ -12,6 +12,7 @@ import { Modifier } from "../../types/modifier";
 import { beforePeriodRegex } from "../../utils/helpers";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import placeholderImage from "../../assets/placeholder.jpeg";
+import useResetTime from "../../hooks/useResetTime";
 
 type CurrentDungeon = {
   dungeon: Dungeon;
@@ -22,6 +23,7 @@ type CurrentDungeon = {
 
 const CurrentDungeon = () => {
   const { currentSeason } = useSeason();
+  const { resetTime } = useResetTime();
 
   const [isLoadingDungeon, setIsLoadingDungeon] = useState<boolean>(true);
   const [currentDungeon, setCurrentDungeon] = useState<CurrentDungeon | null>(
@@ -33,13 +35,7 @@ const CurrentDungeon = () => {
     getWhDestinyData("dungeon-schedule-s19")
   );
 
-  const resetTime = moment()
-    .add(1, "week")
-    .set("day", 2)
-    .set("hour", 11)
-    .set("minute", 0)
-    .set("second", 0)
-    .utc();
+  console.log("reset", resetTime);
 
   const loadActivityImage = (src: string) => {
     const img = new Image();
@@ -131,7 +127,7 @@ const CurrentDungeon = () => {
         currentDungeon?.destination?.displayProperties.name.toUpperCase() || ""
       }`}`}
       title={currentDungeon?.dungeon?.originalDisplayProperties.name || ""}
-      description={`Resets ${moment(resetTime).fromNow()}`}
+      description={`Resets ${moment(resetTime.weekly).fromNow()}`}
     >
       {!isEmpty(currentDungeon?.champions) && (
         <Section sectionTitle="CHAMPIONS">
