@@ -5,15 +5,17 @@ import Box from "./Box";
 type SectionProps = {
   id?: string;
   sectionTitle: string;
+  className?: string;
   children?: any;
 };
 
-const Section = ({ id, sectionTitle, children }: SectionProps) => (
+const Section = ({ id, sectionTitle, className, children }: SectionProps) => (
   <Box
     id={uniqueId(id)}
+    className={className}
     css={{
-      marginTop: "$4",
-      marginBottom: "$4",
+      marginTop: "$8",
+      marginBottom: "$8",
       marginLeft: "$2",
       marginRight: "$2",
     }}

@@ -86,76 +86,67 @@ const LootItems = ({ children }: any) => (
 );
 
 const Encounters = ({ encounters }: EncounterProps) => (
-  <Box
-    id={uniqueId("encounters_")}
-    css={{
-      margin: "$0",
-      height: "auto",
-      padding: "$0",
-    }}
-  >
-    <EncounterList>
-      {encounters.map(({ title, description, dropsLoot, doubleLoot, loot }) => (
-        <Fragment key={uniqueId("encounter_")}>
-          <EncounterListItem>
-            <EncounterDisplay dropsLoot={dropsLoot as any} />
-            <Text size="$md" weight="semibold">
-              {title} {doubleLoot && "(x2 Rewards)"}
-            </Text>
-            <Text className="text-sm font-light" css={{ marginBottom: "$8" }}>
-              {description}
-            </Text>
-            {dropsLoot && (
-              <LootItems>
-                <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-6">
-                  {!isEmpty(loot) &&
-                    concat(
-                      loot.weapons,
-                      flatten(loot.armor.map(({ items }) => items))
-                    ).map(({ name, type, iconPath, ...rest }) => (
-                      <Box
-                        key={uniqueId("loot_")}
-                        className="h-auto max-w-16 md:max-w-20 lg:max-w-16 xl:max-w-20"
+  <EncounterList>
+    {encounters.map(({ title, description, dropsLoot, doubleLoot, loot }) => (
+      <Fragment key={uniqueId("encounter_")}>
+        <EncounterListItem>
+          <EncounterDisplay dropsLoot={dropsLoot as any} />
+          <Text size="$md" weight="semibold">
+            {title} {doubleLoot && "(x2 Rewards)"}
+          </Text>
+          <Text className="text-sm font-light" css={{ marginBottom: "$8" }}>
+            {description}
+          </Text>
+          {dropsLoot && (
+            <LootItems>
+              <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:grid-cols-6">
+                {!isEmpty(loot) &&
+                  concat(
+                    loot.weapons,
+                    flatten(loot.armor.map(({ items }) => items))
+                  ).map(({ name, type, iconPath, ...rest }) => (
+                    <Box
+                      key={uniqueId("loot_")}
+                      className="h-auto max-w-16 md:max-w-20 lg:max-w-16 xl:max-w-20"
+                      css={{
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <LootImg
+                        src={iconPath}
+                        className="h-16 w-16 md:h-20 md:w-20 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
+                        alt="loot-icon"
+                        {...rest}
+                      />
+                      <Text
+                        size="xx-small"
+                        weight="normal"
+                        className="text-slate-500"
                         css={{
-                          display: "flex",
-                          flexDirection: "column",
+                          marginTop: "$3",
+                          marginBottom: "$2",
+                          letterSpacing: "$widest",
+                          lineHeight: "$xs",
                         }}
                       >
-                        <LootImg
-                          src={iconPath}
-                          className="h-16 w-16 md:h-20 md:w-20 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
-                          alt="loot-icon"
-                          {...rest}
-                        />
-                        <Text
-                          size="xx-small"
-                          weight="normal"
-                          className="text-slate-500"
-                          css={{
-                            marginTop: "$3",
-                            marginBottom: "$2",
-                            letterSpacing: "$widest",
-                            lineHeight: "$xs",
-                          }}
-                        >
-                          {type.toUpperCase()}
-                        </Text>
-                        <Text
-                          className="text-xs font-light"
-                          css={{ lineHeight: "$sm" }}
-                        >
-                          {name}
-                        </Text>
-                      </Box>
-                    ))}
-                </div>
-              </LootItems>
-            )}
-          </EncounterListItem>
-        </Fragment>
-      ))}
-    </EncounterList>
-  </Box>
+                        {type.toUpperCase()}
+                      </Text>
+                      <Text
+                        className="text-xs font-light"
+                        css={{ lineHeight: "$sm" }}
+                      >
+                        {name}
+                      </Text>
+                    </Box>
+                  ))}
+              </div>
+            </LootItems>
+          )}
+        </EncounterListItem>
+      </Fragment>
+    ))}
+  </EncounterList>
 );
 
 export default Encounters;

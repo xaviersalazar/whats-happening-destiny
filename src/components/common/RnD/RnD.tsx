@@ -84,26 +84,28 @@ const RnD = ({ data }: RnDProps) => (
             title={name}
             description={description}
           >
-            <Section id="light_level_" sectionTitle="LIGHT LEVEL">
-              {modes.map(({ type, recommendedLightLevel }) => (
-                <Fragment key={uniqueId("mode_")}>
-                  <Mode modeType={type} powerLevel={recommendedLightLevel} />
-                </Fragment>
-              ))}
-            </Section>
-            {!isEmpty(extraRewards) && (
-              <Section id="extras_" sectionTitle="EXTRAS">
-                {extraRewards.map(({ title, description }) => (
-                  <Box
-                    key={uniqueId("extra_rewards_")}
-                    css={{ marginBottom: "$2" }}
-                  >
-                    <Text className="text-sm font-medium">{title}</Text>
-                    <Text className="text-xs font-light">{description}</Text>
-                  </Box>
+            <div className="grid grid-cols-2 gap-x-4">
+              <Section id="light_level_" sectionTitle="LIGHT LEVEL">
+                {modes.map(({ type, recommendedLightLevel }) => (
+                  <Fragment key={uniqueId("mode_")}>
+                    <Mode modeType={type} powerLevel={recommendedLightLevel} />
+                  </Fragment>
                 ))}
               </Section>
-            )}
+              {!isEmpty(extraRewards) && (
+                <Section id="extras_" sectionTitle="EXTRAS">
+                  {extraRewards.map(({ title, description }) => (
+                    <Box
+                      key={uniqueId("extra_rewards_")}
+                      css={{ marginBottom: "$2" }}
+                    >
+                      <Text className="text-sm font-medium">{title}</Text>
+                      <Text className="text-xs font-light">{description}</Text>
+                    </Box>
+                  ))}
+                </Section>
+              )}
+            </div>
             {!isEmpty(modifiers) && (
               <Section id="modifiers_" sectionTitle="MODIFIERS">
                 {modifiers.map(({ typeModifiers }) => (
@@ -128,7 +130,11 @@ const RnD = ({ data }: RnDProps) => (
                 ))}
               </Section>
             )}
-            <Section id="encounters_" sectionTitle="ENCOUNTERS">
+            <Section
+              id="encounters_"
+              sectionTitle="ENCOUNTERS"
+              className="mt-8"
+            >
               <Encounters encounters={encounters} />
             </Section>
           </Activity>
