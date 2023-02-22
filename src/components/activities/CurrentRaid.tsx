@@ -129,10 +129,10 @@ const CurrentRaid = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -156,10 +156,10 @@ const CurrentRaid = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}

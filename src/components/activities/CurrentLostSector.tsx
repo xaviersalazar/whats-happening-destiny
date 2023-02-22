@@ -131,10 +131,10 @@ const CurrentLostSector = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -158,10 +158,10 @@ const CurrentLostSector = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -180,7 +180,7 @@ const CurrentLostSector = () => {
               src={OTHER_ICONS.Exotic.iconPath}
               className="h-6 w-6 rounded-[0.25rem]"
             />
-            <Text size="$sm" weight="thin">
+            <Text className="text-sm font-medium">
               Exotic {currentLostSector?.whDestinyData["Exotic reward"]}
             </Text>
           </div>

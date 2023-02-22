@@ -64,13 +64,9 @@ const CurrentWellspring = () => {
     if (moment().utc().get("hour") <= 17)
       currWellspring = data?.[currWellspringRotation] as WellspringRotator;
     else {
-      if (currWellspringRotation === 2) {
+      if (currWellspringRotation === 2)
         currWellspring = data?.[0] as WellspringRotator;
-      } else {
-        currWellspring = data?.[
-          currWellspringRotation + 1
-        ] as WellspringRotator;
-      }
+      else currWellspring = data?.[currWellspringRotation] as WellspringRotator;
     }
 
     const wellspring = definitions[0][
@@ -82,7 +78,7 @@ const CurrentWellspring = () => {
 
     const modifierHashes = [
       ...new Set(
-        wellspring.modifiers.map(
+        wellspring?.modifiers.map(
           ({ activityModifierHash }) => activityModifierHash
         )
       ),
@@ -100,7 +96,7 @@ const CurrentWellspring = () => {
       ),
     ];
 
-    loadActivityImage(`${BUNGIE_BASE_URL}/${wellspring.pgcrImage}`);
+    loadActivityImage(`${BUNGIE_BASE_URL}/${wellspring?.pgcrImage}`);
 
     setCurrentWellspring({
       wellspring,
@@ -145,10 +141,10 @@ const CurrentWellspring = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -172,10 +168,10 @@ const CurrentWellspring = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -194,7 +190,7 @@ const CurrentWellspring = () => {
               src={`${BUNGIE_BASE_URL}/${currentWellspring?.reward?.displayProperties?.icon}`}
               className="h-6 w-6 rounded-[0.25rem]"
             />
-            <Text size="$sm" weight="thin">
+            <Text className="text-sm font-medium">
               {currentWellspring?.reward?.displayProperties?.name}
             </Text>
           </div>

@@ -24,8 +24,7 @@ const Mode = ({ modeType, powerLevel }: ModeProps) => (
     }}
   >
     <Text
-      size="$sm"
-      weight="normal"
+      className="text-sm font-medium"
       css={{ marginRight: "$2", flex: "0 1 auto" }}
     >
       {modeType}:
@@ -99,12 +98,8 @@ const RnD = ({ data }: RnDProps) => (
                     key={uniqueId("extra_rewards_")}
                     css={{ marginBottom: "$2" }}
                   >
-                    <Text size="$sm" weight="normal">
-                      {title}
-                    </Text>
-                    <Text size="$sm" weight="thin">
-                      {description}
-                    </Text>
+                    <Text className="text-sm font-medium">{title}</Text>
+                    <Text className="text-xs font-light">{description}</Text>
                   </Box>
                 ))}
               </Section>
@@ -121,10 +116,8 @@ const RnD = ({ data }: RnDProps) => (
                         >
                           <ModifierImage src={iconPath as string} height={28} />
                           <Box css={{ marginLeft: "$4" }}>
-                            <Text size="$sm" weight="normal">
-                              {name}
-                            </Text>
-                            <Text size="$sm" weight="thin">
+                            <Text className="text-sm font-medium">{name}</Text>
+                            <Text className="text-xs font-light">
                               {description}
                             </Text>
                           </Box>

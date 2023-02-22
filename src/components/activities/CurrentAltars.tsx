@@ -96,7 +96,7 @@ const CurrentAltars = () => {
                   src={`${BUNGIE_BASE_URL}/${reward.displayProperties?.icon}`}
                   className="h-6 w-6 rounded-[0.25rem]"
                 />
-                <Text size="$sm" weight="thin">
+                <Text className="text-sm font-medium">
                   {reward.displayProperties?.name}
                 </Text>
               </div>

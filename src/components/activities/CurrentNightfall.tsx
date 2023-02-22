@@ -121,10 +121,10 @@ const CurrentNightfall = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -148,10 +148,10 @@ const CurrentNightfall = () => {
                       className="h-6 w-6"
                     />
                     <Box css={{ marginLeft: "$4" }}>
-                      <Text size="$sm" weight="normal">
+                      <Text className="text-sm font-medium">
                         {displayProperties?.name}
                       </Text>
-                      <Text size="$xs" weight="thin">
+                      <Text className="text-xs font-light">
                         {displayProperties?.description?.match(
                           beforePeriodRegex
                         )?.[0] || displayProperties?.description}
@@ -170,27 +170,21 @@ const CurrentNightfall = () => {
               src={ACTIVITY_REWARDS_ICONS["Ascendant Shard"]}
               className="h-6 w-6 rounded-[0.25rem]"
             />
-            <Text size="$sm" weight="thin">
-              Ascendant Shard
-            </Text>
+            <Text className="text-sm font-medium">Ascendant Shard</Text>
           </div>
           <div className="flex gap-x-2">
             <img
               src={ACTIVITY_REWARDS_ICONS["Exotic Gear"]}
               className="h-6 w-6 rounded-[0.25rem]"
             />
-            <Text size="$sm" weight="thin">
-              Exotic Gear
-            </Text>
+            <Text className="text-sm font-medium">Exotic Gear</Text>
           </div>
           <div className="flex gap-x-2">
             <img
               src={ACTIVITY_REWARDS_ICONS["Adept Nightfall Weapon"]}
               className="h-6 w-6 rounded-[0.25rem]"
             />
-            <Text size="$sm" weight="thin">
-              Adept Nightfall Weapon
-            </Text>
+            <Text className="text-sm font-medium">Adept Nightfall Weapon</Text>
           </div>
         </div>
       </Section>

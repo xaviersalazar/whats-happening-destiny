@@ -102,7 +102,7 @@ const Encounters = ({ encounters }: EncounterProps) => (
             <Text size="$md" weight="semibold">
               {title} {doubleLoot && "(x2 Rewards)"}
             </Text>
-            <Text size="$sm" weight="thin" css={{ marginBottom: "$8" }}>
+            <Text className="text-sm font-light" css={{ marginBottom: "$8" }}>
               {description}
             </Text>
             {dropsLoot && (
@@ -129,7 +129,8 @@ const Encounters = ({ encounters }: EncounterProps) => (
                         />
                         <Text
                           size="xx-small"
-                          weight="thin"
+                          weight="normal"
+                          className="text-slate-500"
                           css={{
                             marginTop: "$3",
                             marginBottom: "$2",
@@ -140,9 +141,7 @@ const Encounters = ({ encounters }: EncounterProps) => (
                           {type.toUpperCase()}
                         </Text>
                         <Text
-                          size="x-small"
-                          className="lg:text-xs"
-                          weight="light"
+                          className="text-xs font-light"
                           css={{ lineHeight: "$sm" }}
                         >
                           {name}

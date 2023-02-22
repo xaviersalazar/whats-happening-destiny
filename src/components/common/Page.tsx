@@ -28,8 +28,7 @@ const Page = ({ title, subTitle, children }: PageProps) => (
       {title}
     </Text>
     <Text
-      weight="thin"
-      className="text-sm md:text-base"
+      className="text-sm font-light md:text-base"
       css={{
         marginLeft: "$2",
       }}

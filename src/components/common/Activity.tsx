@@ -31,8 +31,7 @@ const Activity = ({
       >
         <Box id={uniqueId("information_")} css={{ padding: "$0" }}>
           <Text
-            weight="thin"
-            className="text-xs xl:text-sm"
+            className="text-xs font-light md:text-sm"
             css={{
               letterSpacing: "$widest",
               marginBottom: "$0",
@@ -53,7 +52,7 @@ const Activity = ({
           </Text>
           <Text
             weight="thin"
-            className="text-sm xl:text-base"
+            className="text-sm font-light md:text-base"
             css={{
               fontStyle: "italic",
               marginTop: "$4",
