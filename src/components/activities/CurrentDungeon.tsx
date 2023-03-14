@@ -30,7 +30,7 @@ const CurrentDungeon = () => {
   const [activityImage, setActivityImage] = useState(placeholderImage);
 
   const { isLoading, isSuccess, data } = useQuery("CurrentDungeon", () =>
-    getWhDestinyData("dungeon-schedule-s19")
+    getWhDestinyData("dungeon-schedule")
   );
 
   const loadActivityImage = (src: string) => {
@@ -84,9 +84,9 @@ const CurrentDungeon = () => {
         )
       ),
     ];
-    const modifiers = modifierHashes.map(
-      (modifierHash) => definitions[2][modifierHash]
-    ) as Modifier[];
+    const modifiers = modifierHashes
+      .map((modifierHash) => definitions[2][modifierHash])
+      .filter((modifier) => modifier) as Modifier[];
     const separatedModifiers = [
       modifiers?.filter(({ displayProperties }) =>
         displayProperties.name.match(/Champion|Champions/g)
