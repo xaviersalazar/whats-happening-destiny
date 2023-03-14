@@ -31,7 +31,7 @@ const CurrentPsiOps = () => {
   const [activityImage, setActivityImage] = useState(placeholderImage);
 
   const { isLoading, isSuccess, data } = useQuery("CurrentPsiOps", () =>
-    getWhDestinyData("psiops-schedule-s19")
+    getWhDestinyData("psiops-schedule")
   );
 
   const loadActivityImage = (src: string) => {

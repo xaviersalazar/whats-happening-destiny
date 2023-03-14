@@ -30,7 +30,7 @@ const CurrentWellspring = () => {
   const [activityImage, setActivityImage] = useState(placeholderImage);
 
   const { isLoading, isSuccess, data } = useQuery("CurrentWellspring", () =>
-    getWhDestinyData("wellspring-schedule-s19")
+    getWhDestinyData("wellspring-schedule")
   );
 
   const loadActivityImage = (src: string) => {

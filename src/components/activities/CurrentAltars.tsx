@@ -27,7 +27,7 @@ const CurrentAltars = () => {
   );
 
   const { isLoading, isSuccess, data } = useQuery("CurrentAltars", () =>
-    getWhDestinyData("altars-schedule-s19")
+    getWhDestinyData("altars-schedule")
   );
 
   const getAltars = async () => {
