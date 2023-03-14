@@ -66,6 +66,12 @@ const CurrentRaid = () => {
     ] as ActivityDefinition;
     const destination = definitions[1][raid.destinationHash] as Destination;
 
+    if (!raid) {
+      setIsLoadingRaid(false);
+      setCurrentRaid(null);
+      return null;
+    }
+
     const modifierHashes = [
       ...new Set(
         raid.modifiers.map(({ activityModifierHash }) => activityModifierHash)
@@ -105,6 +111,8 @@ const CurrentRaid = () => {
   }, [isSuccess]);
 
   if (!isSuccess && !(isLoading || isLoadingRaid)) return null;
+
+  if (isEmpty(currentRaid)) return null;
 
   if (isLoading || isLoadingRaid) return <Loader />;
 

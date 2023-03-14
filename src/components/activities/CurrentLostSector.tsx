@@ -53,6 +53,13 @@ const CurrentLostSector = () => {
       else return lostSector.Date === moment().format("DD-MM-YYYY");
     });
 
+    if (!lostSectorToday) {
+      setIsLoadingLostSector(false);
+      setCurrentLostSector(null);
+
+      return null;
+    }
+
     const lostSectors = map(definitions[0], (value) => {
       if (
         value.displayProperties?.name.includes(
@@ -76,16 +83,16 @@ const CurrentLostSector = () => {
         )
       ),
     ];
-    const modifiers = modifierHashes.map(
-      (modifierHash) => definitions[1][modifierHash]
-    ) as Modifier[];
+    const modifiers = modifierHashes
+      .map((modifierHash) => definitions[1][modifierHash])
+      .filter((modifier) => modifier) as Modifier[];
     const separatedModifiers = [
-      modifiers.filter(({ displayProperties }) =>
-        displayProperties.name.match(/Champion|Champions/g)
+      modifiers?.filter(({ displayProperties }) =>
+        displayProperties?.name.match(/Champion|Champions/g)
       ),
-      modifiers.filter(
+      modifiers?.filter(
         ({ displayProperties }) =>
-          !displayProperties.name.match(/Champion|Champions/g)
+          !displayProperties?.name.match(/Champion|Champions/g)
       ),
     ];
 
@@ -109,6 +116,8 @@ const CurrentLostSector = () => {
   }, [isSuccess]);
 
   if (!isSuccess && !(isLoading || isLoadingLostSector)) return null;
+
+  if (isEmpty(currentLostSector)) return null;
 
   if (isLoading || isLoadingLostSector) return <Loader />;
 

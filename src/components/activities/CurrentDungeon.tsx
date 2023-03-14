@@ -70,6 +70,13 @@ const CurrentDungeon = () => {
       dungeon?.destinationHash
     ] as Destination;
 
+    if (!dungeon) {
+      setIsLoadingDungeon(false);
+      setCurrentDungeon(null);
+
+      return null;
+    }
+
     const modifierHashes = [
       ...new Set(
         dungeon?.modifiers?.map(
@@ -108,11 +115,7 @@ const CurrentDungeon = () => {
     }
   }, [isSuccess]);
 
-  if (
-    (!isSuccess || isEmpty(currentDungeon?.dungeon)) &&
-    !(isLoading || isLoadingDungeon)
-  )
-    return null;
+  if (!isSuccess && !(isLoading || isLoadingDungeon)) return null;
 
   if (isLoading || isLoadingDungeon) return <Loader />;
 

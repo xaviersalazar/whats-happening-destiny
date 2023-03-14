@@ -105,6 +105,10 @@ const RAID_MILESTONE_HASHES = [
   292102995, // King's Fall
 ];
 
+const NIGHTFALL_HASHES = {
+  "HyperNet Current": 2039642510, // HyperNet Current
+};
+
 export {
   ACTIVITY_HASH,
   ACTIVITY_REWARDS_ICONS,
@@ -114,4 +118,5 @@ export {
   SHIELDS,
   OTHER_ICONS,
   RAID_MILESTONE_HASHES,
+  NIGHTFALL_HASHES,
 };

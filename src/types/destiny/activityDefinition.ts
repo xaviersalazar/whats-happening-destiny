@@ -12,6 +12,7 @@ export type ActivityDefinition = {
   activityTypeHash: number;
   destinationHash: number;
   displayProperties: DisplayProperties;
+  hash: number;
   modifiers: Modifier[];
   originalDisplayProperties: DisplayProperties;
   pgcrImage: string;

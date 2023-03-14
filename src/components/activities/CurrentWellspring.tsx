@@ -59,6 +59,13 @@ const CurrentWellspring = () => {
       ((totalDaysInSeason - daysLeftInSeason) / 7) % data!.length
     );
 
+    if (!currWellspringRotation) {
+      setIsLoadingWellspring(false);
+      setCurrentWellspring(null);
+
+      return null;
+    }
+
     let currWellspring = {} as WellspringRotator;
 
     if (moment().utc().get("hour") <= 17)
@@ -83,16 +90,16 @@ const CurrentWellspring = () => {
         )
       ),
     ];
-    const modifiers = modifierHashes.map(
-      (modifierHash) => definitions[1][modifierHash]
-    ) as Modifier[];
+    const modifiers = modifierHashes
+      .map((modifierHash) => definitions[1][modifierHash])
+      .filter((modifier) => modifier) as Modifier[];
     const separatedModifiers = [
-      modifiers.filter(({ displayProperties }) =>
-        displayProperties.name.match(/Champion|Champions/g)
+      modifiers?.filter(({ displayProperties }) =>
+        displayProperties?.name.match(/Champion|Champions/g)
       ),
-      modifiers.filter(
+      modifiers?.filter(
         ({ displayProperties }) =>
-          !displayProperties.name.match(/Champion|Champions/g)
+          !displayProperties?.name.match(/Champion|Champions/g)
       ),
     ];
 
@@ -119,6 +126,8 @@ const CurrentWellspring = () => {
     !(isLoading || isLoadingWellspring)
   )
     return null;
+
+  if (isEmpty(currentWellspring)) return null;
 
   if (isLoading || isLoadingWellspring) return <Loader />;
 

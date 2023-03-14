@@ -5,7 +5,11 @@ import { isEmpty, uniqueId } from "lodash";
 import moment from "moment";
 import { getMany } from "idb-keyval";
 import { BUNGIE_BASE_URL, getDestinyMilestones } from "../../api/api";
-import { ACTIVITY_HASH, ACTIVITY_REWARDS_ICONS } from "../../utils/d2Data";
+import {
+  ACTIVITY_HASH,
+  ACTIVITY_REWARDS_ICONS,
+  NIGHTFALL_HASHES,
+} from "../../utils/d2Data";
 import { Activity, Box, Loader, ModifierImage, Section } from "../common";
 import { ActivityDefinition, Destination, Modifier } from "../../types/destiny";
 import { beforePeriodRegex } from "../../utils/helpers";
@@ -64,20 +68,22 @@ const CurrentNightfall = () => {
         )
       ),
     ];
-    const modifiers = modifierHashes.map(
-      (modifierHash) => definitions[2][modifierHash]
-    ) as Modifier[];
+    const modifiers = modifierHashes
+      .map((modifierHash) => definitions[2][modifierHash])
+      .filter((modifier) => modifier) as Modifier[];
     const separatedModifiers = [
-      modifiers.filter(({ displayProperties }) =>
-        displayProperties.name.match(/Champion|Champions/g)
+      modifiers?.filter(({ displayProperties }) =>
+        displayProperties?.name.match(/Champion|Champions/g)
       ),
-      modifiers.filter(
+      modifiers?.filter(
         ({ displayProperties }) =>
-          !displayProperties.name.match(/Champion|Champions/g)
+          !displayProperties?.name.match(/Champion|Champions/g)
       ),
     ];
 
-    loadActivityImage(`${BUNGIE_BASE_URL}/${nightfall.pgcrImage}`);
+    nightfall.hash === NIGHTFALL_HASHES["HyperNet Current"]
+      ? loadActivityImage("./src/assets/hypernet-current-temp-img.jpeg")
+      : loadActivityImage(`${BUNGIE_BASE_URL}/${nightfall.pgcrImage}`);
 
     setCurrentNightfall({
       nightfall,

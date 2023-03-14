@@ -46,6 +46,13 @@ const CurrentAltars = () => {
       ((totalDaysInSeason - daysLeftInSeason) / 7) % data!.length
     );
 
+    if (!currAltarsRotation) {
+      setIsLoadingAltars(false);
+      setCurrentAltars(null);
+
+      return null;
+    }
+
     let currAltars = {} as AltarsRotator;
 
     if (moment().utc().get("hour") <= 17)
@@ -76,7 +83,9 @@ const CurrentAltars = () => {
     }
   }, [isSuccess]);
 
-  if ((!isSuccess || isEmpty(currentAltars)) && !isLoading) return null;
+  if (!isSuccess && !isLoading) return null;
+
+  if (isEmpty(currentAltars)) return null;
 
   if (isLoading || isLoadingAltars) return <Loader />;
 

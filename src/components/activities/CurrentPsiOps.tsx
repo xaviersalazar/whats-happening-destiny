@@ -61,6 +61,13 @@ const CurrentPsiOps = () => {
     );
     let currPsiOps = {} as ActivityRotator;
 
+    if (!currPsiOpsRotation) {
+      setIsLoadingPsiOps(false);
+      setCurrentPsiOps(null);
+
+      return null;
+    }
+
     if (moment().utc().get("hour") <= 17)
       currPsiOps = data?.[currPsiOpsRotation] as ActivityRotator;
     else {
@@ -81,16 +88,16 @@ const CurrentPsiOps = () => {
         psiOps.modifiers.map(({ activityModifierHash }) => activityModifierHash)
       ),
     ];
-    const modifiers = modifierHashes.map(
-      (modifierHash) => definitions[2][modifierHash]
-    ) as Modifier[];
+    const modifiers = modifierHashes
+      .map((modifierHash) => definitions[2][modifierHash])
+      .filter((modifier) => modifier) as Modifier[];
     const separatedModifiers = [
-      modifiers.filter(({ displayProperties }) =>
-        displayProperties.name.match(/Champion|Champions/g)
+      modifiers?.filter(({ displayProperties }) =>
+        displayProperties?.name.match(/Champion|Champions/g)
       ),
-      modifiers.filter(
+      modifiers?.filter(
         ({ displayProperties }) =>
-          !displayProperties.name.match(/Champion|Champions/g)
+          !displayProperties?.name.match(/Champion|Champions/g)
       ),
     ];
 
@@ -112,11 +119,9 @@ const CurrentPsiOps = () => {
     }
   }, [isSuccess]);
 
-  if (
-    (!isSuccess || isEmpty(currentPsiOps?.psiOps)) &&
-    !(isLoading || isLoadingPsiOps)
-  )
-    return null;
+  if (!isSuccess && !(isLoading || isLoadingPsiOps)) return null;
+
+  if (isEmpty(currentPsiOps)) return null;
 
   if (isLoading || isLoadingPsiOps) return <Loader />;
 
