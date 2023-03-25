@@ -19,6 +19,7 @@ A view of all dungeons currently available to include encounters and their loot
 #### Raids
 A view of all raids currently available to include encounters, challenges and loot
 *This list will also probably change every few seasons or so*
+- Root of Nightmares **(*need to add*)**
 - King's Fall **(*need to add*)**
 - Vow of the Disciple
 - Deep Stone Crypt
